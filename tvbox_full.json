@@ -5903,6 +5903,15 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
+    },
+    {
+      "key": "py_main",
+      "name": "main",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/blackmatrix7/script/zheye/server/main.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
     }
   ]
 }
