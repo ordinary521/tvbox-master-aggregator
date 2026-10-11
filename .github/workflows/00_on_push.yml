@@ -47,15 +47,14 @@ jobs:
       - name: 运行 08号离线纯内存路由分类器 (0 网络发包)
         run: python3 scripts/classify_offline_domains.py
 
-      - name: 运行 10号策略导出器 (读取本地 repos/blackmatrix7 规则库强力剔除并打包 .mrs)
+      - name: 运行 10号策略导出器 (强行擦除旧文件并调用 CRThu/clash-rules-mrs 官方命令打包全新 .mrs)
         run: python3 scripts/export_router_rules.py
 
-      - name: 提交并推送构建结果
+      - name: 提交并推送最新构建结果
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
           git add -A || true
-          git diff --cached --quiet && exit 0
-          git commit -m "auto: 1:1 严格对齐 CRThu/clash-rules-mrs 与 blackmatrix7 产出纯净 .mrs 二进制规则集 [$(date -u '+%Y-%m-%d %H:%M:%S')]"
+          git commit -m "auto: 100% 强行清空旧文件并产出全新 Mihomo .mrs 二进制规则集 [$(date -u '+%Y-%m-%d %H:%M:%S')]" || true
           git pull --rebase origin main || true
           git push origin HEAD:main --force
