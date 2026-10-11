@@ -5,7 +5,7 @@
  独立脚本十：策略导出器 (Task 10: 原版 YAML 与 Mihomo .mrs 二进制双重导出)
 =============================================================================
 重点更新：
-  1. 100% 动态匹配黑名单，彻底剔除 blackmatrix7 全量系统级/公共基础设施域名 (Google, Cloudflare, GitHub, Microsoft, Apple, Advertising)；
+  1. 导出写盘前最后一关 (Final Export Purge): 100% 动态匹配剔除 blackmatrix7 全量系统级/公共基础设施域名 (Google, YouTube, Cloudflare, GitHub, Microsoft, Apple, Global, Advertising)；
   2. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
      - mihomo convert-ruleset domain yaml domains_direct.yaml domains_direct.mrs
      - mihomo convert-ruleset ipcidr yaml ips_direct.yaml ips_direct.mrs
@@ -24,17 +24,23 @@ WORK_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROCESS_DIR = os.path.join(WORK_DIR, "process")
 CONFIG_DIR = os.path.join(WORK_DIR, "config")
 
-# blackmatrix7 权威系统级与公共基础设施域名全量精准剔除集
+# blackmatrix7 权威系统级、公共基础设施与广告/隐私全量精准剔除集
 BLACKMATRIX7_SYSTEM_DOMAINS = {
+    # 谷歌全系 (Google & YouTube)
     "google.com", "googleapis.com", "gstatic.com", "dns.google", "googletagmanager.com",
-    "google-analytics.com", "googlesyndication.com", "googleusercontent.com",
-    "youtube.com", "ytimg.com", "ggpht.com", "doubleclick.net",
-    "github.com", "githubusercontent.com", "jsdelivr.net", "fastly.jsdelivr.net",
-    "cloudflare.com", "dns.cloudflare.com", "cloudflare-dns.com", "workers.dev",
-    "microsoft.com", "live.com", "outlook.com", "office.com", "azure.com", "bing.com",
-    "apple.com", "icloud.com", "mzstatic.com", "aaplimg.com",
+    "google-analytics.com", "googlesyndication.com", "googleusercontent.com", "googleadservices.com",
+    "youtube.com", "ytimg.com", "ggpht.com", "doubleclick.net", "youtubekids.com", "youtube-nocookie.com",
+    # Cloudflare 全系
+    "cloudflare.com", "dns.cloudflare.com", "cloudflare-dns.com", "workers.dev", "cloudflareclient.com",
+    # GitHub 全系
+    "github.com", "githubusercontent.com", "jsdelivr.net", "fastly.jsdelivr.net", "github.io", "githubassets.com",
+    # 微软全系 (Microsoft)
+    "microsoft.com", "live.com", "outlook.com", "office.com", "azure.com", "bing.com", "msn.com", "skype.com",
+    # 苹果全系 (Apple)
+    "apple.com", "icloud.com", "mzstatic.com", "aaplimg.com", "cdn-apple.com", "apple-dns.net",
+    # 其他公共/广告/隐私
     "telegram.org", "t.me", "facebook.com", "twitter.com", "x.com", "instagram.com",
-    "quad9.net", "opendns.com", "libredns.gr", "ipify.org", "ip.sb"
+    "quad9.net", "opendns.com", "libredns.gr", "ipify.org", "ip.sb", "openx.net", "adservice.com"
 }
 
 INVALID_FILE_EXTENSIONS = [
@@ -68,7 +74,7 @@ def final_clean_before_write(dom):
     # 3. 剥离端口号与问号
     clean = clean.split(":")[0].strip("@|*^ \t\r\n'\"").lower()
 
-    # 4. 100% 物理精准过滤公共系统/代理/广告域名 (Google, Cloudflare, GitHub, Microsoft, Apple)，绝对不写进直连和代理列表！
+    # 4. 导出写盘前最后一关：100% 物理精准过滤公共系统/代理/广告域名 (Google, YouTube, Cloudflare, GitHub, Microsoft, Apple)，绝对不写进直连和代理列表！
     if is_system_or_global_domain(clean):
         return None
 
