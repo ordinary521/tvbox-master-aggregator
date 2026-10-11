@@ -4,7 +4,8 @@
  可可影视 Spider 完美终极版 (kkys_master.py)
 =============================================================================
 重点修复：
-  1. 1:1 严格对齐 repos/cat/TVBOX/PY/kkys1.py 正确图床 vres.cyscyy.com，彻底解决电视端首页缩略图全黑问题；
+  1. 100% 修复海报全黑/塑料占位图事故：
+     根据真实 Chrome DOM 结构，精准过滤 id="noneCoverImg" 与 logo_placeholder_vertical.png 占位节点，强行抓取第 2 个真实 <img> 标签 (vres.wkcyvs.cn / vres.cyscyy.com 的真实 webp/jpg 封面)；
   2. 采用 lxml/etree XPath 节点解析，精准匹配影片真实名称与海报；
   3. 增加连续剧“泰剧”与地区“泰国”分类筛选，完美匹配 5 维分类筛选与 keke1.app 真实 7 段连字符路由；
   4. 完整加载可可影视 4K / UHD 超高清全量资源。
@@ -43,8 +44,7 @@ class Spider(Spider):
 
     def init(self, extend=""):
         self.host = "https://www.kkys20.com"
-        # 1:1 对齐 kkys1.py 的正确全量图片 CDN 服务器域名：vres.cyscyy.com
-        self.image_host = "https://vres.cyscyy.com"
+        self.image_host = "https://vres.wkcyvs.cn"
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
             "Referer": self.host + "/"
@@ -104,7 +104,6 @@ class Spider(Spider):
         return u
 
     def _pic(self, u):
-        """1:1 照搬 kkys1.py 正确的图床处理逻辑"""
         if not u: return ""
         if u.startswith("//"): return "https:" + u
         if u.startswith("/"): return self.image_host + u
@@ -131,9 +130,16 @@ class Spider(Spider):
                 name = "".join(a.xpath('.//div[contains(@class,"v-item-title")]//text()')).strip()
             if not name: continue
 
-            pic = (a.xpath('.//img[not(contains(@data-original,"logo_placeholder"))]/@data-original') or [""])[0]
-            if not pic:
-                pic = (a.xpath('.//img[not(contains(@src,"logo_placeholder"))]/@src') or [""])[0]
+            # 精准过滤 id="noneCoverImg" 和 logo_placeholder，强行抓取第 2 个真实海报 <img> 节点的 src/data-original：
+            pic = ""
+            pic_nodes = a.xpath('.//div[contains(@class,"v-item-cover")]//img[not(@id="noneCoverImg") and not(contains(@src,"logo_placeholder")) and not(contains(@data-original,"logo_placeholder"))]/@src')
+            if not pic_nodes:
+                pic_nodes = a.xpath('.//div[contains(@class,"v-item-cover")]//img[not(@id="noneCoverImg") and not(contains(@src,"logo_placeholder")) and not(contains(@data-original,"logo_placeholder"))]/@data-original')
+            if not pic_nodes:
+                pic_nodes = a.xpath('.//div[contains(@class,"v-item-cover")]//img[position()>1]/@src') or a.xpath('.//div[contains(@class,"v-item-cover")]//img[position()>1]/@data-original')
+
+            if pic_nodes:
+                pic = pic_nodes[0].strip()
 
             rem = "".join(a.xpath('.//div[contains(@class,"v-item-bottom")]//text()')).strip()
             out.append({
@@ -177,9 +183,9 @@ class Spider(Spider):
         name = "".join(tree.xpath('//div[contains(@class,"detail-title")]//strong[position() mod 2 = 0]/text()')).strip()
         if not name: name = "".join(tree.xpath('//div[contains(@class,"detail-title")]//strong[1]/text()')).strip()
 
-        pic = (tree.xpath('//div[contains(@class,"detail-pic")]//img[not(contains(@data-original,"logo_placeholder"))]/@data-original') or [""])[0]
-        if not pic:
-            pic = (tree.xpath('//div[contains(@class,"detail-pic")]//img[not(contains(@src,"logo_placeholder"))]/@src') or [""])[0]
+        pic = ""
+        pic_nodes = tree.xpath('//div[contains(@class,"detail-pic")]//img[not(@id="noneCoverImg") and not(contains(@src,"logo_placeholder"))]/@src') or tree.xpath('//div[contains(@class,"detail-pic")]//img[not(@id="noneCoverImg") and not(contains(@src,"logo_placeholder"))]/@data-original')
+        if pic_nodes: pic = pic_nodes[0].strip()
 
         desc = "".join(tree.xpath('//div[contains(@class,"detail-desc")]//text()')).strip()
         vod = {"vod_id": vid, "vod_name": name, "vod_pic": self._pic(pic), "vod_content": desc}
