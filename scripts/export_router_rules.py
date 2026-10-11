@@ -5,9 +5,9 @@
  独立脚本十：策略导出器 (Task 10: 原版 YAML 与 Mihomo .mrs 二进制双重导出)
 =============================================================================
 重点逻辑：
-  1. 100% 每次强行物理清空删除旧文件：导出前强行擦除磁盘上所有旧的 domains_direct / domains_proxy / .mrs 成果文件，保证 100% 全新覆盖！
-  2. 彻底废除旧历史文件读取 (禁止 read_existing_historical_rules)，杜绝旧文件自我自污染循环；
-  3. 本地磁盘 0.000 秒读取克隆库 repos/blackmatrix7 规则文件（第一优先主规则），全量域名通通强制洗一遍；
+  1. 明确扩展保底黑名单 (FALLBACK_BLACKMATRIX7_DOMAINS): 显式添加 dns.google, google.cn, google.com.hk, raw.githubusercontent.com, weixin.qq.com 等具体保底域名；
+  2. 边读取历史文件边强力清洗 (read_existing_historical_rules): 无论是新提取域名还是旧历史域名，通通强制通过 final_clean_before_write 进行 100% 滤杀；
+  3. 本地磁盘 0.000 秒读取克隆库 repos/blackmatrix7 规则文件（第一优先主规则）；
   4. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
      - mihomo convert-ruleset domain yaml domains_direct.yaml domains_direct.mrs
      - mihomo convert-ruleset ipcidr yaml ips_direct.yaml ips_direct.mrs
@@ -27,16 +27,18 @@ PROCESS_DIR = os.path.join(WORK_DIR, "process")
 CONFIG_DIR = os.path.join(WORK_DIR, "config")
 os.makedirs(CONFIG_DIR, exist_ok=True)
 
+# 显式扩展手写保底黑名单域名 (包含 dns.google, google.cn, raw.githubusercontent.com, weixin.qq.com 等)
 FALLBACK_BLACKMATRIX7_DOMAINS = {
-    "google.com", "googleapis.com", "gstatic.com", "dns.google", "googletagmanager.com",
-    "google-analytics.com", "googlesyndication.com", "googleusercontent.com",
-    "youtube.com", "ytimg.com", "ggpht.com", "doubleclick.net",
-    "github.com", "githubusercontent.com", "jsdelivr.net", "fastly.jsdelivr.net",
-    "cloudflare.com", "dns.cloudflare.com", "cloudflare-dns.com", "workers.dev",
-    "microsoft.com", "live.com", "outlook.com", "office.com", "azure.com", "bing.com",
-    "apple.com", "icloud.com", "mzstatic.com", "aaplimg.com",
+    "google.com", "dns.google", "dns.google.com", "google.cn", "google.com.hk", "google.co.jp",
+    "googleapis.com", "gstatic.com", "googletagmanager.com", "google-analytics.com",
+    "googlesyndication.com", "googleusercontent.com", "googleadservices.com",
+    "youtube.com", "ytimg.com", "ggpht.com", "doubleclick.net", "youtubekids.com", "youtube-nocookie.com",
+    "github.com", "githubusercontent.com", "raw.githubusercontent.com", "jsdelivr.net", "fastly.jsdelivr.net", "github.io", "githubassets.com",
+    "cloudflare.com", "dns.cloudflare.com", "cloudflare-dns.com", "workers.dev", "cloudflareclient.com",
+    "microsoft.com", "live.com", "outlook.com", "office.com", "azure.com", "bing.com", "msn.com",
+    "apple.com", "icloud.com", "mzstatic.com", "aaplimg.com", "cdn-apple.com", "apple-dns.net",
     "telegram.org", "t.me", "facebook.com", "twitter.com", "x.com", "instagram.com",
-    "qq.com", "weixin.qq.com", "qpic.cn"
+    "qq.com", "weixin.qq.com", "szextshort.weixin.qq.com", "qpic.cn"
 }
 
 BLACKMATRIX7_SYSTEM_CATEGORIES = [
@@ -55,12 +57,14 @@ RFC_1035_FQDN_REGEX = re.compile(
 _DYNAMIC_SYSTEM_DOMAINS_CACHE = None
 
 def load_local_blackmatrix7_system_domains():
-    """第一优先：直接读取本地克隆库 repos/blackmatrix7/rule/Clash/ 官方规则集！手写列表只做保底"""
+    """第一优先：直接读取本地克隆库 repos/blackmatrix7/rule/Clash/ 官方规则集！手写列表做保底"""
     global _DYNAMIC_SYSTEM_DOMAINS_CACHE
     if _DYNAMIC_SYSTEM_DOMAINS_CACHE is not None:
         return _DYNAMIC_SYSTEM_DOMAINS_CACHE
 
-    system_doms = set()
+    system_doms = set(FALLBACK_BLACKMATRIX7_DOMAINS)
+
+    # 读取本地克隆库 repos/blackmatrix7 中的全量官方规则并与保底集累加
     bm7_dir = os.path.join(WORK_DIR, "repos", "blackmatrix7", "rule", "Clash")
     if os.path.exists(bm7_dir):
         for cat in BLACKMATRIX7_SYSTEM_CATEGORIES:
@@ -82,9 +86,6 @@ def load_local_blackmatrix7_system_domains():
                                                     system_doms.add(clean_d)
                             except Exception: pass
 
-    if not system_doms:
-        system_doms.update(FALLBACK_BLACKMATRIX7_DOMAINS)
-
     _DYNAMIC_SYSTEM_DOMAINS_CACHE = system_doms
     return _DYNAMIC_SYSTEM_DOMAINS_CACHE
 
@@ -100,7 +101,7 @@ def is_system_or_global_domain(dom):
     return any(dom_l == sd or dom_l.endswith("." + sd) for sd in sys_doms)
 
 def final_clean_before_write(dom):
-    """写盘导出阶段最后一关：【步骤 2 强力语法清洗修整】 ➔ 【步骤 3 tldextract + RFC 正则 + repos/blackmatrix7 官方规则库双重保险检测】"""
+    """写盘导出阶段最后一关：【步骤 2 强力语法清洗修整】 ➔ 【步骤 3 tldextract + RFC 正则 + 黑名单双重保险检测】"""
     if not dom or not isinstance(dom, str): return None
 
     # === 步骤 2：强力语法清洗修整 ===
@@ -137,11 +138,30 @@ def final_clean_before_write(dom):
     if tld in INVALID_FILE_EXTENSIONS or prefix in INVALID_FILE_EXTENSIONS:
         return None
 
-    # 检测 C：1:1 严格对比 repos/blackmatrix7 官方规则库（新全量域名通通强行清洗，一个不漏）
+    # 检测 C：1:1 严格对比 repos/blackmatrix7 官方规则库与扩展保底库（新旧域名通通强行清洗）
     if is_system_or_global_domain(clean):
         return None
 
     return clean
+
+def read_existing_historical_rules(file_path):
+    existing_doms = set()
+    existing_ips = set()
+    if os.path.exists(file_path):
+        try:
+            with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#") and not line.startswith("!") and not line.startswith("payload:"):
+                        clean_item = re.sub(r'^(?:@@\|\||- DOMAIN-SUFFIX,|- IP-CIDR,|- \'\+\.|- \')\s*', '', line).rstrip("^'/32").strip()
+                        if clean_item.replace('.', '').isdigit():
+                            existing_ips.add(clean_item)
+                        else:
+                            # 读取历史旧域名时，边读取边用黑名单与 FQDN 正则全量清洗！
+                            final_item = final_clean_before_write(clean_item)
+                            if final_item: existing_doms.add(final_item)
+        except Exception: pass
+    return existing_doms, existing_ips
 
 def compile_mihomo_mrs(behavior, yaml_path, mrs_path):
     """100% 1:1 照搬 CRThu/clash-rules-mrs 官方规范，调用 mihomo convert-ruleset 官方二进制进程打包 .mrs"""
@@ -159,31 +179,12 @@ def compile_mihomo_mrs(behavior, yaml_path, mrs_path):
         print(f"  └─ 编译异常: {e}", flush=True)
         return False
 
-def wipe_all_old_output_files(work_dir):
-    """100% 强行物理擦除旧的产出文件，保证每次导出都是 100% 全新洗牌覆盖！"""
-    old_files = [
-        "domains_direct.txt", "domains_direct.yaml", "clash_rules_direct.yaml", "domains_direct.mrs",
-        "ips_direct.txt", "ips_direct.yaml", "ips_direct.mrs",
-        "domains_proxy.txt", "domains_proxy.yaml", "clash_rules_proxy.yaml", "domains_proxy.mrs",
-        "adguard_direct.txt", "adguard_proxy.txt"
-    ]
-    for of in old_files:
-        fpath = os.path.join(work_dir, of)
-        if os.path.exists(fpath):
-            try:
-                os.remove(fpath)
-                print(f"  ├─ 物理强行擦除旧产出文件: {of}", flush=True)
-            except Exception: pass
-
 def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, dynamic_image_domains=None, extracted_ips=None, release_page_domains=None, py_code_domains=None):
-    print("  [Task 10: 策略导出器] 正在强行清空擦除旧文件并执行 100% 全新导出与 .mrs 编译...", flush=True)
+    print("  [Task 10: 策略导出器] 正在执行【边读取历史/新新域名 ➔ 边强力清洗】与 .mrs 编译...", flush=True)
 
-    # 1. 强行彻底擦除所有旧文件，杜绝旧文件自我污染与未覆盖问题！
-    wipe_all_old_output_files(work_dir)
-
-    # 2. 载入本地 repos/blackmatrix7 官方全量黑名单
+    # 载入本地 repos/blackmatrix7 官方全量黑名单 + 扩展保底黑名单
     sys_doms = load_local_blackmatrix7_system_domains()
-    print(f"  ├─ 成功从本地 repos/blackmatrix7 官方规则库载入 {len(sys_doms)} 个黑名单域名！", flush=True)
+    print(f"  ├─ 成功载入 {len(sys_doms)} 个扩展保底与官方黑名单域名！", flush=True)
 
     sanitized_direct_path = os.path.join(PROCESS_DIR, "sanitized_candidate_domains.json")
     sanitized_proxy_path = os.path.join(PROCESS_DIR, "sanitized_proxy_domains.json")
@@ -199,14 +200,21 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
         try: proxy_domains.update(json.load(open(sanitized_proxy_path)))
         except Exception: pass
 
+    # 读取历史规则增量累加（历史旧域名在 read_existing_historical_rules 时被 100% 强行清洗！）
+    hist_direct_path = os.path.join(work_dir, "domains_direct.txt")
+    hist_doms, hist_ips = read_existing_historical_rules(hist_direct_path)
+
+    direct_domains.update(hist_doms)
+
     # 读取 process/extracted_ip_addresses.json
     process_ip_path = os.path.join(PROCESS_DIR, "extracted_ip_addresses.json")
-    extracted_ips = set()
     if os.path.exists(process_ip_path):
         try:
             ips = json.load(open(process_ip_path))
-            if isinstance(ips, list): extracted_ips.update(ips)
+            if isinstance(ips, list): extracted_ips = (extracted_ips or []) + ips
         except Exception: pass
+
+    pure_ips = set(extracted_ips or []).union(hist_ips)
 
     def expand_and_final_clean(raw_list):
         expanded = set()
@@ -222,9 +230,9 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
 
     sorted_direct_doms = expand_and_final_clean(direct_domains)
     sorted_proxy_doms = expand_and_final_clean(proxy_domains)
-    sorted_ips = sorted(list(extracted_ips))
+    sorted_ips = sorted(list(pure_ips))
 
-    # 3. 导出纯域名直连列表与符合 Mihomo 官方标准的纯字符串 YAML (domains_direct.yaml / clash_rules_direct.yaml)
+    # 1. 导出纯域名直连列表与符合 Mihomo 官方标准的纯字符串 YAML (domains_direct.yaml / clash_rules_direct.yaml)
     domains_direct_yaml = os.path.join(work_dir, "domains_direct.yaml")
     clash_rules_direct_yaml = os.path.join(work_dir, "clash_rules_direct.yaml")
 
@@ -246,7 +254,7 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
             final_d = final_clean_before_write(d)
             if final_d: f.write(f"@@||{final_d}^\n")
 
-    # 4. 导出纯 IP 直连列表与 100% 符合 Mihomo 官方规范的 YAML (ips_direct.txt / ips_direct.yaml)
+    # 2. 导出纯 IP 直连列表与 100% 符合 Mihomo 官方规范的 YAML (ips_direct.txt / ips_direct.yaml)
     ips_direct_yaml = os.path.join(work_dir, "ips_direct.txt")
     with open(os.path.join(work_dir, "ips_direct.txt"), "w", encoding="utf-8") as f:
         f.write("# TVBox 视频切片纯 IPv4 地址直连列表\n")
@@ -258,7 +266,7 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
         "".join(f"  - '{ip if '/' in ip else ip + '/32'}'\n" for ip in sorted_ips)
     )
 
-    # 5. 导出纯域名强制代理规则列表 (domains_proxy.txt / domains_proxy.yaml / clash_rules_proxy.yaml)
+    # 3. 导出纯域名强制代理规则列表 (domains_proxy.txt / domains_proxy.yaml / clash_rules_proxy.yaml)
     domains_proxy_yaml = os.path.join(work_dir, "domains_proxy.yaml")
     clash_rules_proxy_yaml = os.path.join(work_dir, "clash_rules_proxy.yaml")
 
@@ -280,13 +288,13 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
     open(domains_proxy_yaml, "w", encoding="utf-8").write(proxy_yaml_header + proxy_yaml_body)
     open(clash_rules_proxy_yaml, "w", encoding="utf-8").write(proxy_yaml_header + proxy_yaml_body)
 
-    # 6. 1:1 严格调用 CRThu/clash-rules-mrs 官方命令 mihomo convert-ruleset 编译导出全新的二进制 .mrs 规则集
+    # 4. 1:1 严格调用 CRThu/clash-rules-mrs 官方命令 mihomo convert-ruleset 编译导出二进制 .mrs 规则集
     compile_mihomo_mrs("domain", domains_direct_yaml, os.path.join(work_dir, "domains_direct.mrs"))
     compile_mihomo_mrs("ipcidr", ips_direct_yaml, os.path.join(work_dir, "ips_direct.mrs"))
     compile_mihomo_mrs("domain", domains_proxy_yaml, os.path.join(work_dir, "domains_proxy.mrs"))
 
-    print(f"  ├─ 全新导出原版 YAML 规则集: domains_direct.yaml, clash_rules_direct.yaml, ips_direct.yaml, domains_proxy.yaml, clash_rules_proxy.yaml")
-    print(f"  └─ 全新导出 Mihomo .mrs 二进制规则集: domains_direct.mrs, ips_direct.mrs, domains_proxy.mrs")
+    print(f"  ├─ 导出原版 YAML 规则集: domains_direct.yaml, clash_rules_direct.yaml, ips_direct.yaml, domains_proxy.yaml, clash_rules_proxy.yaml")
+    print(f"  └─ 导出 Mihomo .mrs 二进制规则集: domains_direct.mrs, ips_direct.mrs, domains_proxy.mrs")
 
 def export_all_router_rules(work_dir, sites=None, grouped_cdn_domains=None, dynamic_image_domains=None, extracted_ips=None, release_page_domains=None, py_code_domains=None):
     return export_grouped_router_rules(work_dir, sites, grouped_cdn_domains, dynamic_image_domains, extracted_ips, release_page_domains, py_code_domains)
