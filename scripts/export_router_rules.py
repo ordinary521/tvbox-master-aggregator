@@ -4,15 +4,17 @@
 =============================================================================
  独立脚本十：策略导出器 (Task 10: 原版 YAML 与 Mihomo .mrs 二进制双重导出)
 =============================================================================
-重点逻辑：
-  1. 明确扩展保底黑名单 (FALLBACK_BLACKMATRIX7_DOMAINS): 显式添加 dns.google, google.cn, google.com.hk, raw.githubusercontent.com, weixin.qq.com 等具体保底域名；
-  2. 边读取历史文件边强力清洗 (read_existing_historical_rules): 无论是新提取域名还是旧历史域名，通通强制通过 final_clean_before_write 进行 100% 滤杀；
-  3. 本地磁盘 0.000 秒读取克隆库 repos/blackmatrix7 规则文件（第一优先主规则）；
-  4. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
+重点逻辑 (极致全量差集架构 Set Difference Architecture):
+  1. 100% 全量扣除 blackmatrix7 规则库中的所有已有域名 (China, WeChat, Microsoft, Apple, Google, Global 等全量分类)：
+     - TVBox_CN (domains_direct) = Extracted_Domains - Blackmatrix7_All_Domains
+     - 凡是 blackmatrix7 里面已经有的通用域名 (无论是 wechat.com, office.com, baidu.com 还是 google.com)，100% 从 tvbox_cn 里强行扣除剔除！
+     - 留下的 100% 是专属于 TVBox 影视切片站的顶级纯增量补充规则集！
+  2. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
      - mihomo convert-ruleset domain yaml domains_direct.yaml domains_direct.mrs
      - mihomo convert-ruleset ipcidr yaml ips_direct.yaml ips_direct.mrs
      - mihomo convert-ruleset domain yaml domains_proxy.yaml domains_proxy.mrs
-  5. 纯域名 (behavior: domain) 与 纯 IP (behavior: ipcidr) 100% 物理拆分导出。
+  3. 纯域名 (behavior: domain) 与 纯 IP (behavior: ipcidr) 100% 物理拆分导出；
+  4. 写盘前最后一关：100% 斩断所有单斜杠 /、双斜杠 //、反斜杠 \\、GET 参数与逗号尾巴。
 =============================================================================
 """
 
@@ -27,7 +29,7 @@ PROCESS_DIR = os.path.join(WORK_DIR, "process")
 CONFIG_DIR = os.path.join(WORK_DIR, "config")
 os.makedirs(CONFIG_DIR, exist_ok=True)
 
-# 显式扩展手写保底黑名单域名 (包含 dns.google, google.cn, raw.githubusercontent.com, weixin.qq.com 等)
+# 备用黑名单 (只在 repos/blackmatrix7 未克隆时做极低保底)
 FALLBACK_BLACKMATRIX7_DOMAINS = {
     "google.com", "dns.google", "dns.google.com", "google.cn", "google.com.hk", "google.co.jp",
     "googleapis.com", "gstatic.com", "googletagmanager.com", "google-analytics.com",
@@ -38,13 +40,8 @@ FALLBACK_BLACKMATRIX7_DOMAINS = {
     "microsoft.com", "live.com", "outlook.com", "office.com", "azure.com", "bing.com", "msn.com",
     "apple.com", "icloud.com", "mzstatic.com", "aaplimg.com", "cdn-apple.com", "apple-dns.net",
     "telegram.org", "t.me", "facebook.com", "twitter.com", "x.com", "instagram.com",
-    "qq.com", "weixin.qq.com", "szextshort.weixin.qq.com", "qpic.cn"
+    "qq.com", "weixin.qq.com", "szextshort.weixin.qq.com", "qpic.cn", "wechat.com"
 }
-
-BLACKMATRIX7_SYSTEM_CATEGORIES = [
-    "Google", "YouTube", "Cloudflare", "GitHub", "Microsoft", "Apple",
-    "Global", "Proxy", "Advertising", "AdvertisingLite", "Privacy"
-]
 
 INVALID_FILE_EXTENSIONS = [
     "json", "txt", "m3u8", "ts", "js", "css", "html", "htm", "png", "jpg", "jpeg", "webp", "php", "mp4", "mkv", "flv"
@@ -54,54 +51,51 @@ RFC_1035_FQDN_REGEX = re.compile(
     r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,18}$'
 )
 
-_DYNAMIC_SYSTEM_DOMAINS_CACHE = None
+_ALL_BLACKMATRIX7_DOMAINS_CACHE = None
 
-def load_local_blackmatrix7_system_domains():
-    """第一优先：直接读取本地克隆库 repos/blackmatrix7/rule/Clash/ 官方规则集！手写列表做保底"""
-    global _DYNAMIC_SYSTEM_DOMAINS_CACHE
-    if _DYNAMIC_SYSTEM_DOMAINS_CACHE is not None:
-        return _DYNAMIC_SYSTEM_DOMAINS_CACHE
+def load_all_blackmatrix7_domains():
+    """【全量差集核心】直接扫描 repos/blackmatrix7/rule/Clash/ 下的所有分类文件，加载全量已有域名，100% 从 tvbox_cn 里扣除！"""
+    global _ALL_BLACKMATRIX7_DOMAINS_CACHE
+    if _ALL_BLACKMATRIX7_DOMAINS_CACHE is not None:
+        return _ALL_BLACKMATRIX7_DOMAINS_CACHE
 
-    system_doms = set(FALLBACK_BLACKMATRIX7_DOMAINS)
-
-    # 读取本地克隆库 repos/blackmatrix7 中的全量官方规则并与保底集累加
+    all_bm7_doms = set(FALLBACK_BLACKMATRIX7_DOMAINS)
     bm7_dir = os.path.join(WORK_DIR, "repos", "blackmatrix7", "rule", "Clash")
-    if os.path.exists(bm7_dir):
-        for cat in BLACKMATRIX7_SYSTEM_CATEGORIES:
-            cat_dir = os.path.join(bm7_dir, cat)
-            if os.path.exists(cat_dir):
-                for root, _, files in os.walk(cat_dir):
-                    for file in files:
-                        if file.endswith(".yaml") or file.endswith(".list") or file.endswith(".txt"):
-                            fpath = os.path.join(root, file)
-                            try:
-                                with open(fpath, "r", encoding="utf-8", errors="ignore") as f:
-                                    for line in f:
-                                        line = line.strip()
-                                        if line and not line.startswith("#") and not line.startswith("!") and not line.startswith("payload:"):
-                                            m = re.search(r'(?:DOMAIN-SUFFIX|DOMAIN|DOMAIN-KEYWORD)?\s*,?\s*[\'"]?([a-zA-Z0-9\.\-_]+)[\'"]?', line, re.I)
-                                            if m:
-                                                clean_d = m.group(1).lower().strip(".")
-                                                if clean_d and "." in clean_d and not clean_d.replace('.', '').isdigit():
-                                                    system_doms.add(clean_d)
-                            except Exception: pass
 
-    _DYNAMIC_SYSTEM_DOMAINS_CACHE = system_doms
-    return _DYNAMIC_SYSTEM_DOMAINS_CACHE
+    if os.path.exists(bm7_dir):
+        # 扫描 blackmatrix7 仓库里的全量分类目录 (China, Microsoft, WeChat, Google, Apple, Game, Global, Advertising 等)
+        for root, _, files in os.walk(bm7_dir):
+            for file in files:
+                if file.endswith(".yaml") or file.endswith(".list") or file.endswith(".txt"):
+                    fpath = os.path.join(root, file)
+                    try:
+                        with open(fpath, "r", encoding="utf-8", errors="ignore") as f:
+                            for line in f:
+                                line = line.strip()
+                                if line and not line.startswith("#") and not line.startswith("!") and not line.startswith("payload:"):
+                                    m = re.search(r'(?:DOMAIN-SUFFIX|DOMAIN|DOMAIN-KEYWORD)?\s*,?\s*[\'"]?([a-zA-Z0-9\.\-_]+)[\'"]?', line, re.I)
+                                    if m:
+                                        clean_d = m.group(1).lower().strip(".")
+                                        if clean_d and "." in clean_d and not clean_d.replace('.', '').isdigit():
+                                            all_bm7_doms.add(clean_d)
+                    except Exception: pass
+
+    _ALL_BLACKMATRIX7_DOMAINS_CACHE = all_bm7_doms
+    return _ALL_BLACKMATRIX7_DOMAINS_CACHE
 
 def to_punycode_domain(dom_str):
     if not dom_str or not isinstance(dom_str, str): return None
     try: return dom_str.encode("idna").decode("ascii")
     except Exception: return dom_str
 
-def is_system_or_global_domain(dom):
+def is_blackmatrix7_existing_domain(dom):
     if not dom or not isinstance(dom, str): return False
     dom_l = dom.lower().strip()
-    sys_doms = load_local_blackmatrix7_system_domains()
-    return any(dom_l == sd or dom_l.endswith("." + sd) for sd in sys_doms)
+    all_bm7 = load_all_blackmatrix7_domains()
+    return any(dom_l == sd or dom_l.endswith("." + sd) for sd in all_bm7)
 
 def final_clean_before_write(dom):
-    """写盘导出阶段最后一关：【步骤 2 强力语法清洗修整】 ➔ 【步骤 3 tldextract + RFC 正则 + 黑名单双重保险检测】"""
+    """写盘导出阶段最后一关：【步骤 2 强力语法清洗修整】 ➔ 【步骤 3 tldextract + RFC 正则 + repos/blackmatrix7 全量差集扣除】"""
     if not dom or not isinstance(dom, str): return None
 
     # === 步骤 2：强力语法清洗修整 ===
@@ -122,7 +116,7 @@ def final_clean_before_write(dom):
     # 剥离端口号与问号
     clean = clean.split(":")[0].strip("@|*^ \t\r\n'\"").lower()
 
-    # === 步骤 3：tldextract + RFC 正则 + 黑名单 双重保险检测 ===
+    # === 步骤 3：tldextract + RFC 正则 + 黑名单 全量差集扣除 ===
     # 检测 A：RFC 1035/1123 国际标准 FQDN 正则校验
     if not RFC_1035_FQDN_REGEX.match(clean):
         return None
@@ -138,8 +132,8 @@ def final_clean_before_write(dom):
     if tld in INVALID_FILE_EXTENSIONS or prefix in INVALID_FILE_EXTENSIONS:
         return None
 
-    # 检测 C：1:1 严格对比 repos/blackmatrix7 官方规则库与扩展保底库（新旧域名通通强行清洗）
-    if is_system_or_global_domain(clean):
+    # 检测 C：【全量差集扣除】只要在 blackmatrix7 任何已有分类里存在 (如 office.com, wechat.com, baidu.com, google.com)，100% 强行扣除，不与人家重叠！
+    if is_blackmatrix7_existing_domain(clean):
         return None
 
     return clean
@@ -157,7 +151,7 @@ def read_existing_historical_rules(file_path):
                         if clean_item.replace('.', '').isdigit():
                             existing_ips.add(clean_item)
                         else:
-                            # 读取历史旧域名时，边读取边用黑名单与 FQDN 正则全量清洗！
+                            # 历史旧域名读取时，也强制进行全量差集扣除！
                             final_item = final_clean_before_write(clean_item)
                             if final_item: existing_doms.add(final_item)
         except Exception: pass
@@ -180,11 +174,11 @@ def compile_mihomo_mrs(behavior, yaml_path, mrs_path):
         return False
 
 def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, dynamic_image_domains=None, extracted_ips=None, release_page_domains=None, py_code_domains=None):
-    print("  [Task 10: 策略导出器] 正在执行【边读取历史/新新域名 ➔ 边强力清洗】与 .mrs 编译...", flush=True)
+    print("  [Task 10: 策略导出器] 正在强行执行【全量差集扣除 A-B】与 Mihomo .mrs 编译...", flush=True)
 
-    # 载入本地 repos/blackmatrix7 官方全量黑名单 + 扩展保底黑名单
-    sys_doms = load_local_blackmatrix7_system_domains()
-    print(f"  ├─ 成功载入 {len(sys_doms)} 个扩展保底与官方黑名单域名！", flush=True)
+    # 1. 载入本地 repos/blackmatrix7 规则库中全量已有域名
+    all_bm7 = load_all_blackmatrix7_domains()
+    print(f"  ├─ 成功载入 blackmatrix7 规则库全量已有域名: {len(all_bm7)} 个 (将 100% 从 tvbox_cn 中差集扣除，做纯粹增量补充)！", flush=True)
 
     sanitized_direct_path = os.path.join(PROCESS_DIR, "sanitized_candidate_domains.json")
     sanitized_proxy_path = os.path.join(PROCESS_DIR, "sanitized_proxy_domains.json")
@@ -200,7 +194,7 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
         try: proxy_domains.update(json.load(open(sanitized_proxy_path)))
         except Exception: pass
 
-    # 读取历史规则增量累加（历史旧域名在 read_existing_historical_rules 时被 100% 强行清洗！）
+    # 2. 读取历史规则增量累加（历史旧域名合并时也全部通过全量差集扣除清洗！）
     hist_direct_path = os.path.join(work_dir, "domains_direct.txt")
     hist_doms, hist_ips = read_existing_historical_rules(hist_direct_path)
 
@@ -232,12 +226,12 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
     sorted_proxy_doms = expand_and_final_clean(proxy_domains)
     sorted_ips = sorted(list(pure_ips))
 
-    # 1. 导出纯域名直连列表与符合 Mihomo 官方标准的纯字符串 YAML (domains_direct.yaml / clash_rules_direct.yaml)
+    # 3. 导出纯域名直连列表与符合 Mihomo 官方标准的纯字符串 YAML (domains_direct.yaml / clash_rules_direct.yaml)
     domains_direct_yaml = os.path.join(work_dir, "domains_direct.yaml")
     clash_rules_direct_yaml = os.path.join(work_dir, "clash_rules_direct.yaml")
 
     with open(os.path.join(work_dir, "domains_direct.txt"), "w", encoding="utf-8") as f:
-        f.write("# TVBox 视频源、发布页镜像、海报 CDN 纯域名直连列表\n")
+        f.write("# TVBox 纯增量补充放行放行域名直连列表 (与 blackmatrix7 0 重叠)\n")
         for d in sorted_direct_doms:
             final_d = final_clean_before_write(d)
             if final_d: f.write(f"{final_d}\n")
@@ -254,7 +248,7 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
             final_d = final_clean_before_write(d)
             if final_d: f.write(f"@@||{final_d}^\n")
 
-    # 2. 导出纯 IP 直连列表与 100% 符合 Mihomo 官方规范的 YAML (ips_direct.txt / ips_direct.yaml)
+    # 4. 导出纯 IP 直连列表与 100% 符合 Mihomo 官方规范的 YAML (ips_direct.txt / ips_direct.yaml)
     ips_direct_yaml = os.path.join(work_dir, "ips_direct.txt")
     with open(os.path.join(work_dir, "ips_direct.txt"), "w", encoding="utf-8") as f:
         f.write("# TVBox 视频切片纯 IPv4 地址直连列表\n")
@@ -266,7 +260,7 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
         "".join(f"  - '{ip if '/' in ip else ip + '/32'}'\n" for ip in sorted_ips)
     )
 
-    # 3. 导出纯域名强制代理规则列表 (domains_proxy.txt / domains_proxy.yaml / clash_rules_proxy.yaml)
+    # 5. 导出纯域名强制代理规则列表 (domains_proxy.txt / domains_proxy.yaml / clash_rules_proxy.yaml)
     domains_proxy_yaml = os.path.join(work_dir, "domains_proxy.yaml")
     clash_rules_proxy_yaml = os.path.join(work_dir, "clash_rules_proxy.yaml")
 
@@ -288,7 +282,7 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
     open(domains_proxy_yaml, "w", encoding="utf-8").write(proxy_yaml_header + proxy_yaml_body)
     open(clash_rules_proxy_yaml, "w", encoding="utf-8").write(proxy_yaml_header + proxy_yaml_body)
 
-    # 4. 1:1 严格调用 CRThu/clash-rules-mrs 官方命令 mihomo convert-ruleset 编译导出二进制 .mrs 规则集
+    # 6. 1:1 严格调用 CRThu/clash-rules-mrs 官方命令 mihomo convert-ruleset 编译导出二进制 .mrs 规则集
     compile_mihomo_mrs("domain", domains_direct_yaml, os.path.join(work_dir, "domains_direct.mrs"))
     compile_mihomo_mrs("ipcidr", ips_direct_yaml, os.path.join(work_dir, "ips_direct.mrs"))
     compile_mihomo_mrs("domain", domains_proxy_yaml, os.path.join(work_dir, "domains_proxy.mrs"))
