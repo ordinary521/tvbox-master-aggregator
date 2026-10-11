@@ -4,14 +4,14 @@
 =============================================================================
  独立脚本十：策略导出器 (Task 10: 原版 YAML 与 Mihomo .mrs 二进制双重导出)
 =============================================================================
-重点更新：
-  1. 100% 动态读取黑名单：禁止任何 Python 代码硬编码域名！每次动态从 blackmatrix7 官方 Raw 链接/本地缓存中实时解析加载全量系统与公共域名列表，执行 1:1 动态精准剔除；
-  2. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
+重点逻辑 (遵循先清洗修整、后双重检测流水线)：
+  1. 步骤 2 强力语法清洗修整 (擦除协议头/反斜杠/端口号/尾巴乱码 {0})；
+  2. 步骤 3 tldextract (Mozilla PSL) + RFC 1035 正则双重保险检测，并动态对比黑名单强行剔除；
+  3. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
      - mihomo convert-ruleset domain yaml domains_direct.yaml domains_direct.mrs
      - mihomo convert-ruleset ipcidr yaml ips_direct.yaml ips_direct.mrs
      - mihomo convert-ruleset domain yaml domains_proxy.yaml domains_proxy.mrs
-  3. 纯域名 (behavior: domain) 与 纯 IP (behavior: ipcidr) 100% 物理拆分导出；
-  4. 写盘前最后一关：100% 斩断所有单斜杠 /、双斜杠 //、反斜杠 \\、GET 参数与逗号尾巴。
+  4. 纯域名 (behavior: domain) 与 纯 IP (behavior: ipcidr) 100% 物理拆分导出。
 =============================================================================
 """
 
@@ -20,13 +20,13 @@ import re
 import json
 import urllib.request
 import subprocess
+import tldextract
 
 WORK_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROCESS_DIR = os.path.join(WORK_DIR, "process")
 CONFIG_DIR = os.path.join(WORK_DIR, "config")
 os.makedirs(CONFIG_DIR, exist_ok=True)
 
-# 动态在线/本地缓存读取 blackmatrix7 官方权威 Raw 规则链接列表 (禁止任何硬编码域名)
 BLACKMATRIX7_RAW_URLS = [
     "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google_Classical.yaml",
     "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube_Classical.yaml",
@@ -42,10 +42,14 @@ INVALID_FILE_EXTENSIONS = [
     "json", "txt", "m3u8", "ts", "js", "css", "html", "htm", "png", "jpg", "jpeg", "webp", "php", "mp4", "mkv", "flv"
 ]
 
+RFC_1035_FQDN_REGEX = re.compile(
+    r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,18}$'
+)
+
 _DYNAMIC_SYSTEM_DOMAINS_CACHE = None
 
 def load_dynamic_blackmatrix7_system_domains():
-    """动态读取 blackmatrix7 官方 Raw 链接/本地缓存，1:1 解析全量黑名单域名，禁止任何硬编码"""
+    """动态读取 blackmatrix7 官方 Raw 链接/本地缓存，解析全量黑名单，禁止任何硬编码"""
     global _DYNAMIC_SYSTEM_DOMAINS_CACHE
     if _DYNAMIC_SYSTEM_DOMAINS_CACHE is not None:
         return _DYNAMIC_SYSTEM_DOMAINS_CACHE
@@ -53,7 +57,6 @@ def load_dynamic_blackmatrix7_system_domains():
     system_doms = set()
     cache_file = os.path.join(CONFIG_DIR, "dynamic_blackmatrix7_system_domains.json")
 
-    # 优先动态从网络链接加载
     for raw_url in BLACKMATRIX7_RAW_URLS:
         try:
             req = urllib.request.Request(raw_url, headers={"User-Agent": "Mozilla/5.0"})
@@ -67,10 +70,8 @@ def load_dynamic_blackmatrix7_system_domains():
                             clean_d = m.group(1).lower().strip(".")
                             if clean_d and "." in clean_d and not clean_d.replace('.', '').isdigit():
                                 system_doms.add(clean_d)
-        except Exception:
-            pass
+        except Exception: pass
 
-    # 如果联网成功则刷新本地缓存，否则读取本地已存的缓存
     if system_doms:
         try:
             open(cache_file, "w", encoding="utf-8").write(json.dumps(sorted(list(system_doms)), ensure_ascii=False, indent=2))
@@ -95,38 +96,45 @@ def is_system_or_global_domain(dom):
     return any(dom_l == sd or dom_l.endswith("." + sd) for sd in sys_doms)
 
 def final_clean_before_write(dom):
-    """写盘前最后一关：100% 动态对比 blackmatrix7 官方全量 Raw 规则集进行精准物理剔除"""
+    """写盘前最后一关：【步骤 2 强力语法清洗修整】 ➔ 【步骤 3 tldextract + RFC 正则 + 黑名单 双重保险检测】"""
     if not dom or not isinstance(dom, str): return None
 
+    # === 步骤 2：强力语法清洗修整 ===
     clean = str(dom).replace('&amp;', '&').replace('\\/', '/').replace('\\', '').strip()
     clean = clean.split('#')[0].split('?')[0].split('&')[0].split(';')[0].split('%')[0].split(',')[0].strip()
 
-    # 1. 擦除协议头与双斜杠
+    # 擦除尾巴乱码与多余大括号 (例如 3qu.live{0} ➔ 3qu.live)
+    clean = re.sub(r'\{[0-9]*\}$', '', clean)
+    clean = re.sub(r'\[[0-9]*\]$', '', clean)
+
+    # 擦除协议头与双斜杠
     clean = re.sub(r'^https?://', '', clean, flags=re.I)
     clean = re.sub(r'^//', '', clean)
 
-    # 2. 擦除所有残存的单斜杠 /、双斜杠 // 与反斜杠 \
+    # 擦除所有残存的单斜杠 /、双斜杠 // 与反斜杠 \
     clean = clean.replace('/', '').replace('\\', '').strip()
 
-    # 3. 剥离端口号与问号
+    # 剥离端口号与问号
     clean = clean.split(":")[0].strip("@|*^ \t\r\n'\"").lower()
 
-    # 4. 动态 1:1 比对 blackmatrix7 官方 Raw 规则文件，强行精准剔除全量系统/公共/广告域名
-    if is_system_or_global_domain(clean):
+    # === 步骤 3：tldextract + RFC 正则 + 黑名单 双重保险检测 ===
+    # 检测 A：RFC 1035/1123 国际标准 FQDN 正则校验
+    if not RFC_1035_FQDN_REGEX.match(clean):
         return None
 
-    # 5. 滤掉纯文件后缀与无前缀脏数据，以及纯 IP 地址（纯 IP 独立放入 IP 列表）
-    if not clean or clean.startswith(".") or "." not in clean or clean.replace('.', '').isdigit():
+    # 检测 B：tldextract (Mozilla Public Suffix List 规则库) 权威校验
+    ext = tldextract.extract(clean)
+    if not ext.domain or not ext.suffix:
         return None
 
-    parts = clean.split(".")
-    if len(parts) < 2 or not parts[0] or not parts[-1]:
-        return None
-
-    tld = parts[-1].lower()
-    prefix = parts[0].lower()
+    tld = ext.suffix.lower()
+    prefix = ext.domain.lower()
 
     if tld in INVALID_FILE_EXTENSIONS or prefix in INVALID_FILE_EXTENSIONS:
+        return None
+
+    # 检测 C：动态比对 blackmatrix7 官方 Raw 规则文件，精准剔除系统/公共/广告域名
+    if is_system_or_global_domain(clean):
         return None
 
     return clean
@@ -166,11 +174,7 @@ def compile_mihomo_mrs(behavior, yaml_path, mrs_path):
         return False
 
 def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, dynamic_image_domains=None, extracted_ips=None, release_page_domains=None, py_code_domains=None):
-    print("  [Task 10: 策略导出器] 正在动态解析 blackmatrix7 官方 Raw 链接并进行原版 YAML 与 Mihomo .mrs 双重导出...", flush=True)
-
-    # 先初始化载入动态黑名单
-    sys_doms = load_dynamic_blackmatrix7_system_domains()
-    print(f"  ├─ 成功从 blackmatrix7 官方 Raw 链接加载 {len(sys_doms)} 个动态黑名单域名！", flush=True)
+    print("  [Task 10: 策略导出器] 正在执行【先清洗修复 ➔ 后双重保险检测】的强力写盘与 .mrs 编译...", flush=True)
 
     sanitized_direct_path = os.path.join(PROCESS_DIR, "sanitized_candidate_domains.json")
     sanitized_proxy_path = os.path.join(PROCESS_DIR, "sanitized_proxy_domains.json")

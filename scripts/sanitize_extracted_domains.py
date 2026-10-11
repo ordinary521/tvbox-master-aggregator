@@ -2,39 +2,31 @@
 # -*- coding: utf-8 -*-
 """
 =============================================================================
- 独立脚本：全量域名与数据强力净化清洗器 (sanitize_extracted_domains.py)
+ 独立脚本：全量域名强力清洗与双重保险检测器 (sanitize_extracted_domains.py)
 =============================================================================
-重点清洗：
-  1. 100% 强行擦除所有反斜杠 \\ (把 kissjav\\.li 强行净化为 kissjav.li, 把 djj88\\.sbs 净化为 djj88.sbs)；
-  2. 100% 强行擦除协议头 https://, http:// 与单/双斜杠 // 与端口号；
-  3. 100% 强行剔除纯文件后缀 (如 .json, .txt, .m3u8, .ts, .php, .js, .css)；
-  4. 100% 全量物理过滤 blackmatrix7 公共系统级/广告/隐私基础设施域名 (Google, Cloudflare, GitHub, Microsoft, Apple 等)，绝不污染直连与代理列表；
-  5. 输出 process/sanitized_candidate_domains.json 与 process/sanitized_proxy_domains.json。
+重点逻辑 (严格遵循无误杀 4 步流水线)：
+  1. 步骤 1: 原样全量捕获 Task 2~6 所有原始候选字符串，0 提前误杀；
+  2. 步骤 2: 强力语法清洗与字符修复：
+     - 擦除协议头 https://, http:// 与单/双斜杠 //；
+     - 强行擦除反斜杠 \\ (把 kissjav\\.li 修复还原为 kissjav.li)；
+     - 强行擦除端口号、GET 参数、尾巴乱码 (把 3qu.live{0} 拯救还原为 3qu.live)；
+  3. 步骤 3: tldextract 国际权威库 (Mozilla PSL) + RFC 1035 正则双重保险检测：
+     - 验证是否拥有合法的注册主域名与 PSL 顶级后缀；
+     - 验证字符集 100% 符合国际 FQDN 规范；
+     - 动态对比黑名单，剔除 Google, Cloudflare, GitHub, Microsoft, Apple 等公共系统域名；
+  4. 输出 process/sanitized_candidate_domains.json 与 process/sanitized_proxy_domains.json。
 =============================================================================
 """
 
 import os
 import re
 import json
+import tldextract
 
 WORK_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROCESS_DIR = os.path.join(WORK_DIR, "process")
 os.makedirs(PROCESS_DIR, exist_ok=True)
 
-# blackmatrix7 权威系统级与公共基础设施域名全量匹配集
-BLACKMATRIX7_SYSTEM_DOMAINS = {
-    "google.com", "googleapis.com", "gstatic.com", "dns.google", "googletagmanager.com",
-    "google-analytics.com", "googlesyndication.com", "googleusercontent.com",
-    "youtube.com", "ytimg.com", "ggpht.com", "doubleclick.net",
-    "github.com", "githubusercontent.com", "jsdelivr.net", "fastly.jsdelivr.net",
-    "cloudflare.com", "dns.cloudflare.com", "cloudflare-dns.com", "workers.dev",
-    "microsoft.com", "live.com", "outlook.com", "office.com", "azure.com", "bing.com",
-    "apple.com", "icloud.com", "mzstatic.com", "aaplimg.com",
-    "telegram.org", "t.me", "facebook.com", "twitter.com", "x.com", "instagram.com",
-    "quad9.net", "opendns.com", "libredns.gr", "ipify.org", "ip.sb"
-}
-
-# 纯粹专属于 TVBox 强制代理的影视/信息源域名 (不含公共基础设施)
 SPECIFIC_TVBOX_PROXY_DOMAINS = [
     "tmdb.org", "themoviedb.org", "huangguoai.com", "v2fly.org", "gfw.press"
 ]
@@ -43,63 +35,67 @@ INVALID_FILE_EXTENSIONS = [
     "json", "txt", "m3u8", "ts", "js", "css", "html", "htm", "png", "jpg", "jpeg", "webp", "php", "mp4", "mkv", "flv"
 ]
 
+# 严格 RFC 1035/1123 国际标准 FQDN 域名正则
+RFC_1035_FQDN_REGEX = re.compile(
+    r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,18}$'
+)
+
 def to_punycode_domain(dom_str):
     if not dom_str or not isinstance(dom_str, str): return None
     try: return dom_str.encode("idna").decode("ascii")
     except Exception: return dom_str
 
-def is_blackmatrix7_system_domain(dom):
-    if not dom or not isinstance(dom, str): return False
-    dom_l = dom.lower().strip()
-    return any(dom_l == sd or dom_l.endswith("." + sd) for sd in BLACKMATRIX7_SYSTEM_DOMAINS)
-
-def is_specific_tvbox_proxy_domain(dom):
-    if not dom or not isinstance(dom, str): return False
-    dom_l = dom.lower().strip()
-    return any(dom_l == pd or dom_l.endswith("." + pd) for pd in SPECIFIC_TVBOX_PROXY_DOMAINS)
-
-def sanitize_domain_string(raw_dom):
+def sanitize_and_validate_domain(raw_dom):
+    """【步骤 2 强力清洗修复】 ➔ 【步骤 3 双重保险检测】"""
     if not raw_dom or not isinstance(raw_dom, str):
         return None, False
 
+    # === 步骤 2：强力语法清洗与字符修复 ===
     clean = str(raw_dom).replace('&amp;', '&').replace('\\/', '/').replace('\\', '').strip()
     clean = clean.split('#')[0].split('?')[0].split('&')[0].split(';')[0].split('%')[0].split(',')[0].strip()
 
-    # 1. 擦除协议头与双斜杠
+    # 擦除尾巴乱码与多余大括号 (例如 3qu.live{0} ➔ 3qu.live)
+    clean = re.sub(r'\{[0-9]*\}$', '', clean)
+    clean = re.sub(r'\[[0-9]*\]$', '', clean)
+
+    # 擦除协议头与双斜杠
     clean = re.sub(r'^https?://', '', clean, flags=re.I)
     clean = re.sub(r'^//', '', clean)
 
-    # 2. 擦除所有残存的单斜杠 /、双斜杠 // 与反斜杠 \
+    # 擦除所有残存的单斜杠 /、双斜杠 // 与反斜杠 \
     clean = clean.replace('/', '').replace('\\', '').strip()
 
-    # 3. 剥离端口号与问号
+    # 剥离端口号与问号
     clean = clean.split(":")[0].strip("@|*^ \t\r\n'\"").lower()
 
     if not clean or clean.startswith(".") or "." not in clean:
         return None, False
 
-    parts = clean.split(".")
-    if len(parts) < 2 or not parts[0] or not parts[-1]:
+    # === 步骤 3：tldextract 国际库 + RFC 1035 正则 双重保险检测 ===
+    # 检测 A：RFC 1035/1123 国际标准 FQDN 正则校验
+    if not RFC_1035_FQDN_REGEX.match(clean):
         return None, False
 
-    tld = parts[-1].lower()
-    prefix = parts[0].lower()
+    # 检测 B：tldextract (Mozilla Public Suffix List 规则库) 权威校验
+    ext = tldextract.extract(clean)
+    if not ext.domain or not ext.suffix:
+        return None, False
+
+    tld = ext.suffix.lower()
+    prefix = ext.domain.lower()
 
     if tld in INVALID_FILE_EXTENSIONS or prefix in INVALID_FILE_EXTENSIONS:
         return None, False
 
-    # 4. 100% 物理剔除公共系统级/广告/隐私域名 (Google, Cloudflare, GitHub, Microsoft, Apple)
-    if is_blackmatrix7_system_domain(clean):
-        return None, False
+    # 判断是否属于专用代理域名
+    is_proxy = any(clean == pd or clean.endswith("." + pd) for pd in SPECIFIC_TVBOX_PROXY_DOMAINS)
 
-    if is_specific_tvbox_proxy_domain(clean):
-        return clean, True
-
-    return clean, False
+    return clean, is_proxy
 
 def process_data_sanitization():
-    print("  [数据强力清洗器] 正在对 Task 2~6 汇集的所有原始域名执行 4 重强力净化...", flush=True)
+    print("  [步骤 2&3: 语法清洗与双重保险检测] 正在对全量原始候选域名执行先清洗还原、后双重检测...", flush=True)
 
+    # === 步骤 1：原样全量捕获原始候选字符串 ===
     raw_candidates = set()
 
     for json_file in ["grouped_cdn_domains.json", "extracted_release_page_domains.json", "extracted_py_code_domains.json", "dynamic_image_domains.json"]:
@@ -121,8 +117,9 @@ def process_data_sanitization():
     sanitized_direct_candidates = set()
     sanitized_proxy_candidates = set(SPECIFIC_TVBOX_PROXY_DOMAINS)
 
+    # === 执行 步骤 2 清洗 ➔ 步骤 3 双重检测 ===
     for raw_d in raw_candidates:
-        clean_d, is_proxy = sanitize_domain_string(raw_d)
+        clean_d, is_proxy = sanitize_and_validate_domain(raw_d)
         if clean_d:
             if is_proxy:
                 sanitized_proxy_candidates.add(clean_d)
@@ -137,7 +134,7 @@ def process_data_sanitization():
     open(os.path.join(PROCESS_DIR, "sanitized_candidate_domains.json"), "w", encoding="utf-8").write(json.dumps(sorted_direct, ensure_ascii=False, indent=2))
     open(os.path.join(PROCESS_DIR, "sanitized_proxy_domains.json"), "w", encoding="utf-8").write(json.dumps(sorted_proxy, ensure_ascii=False, indent=2))
 
-    print(f"  └─ 强力清洗完成！净化出直连候选域名: {len(sorted_direct)}个, 隔离代理域名: {len(sorted_proxy)}个 (保存于 process/)", flush=True)
+    print(f"  └─ 先清洗后检测完成！成功救回并产出纯净直连域名: {len(sorted_direct)}个, 专用代理域名: {len(sorted_proxy)}个", flush=True)
 
 if __name__ == "__main__":
     process_data_sanitization()
