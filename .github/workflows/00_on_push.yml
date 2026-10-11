@@ -31,11 +31,12 @@ jobs:
           sudo mv bin/mihomo /usr/local/bin/mihomo
           mihomo -v || true
 
-      - name: 克隆依赖仓库
+      - name: 克隆依赖仓库 (含 blackmatrix7 官方权威规则库)
         run: |
           mkdir -p repos
           git clone --depth 1 https://github.com/jie20091116/cat.git repos/cat || true
           git clone --depth 1 https://github.com/qist/tvbox.git repos/qist || true
+          git clone --depth 1 https://github.com/blackmatrix7/ios_rule_script.git repos/blackmatrix7 || true
 
       - name: 运行 01号纯净分类合并器 (0 联网发包)
         run: python3 scripts/merge_sources.py
@@ -46,7 +47,7 @@ jobs:
       - name: 运行 08号离线纯内存路由分类器 (0 网络发包)
         run: python3 scripts/classify_offline_domains.py
 
-      - name: 运行 10号策略导出器 (调用 CRThu/clash-rules-mrs 官方命令打包 .mrs)
+      - name: 运行 10号策略导出器 (读取本地 repos/blackmatrix7 规则库强力剔除并打包 .mrs)
         run: python3 scripts/export_router_rules.py
 
       - name: 提交并推送构建结果
@@ -55,6 +56,6 @@ jobs:
           git config user.name "GitHub Actions"
           git add -A || true
           git diff --cached --quiet && exit 0
-          git commit -m "auto: 1:1 严格对齐 CRThu/clash-rules-mrs 产出 Mihomo .mrs 二进制规则集 [$(date -u '+%Y-%m-%d %H:%M:%S')]"
+          git commit -m "auto: 1:1 严格对齐 CRThu/clash-rules-mrs 与 blackmatrix7 产出纯净 .mrs 二进制规则集 [$(date -u '+%Y-%m-%d %H:%M:%S')]"
           git pull --rebase origin main || true
           git push origin HEAD:main --force
