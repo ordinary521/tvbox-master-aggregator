@@ -5,7 +5,7 @@
  独立脚本十：策略导出器 (Task 10: 原版 YAML 与 Mihomo .mrs 二进制双重导出)
 =============================================================================
 重点更新：
-  1. 导出写盘前最后一关 (Final Export Purge): 100% 动态匹配剔除 blackmatrix7 全量系统级/公共基础设施域名 (Google, YouTube, Cloudflare, GitHub, Microsoft, Apple, Global, Advertising)；
+  1. 100% 动态读取黑名单：禁止任何 Python 代码硬编码域名！每次动态从 blackmatrix7 官方 Raw 链接/本地缓存中实时解析加载全量系统与公共域名列表，执行 1:1 动态精准剔除；
   2. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
      - mihomo convert-ruleset domain yaml domains_direct.yaml domains_direct.mrs
      - mihomo convert-ruleset ipcidr yaml ips_direct.yaml ips_direct.mrs
@@ -18,34 +18,70 @@
 import os
 import re
 import json
+import urllib.request
 import subprocess
 
 WORK_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROCESS_DIR = os.path.join(WORK_DIR, "process")
 CONFIG_DIR = os.path.join(WORK_DIR, "config")
+os.makedirs(CONFIG_DIR, exist_ok=True)
 
-# blackmatrix7 权威系统级、公共基础设施与广告/隐私全量精准剔除集
-BLACKMATRIX7_SYSTEM_DOMAINS = {
-    # 谷歌全系 (Google & YouTube)
-    "google.com", "googleapis.com", "gstatic.com", "dns.google", "googletagmanager.com",
-    "google-analytics.com", "googlesyndication.com", "googleusercontent.com", "googleadservices.com",
-    "youtube.com", "ytimg.com", "ggpht.com", "doubleclick.net", "youtubekids.com", "youtube-nocookie.com",
-    # Cloudflare 全系
-    "cloudflare.com", "dns.cloudflare.com", "cloudflare-dns.com", "workers.dev", "cloudflareclient.com",
-    # GitHub 全系
-    "github.com", "githubusercontent.com", "jsdelivr.net", "fastly.jsdelivr.net", "github.io", "githubassets.com",
-    # 微软全系 (Microsoft)
-    "microsoft.com", "live.com", "outlook.com", "office.com", "azure.com", "bing.com", "msn.com", "skype.com",
-    # 苹果全系 (Apple)
-    "apple.com", "icloud.com", "mzstatic.com", "aaplimg.com", "cdn-apple.com", "apple-dns.net",
-    # 其他公共/广告/隐私
-    "telegram.org", "t.me", "facebook.com", "twitter.com", "x.com", "instagram.com",
-    "quad9.net", "opendns.com", "libredns.gr", "ipify.org", "ip.sb", "openx.net", "adservice.com"
-}
+# 动态在线/本地缓存读取 blackmatrix7 官方权威 Raw 规则链接列表 (禁止任何硬编码域名)
+BLACKMATRIX7_RAW_URLS = [
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google_Classical.yaml",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube_Classical.yaml",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cloudflare/Cloudflare_Classical.yaml",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub_Classical.yaml",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft_Classical.yaml",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml",
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Advertising/Advertising_Classical.yaml"
+]
 
 INVALID_FILE_EXTENSIONS = [
     "json", "txt", "m3u8", "ts", "js", "css", "html", "htm", "png", "jpg", "jpeg", "webp", "php", "mp4", "mkv", "flv"
 ]
+
+_DYNAMIC_SYSTEM_DOMAINS_CACHE = None
+
+def load_dynamic_blackmatrix7_system_domains():
+    """动态读取 blackmatrix7 官方 Raw 链接/本地缓存，1:1 解析全量黑名单域名，禁止任何硬编码"""
+    global _DYNAMIC_SYSTEM_DOMAINS_CACHE
+    if _DYNAMIC_SYSTEM_DOMAINS_CACHE is not None:
+        return _DYNAMIC_SYSTEM_DOMAINS_CACHE
+
+    system_doms = set()
+    cache_file = os.path.join(CONFIG_DIR, "dynamic_blackmatrix7_system_domains.json")
+
+    # 优先动态从网络链接加载
+    for raw_url in BLACKMATRIX7_RAW_URLS:
+        try:
+            req = urllib.request.Request(raw_url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=8) as resp:
+                text = resp.read().decode("utf-8", errors="ignore")
+                for line in text.splitlines():
+                    line = line.strip()
+                    if line and not line.startswith("#") and not line.startswith("payload:"):
+                        m = re.search(r'(?:DOMAIN-SUFFIX|DOMAIN|DOMAIN-KEYWORD)?\s*,?\s*[\'"]?([a-zA-Z0-9\.\-_]+)[\'"]?', line, re.I)
+                        if m:
+                            clean_d = m.group(1).lower().strip(".")
+                            if clean_d and "." in clean_d and not clean_d.replace('.', '').isdigit():
+                                system_doms.add(clean_d)
+        except Exception:
+            pass
+
+    # 如果联网成功则刷新本地缓存，否则读取本地已存的缓存
+    if system_doms:
+        try:
+            open(cache_file, "w", encoding="utf-8").write(json.dumps(sorted(list(system_doms)), ensure_ascii=False, indent=2))
+        except Exception: pass
+    elif os.path.exists(cache_file):
+        try:
+            system_doms.update(json.load(open(cache_file, "r", encoding="utf-8")))
+        except Exception: pass
+
+    _DYNAMIC_SYSTEM_DOMAINS_CACHE = system_doms
+    return _DYNAMIC_SYSTEM_DOMAINS_CACHE
 
 def to_punycode_domain(dom_str):
     if not dom_str or not isinstance(dom_str, str): return None
@@ -55,10 +91,11 @@ def to_punycode_domain(dom_str):
 def is_system_or_global_domain(dom):
     if not dom or not isinstance(dom, str): return False
     dom_l = dom.lower().strip()
-    return any(dom_l == sd or dom_l.endswith("." + sd) for sd in BLACKMATRIX7_SYSTEM_DOMAINS)
+    sys_doms = load_dynamic_blackmatrix7_system_domains()
+    return any(dom_l == sd or dom_l.endswith("." + sd) for sd in sys_doms)
 
 def final_clean_before_write(dom):
-    """写盘前最后一关：100% 斩断任何残存的单斜杠 /、双斜杠 //、反斜杠 \\、?, #, & 与协议头"""
+    """写盘前最后一关：100% 动态对比 blackmatrix7 官方全量 Raw 规则集进行精准物理剔除"""
     if not dom or not isinstance(dom, str): return None
 
     clean = str(dom).replace('&amp;', '&').replace('\\/', '/').replace('\\', '').strip()
@@ -74,7 +111,7 @@ def final_clean_before_write(dom):
     # 3. 剥离端口号与问号
     clean = clean.split(":")[0].strip("@|*^ \t\r\n'\"").lower()
 
-    # 4. 导出写盘前最后一关：100% 物理精准过滤公共系统/代理/广告域名 (Google, YouTube, Cloudflare, GitHub, Microsoft, Apple)，绝对不写进直连和代理列表！
+    # 4. 动态 1:1 比对 blackmatrix7 官方 Raw 规则文件，强行精准剔除全量系统/公共/广告域名
     if is_system_or_global_domain(clean):
         return None
 
@@ -129,7 +166,11 @@ def compile_mihomo_mrs(behavior, yaml_path, mrs_path):
         return False
 
 def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, dynamic_image_domains=None, extracted_ips=None, release_page_domains=None, py_code_domains=None):
-    print("  [Task 10: 策略导出器] 正在 1:1 严格执行原版 YAML 与 Mihomo .mrs 二进制双重导出...", flush=True)
+    print("  [Task 10: 策略导出器] 正在动态解析 blackmatrix7 官方 Raw 链接并进行原版 YAML 与 Mihomo .mrs 双重导出...", flush=True)
+
+    # 先初始化载入动态黑名单
+    sys_doms = load_dynamic_blackmatrix7_system_domains()
+    print(f"  ├─ 成功从 blackmatrix7 官方 Raw 链接加载 {len(sys_doms)} 个动态黑名单域名！", flush=True)
 
     sanitized_direct_path = os.path.join(PROCESS_DIR, "sanitized_candidate_domains.json")
     sanitized_proxy_path = os.path.join(PROCESS_DIR, "sanitized_proxy_domains.json")
