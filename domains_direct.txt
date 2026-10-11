@@ -64,7 +64,6 @@
 3dmgame.com
 3png.com
 3qu.live
-3qu.live{0}
 3vcn.work
 4399.com
 456260.xyz
@@ -192,7 +191,6 @@ adjust.gtrazibvz.com
 adminqt.cn
 admire.cyepzjnb.com
 adopt.ybejhul.com
-adsys.jjsp
 adultporna-av107.com
 advise.nlwkmsv.cc
 adys.app
@@ -232,8 +230,6 @@ amemv.com
 amh.sh
 analyze.wlmrpodg.cc
 android-artworks.25pp.com
-android.pgsp
-android.xpg1
 anime.mqmmw.ga
 anime.xifanacg.com
 aosikazy.com
@@ -412,6 +408,7 @@ bi71t5.cn
 bianyuan001.oss-cn-beijing.aliyuncs.com
 bilibili.com
 bimg.tangdou.com
+bing.com
 bing.img.run
 bitbucket.org
 bite.gtrazibvz.com
@@ -482,6 +479,7 @@ cdn-xj.cc
 cdn.230110.xyz
 cdn.dzzyapi.com
 cdn.gcufbd.top
+cdn.jsdelivr.net
 cdn.shorttv.online
 cdnhop.com
 cdnlz11.com
@@ -521,6 +519,8 @@ ckzy1.com
 cl2.xbl2.pro
 clbug.com
 clewm.net
+cloudflare-dns.com
+cloudflare.com
 cloudflareinsights.com
 cloudfront.net
 cloudgame.ds.163.com
@@ -623,13 +623,14 @@ dmxq39.com
 dns.adguard.com
 dns.alidns.com
 dns.com
+dns.google
 dns.la
+dns.quad9.net
 dns.watch
 dnspod.cn
 dnvod.org
 doh.pub
 domain.com
-doppiocdn.w+
 dora-video.cn
 douapi.cc
 douban.com
@@ -813,11 +814,15 @@ gitcafe.net
 gitcode.com
 gitee.com
 giteeusercontent.com
+github.com
 gitlab.com
 gname.com
 godaddy.com
 gongdian.top
 goodav17.com
+google.com
+googlesyndication.com
+googletagmanager.com
 gqc.ink
 growcdnssedge.com
 gslb-al.com
@@ -954,6 +959,7 @@ i-1-333ttt.upimgt.com
 i-1.win1img.com
 i-blog.csdnimg.cn
 i.htqyy.com
+i.ytimg.com
 i0.hdslb.com
 i275.com
 iappht.vip
@@ -989,9 +995,9 @@ img.kemono.cr
 img.lzzyimg.com
 img.mfcimg.com
 img.mjviku.com
-img.php.cn
 img.run
 img.shyleps.com
+img.youtube.com
 img0.baidu.com
 img1.3png.com
 img1.baidu.com
@@ -1000,7 +1006,6 @@ img2.baidu.com
 imgos.cn
 imov.cc
 imxd.top
-in.ua
 in30.ll48host.buzz
 inews.gtimg.com
 init.al.pnwkult.com
@@ -1012,6 +1017,7 @@ iqiyipic.com
 iqiyizy.com
 iqiyizyapi.com
 iqwq.cn
+is4-ssl.mzstatic.com
 iseseav101.buzz
 isyour.love
 it.xhamster.com
@@ -1050,7 +1056,6 @@ jhfkdnov21vfd.dyfcbkggxn.work
 jhs7.makeup
 ji17df5a.xn--7jw54o.net
 jiabaide.cn
-jiabaide.xn--cn
 jianyunys.com
 jibcmjp.com
 jiduo.serv00.net
@@ -1087,14 +1092,16 @@ jnyk08.icu
 jp98.vip
 jpsn47.top
 jptt.tv
-jptt.tv{id}
-jptt.tv{tid}
 jptt1.cc
 jrskbs.com
+js.xn--z7x900a.com
 jsaa100.vip
 jsdmirror.com
 jskji.com
 jsnzkpg4.pages.dev
+json.cranemarsh.com
+json.doube.eu.org
+json.fongmi.cc
 jsqp.jsaa100.vip
 jsqp.wcyqdfy.com
 jszyapi.com
@@ -1115,10 +1122,7 @@ jx.2s0.cn
 jx.973973.xyz
 jx.aidouer.net
 jx.bozrc.com
-jx.cn
 jx.hls.one
-jx.m3u8.pw
-jx.m3u8.tv
 jx.nnxv.cn
 jx.parwix.com
 jx.playerjy.com
@@ -1246,7 +1250,6 @@ luwangi.cc
 luyitian.com
 lvmin.org
 lwncnss3api.cc
-lxf.snzlcgtzxyx
 lxsgsy.com
 lyyytv.cn
 lz-cdn11.com
@@ -1287,7 +1290,9 @@ m.myfreecams.com
 m.nmshop.net
 m.sdzhgt.com
 m.xhamster.com
+m.youtube.com
 m1907.top
+m3u8.apiyhzy.com
 maccms.xyz
 madou.club
 madou365.cc
@@ -1319,6 +1324,7 @@ mgzyz1.com
 mi2ys.com
 miaobi-lite.bj.bcebos.com
 miaobi-lite.cdn.bcebos.com
+microsoft.com
 midianshi.com
 miget-1313189639.cos.ap-guangzhou.myqcloud.com
 miguvideo.com
@@ -1357,6 +1363,7 @@ movie.qhdaohang.cn
 moxy.top
 mozhuazy.com
 mp.huya.com
+mp4.djuu.com
 mpimg.cn
 mqmmw.ga
 mrds66.com
@@ -1384,14 +1391,12 @@ music.iqwq.cn
 music.yingzi.ee
 muxia.fun
 muyexxxche.buzz
-muyue.tool
-mxj.wylcjbxyx
-my.ym
 myfreecams.com
 mymifun.com
 myqcloud.com
 mys.homes
 mzrjk.top
+mzstatic.com
 n13.club
 n2d4z.top
 n5nn56n5n6n.foshanshow.com
@@ -1488,6 +1493,7 @@ pgxdy.com
 ph838.qians.cfd
 phimgood.com
 photo.xunpic.cn
+php.doube.eu.org
 physkan.top
 pianku.api.mgtv.com
 pianku.online
@@ -1557,8 +1563,6 @@ qist.top
 qivod.com
 qiyoudy2.com
 qiyoudy5.com
-qiyoudy5.com{id}
-qiyoudy5.com{tid}
 qj1080.top
 qkys.me
 qkys.qukanwh.com
@@ -1576,6 +1580,7 @@ qq.com
 qq.com.bh432.sbs
 qqqrst.com
 qswyt4444.com
+quad9.net
 quankan.app
 quanmingjiexi.com
 quanzi.laoxianghuijia.cn
@@ -1588,6 +1593,7 @@ qxxadannvzcai.wckz813.vip
 qyzf88.com
 qzz.io
 ra2web.com
+raw.githubusercontent.com
 raw.shorttv.online
 rb.huaduys.org
 rb.jnyk08.icu
@@ -1674,8 +1680,6 @@ shayuapi.com
 shayuzy5.com
 shddlcd.cn
 shdy2.com
-shdy2.com，请及时收藏网址发布页
-shdy2.xn--com
 shdy5.us
 shenzjd.com
 shijue.pro
@@ -1692,8 +1696,6 @@ silidm.com
 sinaimg.cn
 singerimg.kugou.com
 sinparty.com
-sinparty.com{href}
-sir_new.tiansexyl.tv
 site.com
 sixniceezsx.xyz
 sixnicejyzj.xyz
@@ -1758,6 +1760,7 @@ sxyjspsc.com
 symx.club
 szfx.top
 t.061899.xyz
+t.me
 t66yy.cc
 t7.baidu.com
 t8.baidu.com
@@ -1786,9 +1789,7 @@ tj1736.cc
 tl39.com
 tlkqc.com
 tmzyz.com
-token}@{self.registry}
 tonglicable.com
-tool.gulu
 tool.mkblog.cn
 tools.liumingye.cn
 top3.zgtv.online
@@ -1911,7 +1912,6 @@ wckz813.vip
 wcyfhknomg.work
 wcyqdfy.com
 wdlinux.cn
-web.player
 webcast.amemv.com
 webstar.cn
 weishitv.xyz
@@ -1919,6 +1919,7 @@ weserv.nl
 wget.la
 whjzjx.cn
 whos.tv
+wild-butterfly-88a5.juestnow.workers.dev
 win1img.com
 wjizxlxa2.com
 wkvip.net
@@ -1928,6 +1929,7 @@ wogg.net
 woknyy.cn
 wolongzy.cc
 wolongzyw.com
+workers.dev
 wpcoder.cn
 wpscdn.cn
 wstgpic.bdpsjp.com
@@ -2027,6 +2029,7 @@ www.gdlsp.com
 www.genmov.com
 www.gg51.com
 www.ghgdm.com
+www.google.com
 www.gw7.cc
 www.gzsns.com
 www.gzwlr.com
@@ -2191,6 +2194,7 @@ www.yitingshu.com
 www.ylys.tv
 www.ymvid.com
 www.youku.com
+www.youtube.com
 www.yssm5.xyz
 www.yuetingba.cn
 www.yxxq41.cc
@@ -2276,7 +2280,6 @@ xn--9hsjt4-9k8ope792un7wa.hnsxdnyjyjcyjfkzx.org
 xn--9kqr9lk79c.top
 xn--b33a.lzytv.cfd
 xn--b4w04e.ysxysp.buzz
-xn--dkw.xn--6qq986b3xl
 xn--eck5a0ba3a2b.com
 xn--ewr.211997.xyz
 xn--i0v44m.xyz
@@ -2345,7 +2348,6 @@ ybhz51.cc
 ycblcw.com
 ydysdynamicdomainname.68.gy
 yemu.xyz
-yf.lelian
 yikanapi.com
 yikm.net
 yikucun.com
@@ -2372,6 +2374,7 @@ youku.com
 youliao88.com
 youlishipin.com
 youte.ml
+youtube.com
 yparse.com
 yparse.ik9.cc
 yparse.jn1.cc
@@ -2386,6 +2389,7 @@ ysttv.com
 ysxq.cc
 ysxysp.buzz
 ytdrying.com
+ytimg.com
 yuanlib.com
 yuetingba.cn
 yujn.cn
@@ -2453,19 +2457,3 @@ zzrs.mfdyvip.com
 zzxiaohua1.top
 zzztool.com
 zzzypro.com
-{hm.group
-{prefix}.{suffix}
-{self.doppiocdn}
-{self.host}
-{self.parse_domain}
-{self.proxy_str}
-{self.random_str
-{self.registry}
-好看影视.com
-宝盒接口.top
-小不点.com
-影视仓.com
-摸鱼儿.cc
-摸鱼儿.top
-菜妮丝.top
-龙伊.top
