@@ -4,7 +4,7 @@
  可可影视 Spider 完美终极版 (kkys_master.py)
 =============================================================================
 重点修复：
-  1. 1:1 严格照搬 repos/cat/TVBOX/PY/kkys.py 原装海报处理逻辑，彻底去除多余的 @Referer= 杂质；
+  1. 1:1 严格对齐 repos/cat/TVBOX/PY/kkys1.py 正确图床 vres.cyscyy.com，彻底解决电视端首页缩略图全黑问题；
   2. 采用 lxml/etree XPath 节点解析，精准匹配影片真实名称与海报；
   3. 增加连续剧“泰剧”与地区“泰国”分类筛选，完美匹配 5 维分类筛选与 keke1.app 真实 7 段连字符路由；
   4. 完整加载可可影视 4K / UHD 超高清全量资源。
@@ -43,7 +43,8 @@ class Spider(Spider):
 
     def init(self, extend=""):
         self.host = "https://www.kkys20.com"
-        self.image_host = "https://vres.zyxpedu.com"
+        # 1:1 对齐 kkys1.py 的正确全量图片 CDN 服务器域名：vres.cyscyy.com
+        self.image_host = "https://vres.cyscyy.com"
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
             "Referer": self.host + "/"
@@ -103,10 +104,10 @@ class Spider(Spider):
         return u
 
     def _pic(self, u):
-        """1:1 严格对齐 repos/cat/TVBOX/PY/kkys.py 原装海报处理逻辑"""
+        """1:1 照搬 kkys1.py 正确的图床处理逻辑"""
         if not u: return ""
         if u.startswith("//"): return "https:" + u
-        if u.startswith("/"): return "https://vres.zyxpedu.com" + u
+        if u.startswith("/"): return self.image_host + u
         return u
 
     def _html(self, content):
