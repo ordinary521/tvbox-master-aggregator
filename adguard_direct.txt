@@ -427,7 +427,6 @@
 @@||bzzdyy.com^
 @@||c-you.hair^
 @@||c.xpgtv.net^
-@@||c.y.qq.com^
 @@||c2v2.com^
 @@||c494.com^
 @@||c6dd5cc.com^
@@ -592,7 +591,6 @@
 @@||dmxq39.com^
 @@||dns.alidns.com^
 @@||dns.com^
-@@||dns.google^
 @@||dns.la^
 @@||dns.quad9.net^
 @@||dns.watch^
@@ -1157,7 +1155,6 @@
 @@||live.cdn.huya.com^
 @@||live.douyin.com^
 @@||live.imxd.top^
-@@||live.qq.com^
 @@||live.yj1211.work^
 @@||ljiaovm.com^
 @@||ll48host.buzz^
@@ -1222,7 +1219,6 @@
 @@||m.hanju84.cc^
 @@||m.hr0592.cn^
 @@||m.jrskbs.com^
-@@||m.live.qq.com^
 @@||m.lrts.me^
 @@||m.nmshop.net^
 @@||m.sdzhgt.com^
@@ -1408,7 +1404,6 @@
 @@||pangujiexi.com^
 @@||panyq.com^
 @@||parwix.com^
-@@||pbaccess.video.qq.com^
 @@||pcweb.api.mgtv.com^
 @@||pgdjz.fun^
 @@||pgxdy.com^
@@ -1494,7 +1489,6 @@
 @@||qnmp4.com^
 @@||qpgyy5.net^
 @@||qpsp.cc^
-@@||qq.com^
 @@||qq.com.bh432.sbs^
 @@||qqqrst.com^
 @@||qswyt4444.com^
@@ -1763,7 +1757,6 @@
 @@||v.api.aa1.cn^
 @@||v.lz15uu.com^
 @@||v.nrzj.vip^
-@@||v.qq.com^
 @@||v.rbotv.cn^
 @@||v.xl.in.ua^
 @@||v.xl01.eu.cc^
@@ -2223,7 +2216,6 @@
 @@||xzcjz.com^
 @@||xzybb1.com^
 @@||y.gtimg.cn^
-@@||y.qq.com^
 @@||y23xxa23duo12.xyz^
 @@||y2s52n7.com^
 @@||yaaabc.com^
