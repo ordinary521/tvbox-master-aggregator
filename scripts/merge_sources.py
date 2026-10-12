@@ -4,24 +4,26 @@
  独立脚本一：纯净分类合并器 (merge_sources.py)
 =============================================================================
 重点更新：
-  1. 100% 还原黄金首页 7 大原装置顶主站，稳坐 tvbox.json 顶端前 1~7 名：
-     - 可可影视┃4K高清
-     - 厂长资源┃1080P
-     - OK-资源
-     - 鸭鸭资源
-     - 360┃采集
-     - 索尼┃高清4K
-     - 极速┃云播
-  2. 100% 零外联网络请求 (0 发包/0 探测)：只收集明面上的表面域名 (xxx.com)；
-  3. 从 repos/ 下全量扫描 600+ 个 .py 爬虫源码与 repos/qist 中的 2000+ 个接口配置；
-  4. 自动将 18+ 敏感点播与直播源隔离写入 not_suitable/tvbox.json 和 not_suitable/live.txt；
-  5. 生成纯净总订阅 tvbox.json, tvbox_full.json, tvbox_multi.json 与 live.txt。
+  1. 100% 还原黄金首页 7 大原装置顶主站坐镇 tvbox.json 最顶端 1~7 名；
+  2. 确定性拼音 A-Z 优雅排序：中尾部 600+ Python 爬虫与 2000+ MacCMS 接口按中文拼音 A-Z 优雅排序，告别乱序；
+  3. 代码级安全去重 (0 误杀资源)：
+     - 只有【站点名称相同】且【api 链接相同】时才安全合并去重；
+     - 若【站点名称相同】但【api 链接不同】(代表不同资源库)，绝对不删除，自动标注 [二]、[三] 100% 完整保留；
+  4. 100% 零外联网络请求 (0 发包/0 探测)，自动隔离 18+ 敏感点播与直播源。
 =============================================================================
 """
 
 import os
 import re
 import json
+
+try:
+    import pypinyin
+    def get_pinyin(text):
+        return "".join(pypinyin.lazy_pinyin(text)).lower()
+except Exception:
+    def get_pinyin(text):
+        return str(text).lower()
 
 WORK_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROCESS_DIR = os.path.join(WORK_DIR, "process")
@@ -123,12 +125,11 @@ def scan_repos_for_py_spiders():
     surface_domains = set()
     repos_dir = os.path.join(WORK_DIR, "repos")
 
-    # 已被黄金门面包含的 key 集合，避免重复展示
     facade_keys = {s["key"] for s in TOP_SITES_FACADE}
 
     if os.path.exists(repos_dir):
         for root, _, files in os.walk(repos_dir):
-            for file in files:
+            for file in sorted(files):
                 if file.endswith(".py") and not file.startswith("test_"):
                     fpath = os.path.join(root, file)
                     try:
@@ -141,7 +142,6 @@ def scan_repos_for_py_spiders():
                             dom = extract_surface_domain(u)
                             if dom: surface_domains.add(dom)
 
-                        # 提取 Spider 节点
                         m_name = re.search(r'def\s+getName\s*\([^)]*\):\s*return\s*["\']([^"\']+)["\']', content)
                         sname = m_name.group(1).strip() if m_name else os.path.splitext(file)[0]
 
@@ -166,6 +166,8 @@ def scan_repos_for_py_spiders():
                             py_sites.append(site_node)
                     except Exception: pass
 
+    # 按中文名称拼音 A-Z 优雅排序
+    py_sites.sort(key=lambda s: get_pinyin(s["name"]))
     return py_sites, sorted(list(surface_domains))
 
 def parse_qist_tvbox_json():
@@ -197,21 +199,56 @@ def parse_qist_tvbox_json():
                         qist_sites.append(s)
         except Exception: pass
 
+    # 按中文名称拼音 A-Z 优雅排序
+    qist_sites.sort(key=lambda s: get_pinyin(s["name"]))
     return qist_sites, adult_sites, sorted(list(surface_domains))
 
+def deduplicate_sites_safely(raw_sites):
+    """【代码级安全去重 (0 误杀资源)】
+    - 只有【名称相同】且【api 链接相同】时才合并去重；
+    - 若【名称相同】但【api 链接不同】(代表不同接口资源)，绝对不删除，自动重命名扩展 [二]、[三] 100% 完整保留！
+    """
+    seen_api_set = set()
+    name_count_map = {}
+    clean_sites = []
+
+    for s in raw_sites:
+        api_val = str(s.get("api", "")).strip()
+        name_val = str(s.get("name", "")).strip()
+
+        # 1. 名称相同且 api 链接 100% 相同的真实重复节点 ➔ 合并去重
+        dedup_key = f"{name_val}:::{api_val}"
+        if dedup_key in seen_api_set:
+            continue
+        seen_api_set.add(dedup_key)
+
+        # 2. 名称相同但 api 链接不同 (不同切片源) ➔ 100% 完整保留，重命名区分 [二]、[三]
+        if name_val in name_count_map:
+            name_count_map[name_val] += 1
+            num_str = ["二", "三", "四", "五", "六", "七", "八", "九", "十"][min(name_count_map[name_val] - 2, 8)]
+            s["name"] = f"{name_val} [{num_str}]"
+        else:
+            name_count_map[name_val] = 1
+
+        clean_sites.append(s)
+
+    return clean_sites
+
 def merge_sources():
-    print("  [01_merge_sources] 开始全量资源合并与明面域名提取 (0 联网发包版)...", flush=True)
+    print("  [01_merge_sources] 开始全量资源合并、拼音 A-Z 排序与代码级安全去重 (0 联网发包版)...", flush=True)
 
     py_sites, py_domains = scan_repos_for_py_spiders()
     qist_sites, adult_sites, qist_domains = parse_qist_tvbox_json()
 
-    # 提取 7 大置顶主站的明面域名
     facade_domains = [extract_surface_domain(s["api"]) for s in TOP_SITES_FACADE if extract_surface_domain(s["api"])]
 
     all_surface_domains = sorted(list(set(facade_domains + py_domains + qist_domains)))
 
-    # 黄金 7 大原装置顶门面强行坐镇 tvbox.json 最顶端 1~7 名
-    all_clean_sites = TOP_SITES_FACADE + py_sites + qist_sites
+    # 黄金 7 大原装置顶门面坐镇 tvbox.json 最顶端 1~7 名 + 600 个 Python 拼音站 + 2000 个 MacCMS 拼音站
+    raw_all_sites = TOP_SITES_FACADE + py_sites + qist_sites
+
+    # 执行【代码级安全去重】
+    all_clean_sites = deduplicate_sites_safely(raw_all_sites)
 
     # 写盘 process/grouped_cdn_domains.json
     grouped_data = {
@@ -244,7 +281,7 @@ def merge_sources():
     live_content = "# IPTV 纯净直播源\nCCTV-1,http://111.13.138.83/m3u8/cctv1.m3u8\nCCTV-13,http://111.13.138.83/m3u8/cctv13.m3u8\n"
     open(os.path.join(WORK_DIR, "live.txt"), "w", encoding="utf-8").write(live_content)
 
-    print(f"  └─ [01_merge_sources] 0 网络耗时完成！黄金 7 大门面主站坐镇最顶端，收录 {len(all_clean_sites)} 个纯净站点！", flush=True)
+    print(f"  └─ [01_merge_sources] 拼音 A-Z 排序与安全去重完成！黄金 7 大门面坐镇最顶端，收录 {len(all_clean_sites)} 个纯净有效站点！", flush=True)
     return all_clean_sites
 
 if __name__ == "__main__":
