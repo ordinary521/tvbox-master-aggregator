@@ -4,7 +4,7 @@
  独立脚本一：纯净分类合并器 (merge_sources.py)
 =============================================================================
 重点更新：
-  1. 串行轻量拉取 20 个核心采集站 1 页详情，正则精准抓出深层播放切片 CDN 域名 (如 super.ffzy-online6.com)；
+  1. 绝对 0 并发、纯单线程串行轻量下载 20 个核心采集站 1 页详情，正则精准抓出 vod_play_url 中的深层播放切片 CDN 域名 (如 super.ffzy-online6.com)；
   2. 100% 给足给全全量 25+ 影视细分类目 (包含动作片, 喜剧片, 爱情片, 科幻片, 国产剧, 美剧, 韩剧, 泰剧等)，绝不精简 1 个词；
   3. 100% 还原黄金首页 7 大原装置顶主站坐镇 tvbox.json 最顶端 1~7 名；
   4. 扩充 18+ 黑名单敏感词：加入“叔叔”、“侄女”、“侄女儿”、“cao”、“十八”等词汇；
@@ -31,7 +31,7 @@ NOT_SUITABLE_DIR = os.path.join(WORK_DIR, "not_suitable")
 os.makedirs(PROCESS_DIR, exist_ok=True)
 os.makedirs(NOT_SUITABLE_DIR, exist_ok=True)
 
-# 20 个核心 MacCMS 采集主站 API 列表 (串行轻量拉取深层播放切片 CDN)
+# 20 个核心 MacCMS 采集主站 API 列表 (纯单线程串行轻量拉取 vod_play_url 深层播放切片 CDN)
 CORE_MACCMS_DETAIL_APIS = [
     ("非凡资源", "https://ffzy5.tv/api.php/provide/vod/?ac=detail&pg=1"),
     ("360采集", "https://360zy.com/api.php/provide/vod/?ac=detail&pg=1"),
@@ -150,7 +150,7 @@ def is_adult_content(text):
     return bool(ADULT_KEYWORDS_PATTERN.search(str(text)))
 
 def fetch_deep_stream_domains_sequentially():
-    """依次串行轻量访问核心采集站 1 页数据，正则解析 vod_play_url 提取深层切片 CDN 域名 (如 super.ffzy-online6.com)"""
+    """绝对 0 并发、纯单线程串行轻量访问核心采集站 vod_play_url，正则提取深层播放切片 CDN 域名 (如 super.ffzy-online6.com)"""
     deep_domains = set()
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
@@ -311,12 +311,12 @@ def deduplicate_sites_safely(raw_sites):
     return clean_sites
 
 def merge_sources():
-    print("  [01_merge_sources] 开始全量资源合并与核心采集站深层播放切片 CDN 串行提取...", flush=True)
+    print("  [01_merge_sources] 开始全量资源合并与 0 并发纯单线程 vod_play_url 深层切片 CDN 提取...", flush=True)
 
     py_sites, py_domains = scan_repos_for_py_spiders()
     qist_sites, adult_sites, qist_domains, facade_sites_map = parse_qist_tvbox_json()
 
-    # 串行轻量提取核心采集站深层播放切片 CDN (如 super.ffzy-online6.com)
+    # 绝对 0 并发、纯单线程串行提取核心采集站 vod_play_url 深层切片 CDN (如 super.ffzy-online6.com)
     deep_stream_domains = fetch_deep_stream_domains_sequentially()
 
     top_facade_full = []
@@ -336,7 +336,7 @@ def merge_sources():
     # 执行【代码级安全去重】
     all_clean_sites = deduplicate_sites_safely(raw_all_sites)
 
-    # 写盘 process/grouped_cdn_domains.json (含深层切片域名 deep_stream_domains)
+    # 写盘 process/grouped_cdn_domains.json
     grouped_data = {
         "top_facade_domains": all_surface_domains,
         "media_player_domains": deep_stream_domains,
@@ -367,7 +367,7 @@ def merge_sources():
     live_content = "# IPTV 纯净直播源\nCCTV-1,http://111.13.138.83/m3u8/cctv1.m3u8\nCCTV-13,http://111.13.138.83/m3u8/cctv13.m3u8\n"
     open(os.path.join(WORK_DIR, "live.txt"), "w", encoding="utf-8").write(live_content)
 
-    print(f"  └─ [01_merge_sources] 成功提取深层切片域名 {len(deep_stream_domains)} 个，合并 {len(all_clean_sites)} 个纯净站点！", flush=True)
+    print(f"  └─ [01_merge_sources] 成功提取 vod_play_url 深层切片域名 {len(deep_stream_domains)} 个！", flush=True)
     return all_clean_sites
 
 if __name__ == "__main__":
