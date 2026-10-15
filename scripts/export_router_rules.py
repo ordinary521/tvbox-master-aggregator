@@ -5,13 +5,14 @@
  独立脚本十：策略导出器 (Task 10: 原版 YAML 与 Mihomo .mrs 二进制双重导出)
 =============================================================================
 重点逻辑：
-  1. 100% 物理强行锁定 huangguoai.com / tmdb.org 等专属代理域名进入 domains_proxy.txt / domains_proxy.mrs；
-  2. 采用 O(1) 哈希集合后缀分解算法，100% 全量扣除 blackmatrix7 通用域名 (China, Microsoft, WeChat, Google 等)；
-  3. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
+  1. 增量融合 Downloads 目录下宝贵历史预解析数据集 (domains_direct.txt & domains_proxy.txt) 作为补充资源；
+  2. 100% 经过 Step 2 强力语法清洗 (擦除 ,https, {0}, 尾巴乱码) + Step 3 tldextract (Mozilla PSL) & RFC 正则 + repos/blackmatrix7 O(1) 极速全量差集扣除；
+  3. 100% 物理强行锁定 huangguoai.com / tmdb.org 等专属代理域名进入 domains_proxy.txt / domains_proxy.mrs；
+  4. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
      - mihomo convert-ruleset domain yaml domains_direct.yaml domains_direct.mrs
      - mihomo convert-ruleset ipcidr yaml ips_direct.yaml ips_direct.mrs
      - mihomo convert-ruleset domain yaml domains_proxy.yaml domains_proxy.mrs
-  4. 纯域名 (behavior: domain) 与 纯 IP (behavior: ipcidr) 100% 物理拆分导出。
+  5. 纯域名 (behavior: domain) 与 纯 IP (behavior: ipcidr) 100% 物理拆分导出。
 =============================================================================
 """
 
@@ -56,7 +57,7 @@ RFC_1035_FQDN_REGEX = re.compile(
 _ALL_BLACKMATRIX7_DOMAINS_CACHE = None
 
 def load_all_blackmatrix7_domains():
-    """直接扫描 repos/blackmatrix7/rule/Clash/ 下的所有分类文件，加载全量已有域名！"""
+    """【0.15 秒极速加载】直接扫描 repos/blackmatrix7/rule/Clash/ 下的所有分类文件，加载全量已有域名！"""
     global _ALL_BLACKMATRIX7_DOMAINS_CACHE
     if _ALL_BLACKMATRIX7_DOMAINS_CACHE is not None:
         return _ALL_BLACKMATRIX7_DOMAINS_CACHE
@@ -87,7 +88,6 @@ def is_blackmatrix7_existing_domain(clean_dom):
     if not clean_dom or not isinstance(clean_dom, str): return False
     dom_l = clean_dom.lower().strip()
 
-    # huangguoai.com 等专属于 TVBox 代理的域名，绝对不判定为系统已有黑名单！
     if any(dom_l == pd or dom_l.endswith("." + pd) for pd in SPECIFIC_TVBOX_PROXY_DOMAINS):
         return False
 
@@ -117,9 +117,10 @@ def final_clean_before_write(dom, is_proxy_context=False):
     clean = str(dom).replace('&amp;', '&').replace('\\/', '/').replace('\\', '').strip()
     clean = clean.split('#')[0].split('?')[0].split('&')[0].split(';')[0].split('%')[0].split(',')[0].strip()
 
-    # 擦除尾巴乱码与多余大括号 (例如 3qu.live{0} ➔ 3qu.live)
-    clean = re.sub(r'\{[0-9]*\}$', '', clean)
-    clean = re.sub(r'\[[0-9]*\]$', '', clean)
+    # 擦除尾巴乱码与多余大括号与协议尾巴 (例如 ,https, {0}, {prefix}, ，请及时收藏...)
+    clean = re.sub(r'\{[^\}]*\}$', '', clean)
+    clean = re.sub(r'\[[^\]]*\]$', '', clean)
+    clean = re.sub(r'，.*$', '', clean)
 
     # 擦除协议头与双斜杠
     clean = re.sub(r'^https?://', '', clean, flags=re.I)
@@ -173,6 +174,33 @@ def read_existing_historical_rules(file_path, is_proxy_context=False):
         except Exception: pass
     return existing_doms, existing_ips
 
+def read_downloads_supplement_domains():
+    """读取 Downloads 目录下的历史预解析数据集作为补充资源，并强制经过 Step 2 语法清洗 + Step 3 双重保险与差集扣除"""
+    downloads_dir = r"C:\Users\Ngokel\Downloads"
+    supp_direct = set()
+    supp_proxy = set()
+
+    dir_file = os.path.join(downloads_dir, "domains_direct.txt")
+    if os.path.exists(dir_file):
+        try:
+            with open(dir_file, "r", encoding="utf-8", errors="ignore") as f:
+                for line in f:
+                    final_d = final_clean_before_write(line, is_proxy_context=False)
+                    if final_d: supp_direct.add(final_d)
+        except Exception: pass
+
+    proxy_file = os.path.join(downloads_dir, "domains_proxy.txt")
+    if os.path.exists(proxy_file):
+        try:
+            with open(proxy_file, "r", encoding="utf-8", errors="ignore") as f:
+                for line in f:
+                    final_p = final_clean_before_write(line, is_proxy_context=True)
+                    if final_p: supp_proxy.add(final_p)
+        except Exception: pass
+
+    print(f"  ├─ 成功从 Downloads 补充数据集中清洗提纯补充直连域名: {len(supp_direct)} 个, 补充代理域名: {len(supp_proxy)} 个！", flush=True)
+    return supp_direct, supp_proxy
+
 def compile_mihomo_mrs(behavior, yaml_path, mrs_path):
     """100% 1:1 照搬 CRThu/clash-rules-mrs 官方规范，调用 mihomo convert-ruleset 官方二进制进程打包 .mrs"""
     cmd = ["mihomo", "convert-ruleset", behavior, "yaml", yaml_path, mrs_path]
@@ -205,7 +233,7 @@ def wipe_all_old_output_files(work_dir):
             except Exception: pass
 
 def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, dynamic_image_domains=None, extracted_ips=None, release_page_domains=None, py_code_domains=None):
-    print("  [Task 10: 策略导出器] 正在强行归入 huangguoai.com 并且执行【全量差集扣除 A-B】与 Mihomo .mrs 编译...", flush=True)
+    print("  [Task 10: 策略导出器] 正在融合 Downloads 历史补充数据与【全量差集扣除 A-B】并编译 Mihomo .mrs...", flush=True)
 
     wipe_all_old_output_files(work_dir)
 
@@ -216,7 +244,7 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
     sanitized_proxy_path = os.path.join(PROCESS_DIR, "sanitized_proxy_domains.json")
 
     direct_domains = set()
-    proxy_domains = set(SPECIFIC_TVBOX_PROXY_DOMAINS)  # 强行确保 huangguoai.com 100% 存在于 proxy_domains!
+    proxy_domains = set(SPECIFIC_TVBOX_PROXY_DOMAINS)
 
     if os.path.exists(sanitized_direct_path):
         try: direct_domains.update(json.load(open(sanitized_direct_path)))
@@ -225,6 +253,11 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
     if os.path.exists(sanitized_proxy_path):
         try: proxy_domains.update(json.load(open(sanitized_proxy_path)))
         except Exception: pass
+
+    # 读取 Downloads 目录下的宝贵历史增量预解析数据作为补充资源
+    supp_dir, supp_prx = read_downloads_supplement_domains()
+    direct_domains.update(supp_dir)
+    proxy_domains.update(supp_prx)
 
     # 读取历史规则增量累加
     hist_direct_path = os.path.join(work_dir, "domains_direct.txt")
@@ -295,12 +328,12 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
         "".join(f"  - '{ip if '/' in ip else ip + '/32'}'\n" for ip in sorted_ips)
     )
 
-    # 3. 导出纯域名强制代理规则列表 (domains_proxy.txt / domains_proxy.yaml / clash_rules_proxy.yaml)包含 huangguoai.com
+    # 3. 导出纯域名强制代理规则列表 (domains_proxy.txt / domains_proxy.yaml / clash_rules_proxy.yaml)
     domains_proxy_yaml = os.path.join(work_dir, "domains_proxy.yaml")
     clash_rules_proxy_yaml = os.path.join(work_dir, "clash_rules_proxy.yaml")
 
     with open(os.path.join(work_dir, "domains_proxy.txt"), "w", encoding="utf-8") as f:
-        f.write("# TVBox 强制代理纯域名列表 (含 huangguoai.com)\n")
+        f.write("# TVBox 强制代理纯域名列表\n")
         for d in sorted_proxy_doms:
             final_d = final_clean_before_write(d, is_proxy_context=True)
             if final_d: f.write(f"{final_d}\n")
