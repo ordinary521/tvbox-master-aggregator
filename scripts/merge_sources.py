@@ -4,8 +4,8 @@
  独立脚本一：纯净分类合并器 (merge_sources.py)
 =============================================================================
 重点更新：
-  1. 100% 原封不动完整保留原装 categories (分类数组)、ext、style、header 等全量属性，绝不乱删精简；
-  2. 动态继承 7 大置顶主站的 categories 完整分类标签，彻底解决前几名主站顶部分类丢惨问题；
+  1. 100% 给足给全全量 25+ 影视细分类目 (包含动作片, 喜剧片, 爱情片, 科幻片, 国产剧, 美剧, 韩剧, 泰剧等)，绝不精简 1 个词；
+  2. 100% 还原黄金首页 7 大原装置顶主站坐镇 tvbox.json 最顶端 1~7 名；
   3. 扩充 18+ 黑名单敏感词：加入“叔叔”、“侄女”、“侄女儿”、“cao”、“十八”等词汇；
   4. 确定性拼音 A-Z 优雅排序 + 代码级安全去重 (同名同 API 才合并，同名不同 API 编号保留)；
   5. 100% 零外联网络请求 (0 发包/0 探测)。
@@ -30,13 +30,21 @@ NOT_SUITABLE_DIR = os.path.join(WORK_DIR, "not_suitable")
 os.makedirs(PROCESS_DIR, exist_ok=True)
 os.makedirs(NOT_SUITABLE_DIR, exist_ok=True)
 
+# 全量 25+ 完整细分类目 (绝不精简 1 个词)
+FULL_25_CATEGORIES = [
+    "电影", "电视剧", "动作片", "喜剧片", "爱情片", "科幻片", "恐怖片",
+    "剧情片", "战争片", "悬疑片", "犯罪片", "奇幻片", "动画片",
+    "国产剧", "香港剧", "韩国剧", "欧美剧", "台湾剧", "日本剧", "海外剧", "泰剧",
+    "动漫", "综艺", "纪录片", "短剧"
+]
+
 # 18+ 敏感词过滤正则 (扩展“叔叔”、“侄女”、“侄女儿”、“cao”、“十八”)
 ADULT_KEYWORDS_PATTERN = re.compile(
     r'(色情|无码|有码|麻豆|果冻|天美|果冻传媒|星空传媒|糖心|皇家|精东|九一|91|探花|猎奇|黑料|约炮|自拍|偷拍|黄|成人|AV|乱伦|强奸|变态|国产精品|日韩精品|欧美无码|三级|18\+|性爱|高潮|湿透|强暴|幼女|萝莉|熟女|孕妇|重口|BDSM|SM|绑架|调教|虐待|喷水|口交|乳交|肛交|换妻|群交|破处|大鸟|黑人|巨乳|人妻|奶水|男同|女同|LGBT|勾引|出轨|绿帽|空姐|技师|少妇|后宫|性奴|迷奸|代孕|叔叔|侄女|侄女儿|cao|十八)',
     re.IGNORECASE
 )
 
-# 7 大黄金原装置顶主站基础门面 (TOP_SITES_FACADE_BASE)
+# 7 大黄金原装置顶主站基础门面 (全量 25+ 细分类目坐镇)
 TOP_SITES_FACADE_BASE = [
     {
         "key": "kkys_master",
@@ -46,7 +54,7 @@ TOP_SITES_FACADE_BASE = [
         "searchable": 1,
         "quickSearch": 1,
         "filterable": 1,
-        "categories": ["电影", "连续剧", "动漫", "综艺", "短剧"]
+        "categories": FULL_25_CATEGORIES
     },
     {
         "key": "py_czzy",
@@ -56,7 +64,7 @@ TOP_SITES_FACADE_BASE = [
         "searchable": 1,
         "quickSearch": 1,
         "filterable": 1,
-        "categories": ["电影", "电视剧", "动漫", "综艺", "纪录片"]
+        "categories": FULL_25_CATEGORIES
     },
     {
         "key": "ok_zy",
@@ -65,7 +73,8 @@ TOP_SITES_FACADE_BASE = [
         "api": "http://api.okzyw.net/api.php/provide/vod/from/okm3u8/at/xml",
         "searchable": 1,
         "quickSearch": 1,
-        "filterable": 1
+        "filterable": 1,
+        "categories": FULL_25_CATEGORIES
     },
     {
         "key": "yaya_zy",
@@ -74,7 +83,8 @@ TOP_SITES_FACADE_BASE = [
         "api": "https://cj.yayazy.net/api.php/provide/vod/from/yym3u8/at/xml",
         "searchable": 1,
         "quickSearch": 1,
-        "filterable": 1
+        "filterable": 1,
+        "categories": FULL_25_CATEGORIES
     },
     {
         "key": "360_zy",
@@ -83,7 +93,8 @@ TOP_SITES_FACADE_BASE = [
         "api": "https://360zy.com/api.php/provide/vod?",
         "searchable": 1,
         "quickSearch": 1,
-        "filterable": 1
+        "filterable": 1,
+        "categories": FULL_25_CATEGORIES
     },
     {
         "key": "suoni_zy",
@@ -92,7 +103,8 @@ TOP_SITES_FACADE_BASE = [
         "api": "https://suoniapi.com/api.php/provide/vod/?ac=list",
         "searchable": 1,
         "quickSearch": 1,
-        "filterable": 1
+        "filterable": 1,
+        "categories": FULL_25_CATEGORIES
     },
     {
         "key": "js_zy",
@@ -101,7 +113,8 @@ TOP_SITES_FACADE_BASE = [
         "api": "https://jszyapi.com/api.php/provide/vod/",
         "searchable": 1,
         "quickSearch": 1,
-        "filterable": 1
+        "filterable": 1,
+        "categories": FULL_25_CATEGORIES
     }
 ]
 
@@ -159,7 +172,8 @@ def scan_repos_for_py_spiders():
                             "api": raw_api,
                             "searchable": 1,
                             "quickSearch": 1,
-                            "filterable": 1
+                            "filterable": 1,
+                            "categories": FULL_25_CATEGORIES
                         }
 
                         if not is_adult_content(sname) and not is_adult_content(content[:500]):
@@ -184,37 +198,45 @@ def parse_qist_tvbox_json():
                 data = json.load(f)
                 sites = data.get("sites", [])
                 for s in sites:
-                    # 原封不动保留整个字典 s 的全量属性！
                     api = str(s.get("api", ""))
                     name = str(s.get("name", ""))
                     key = str(s.get("key", ""))
                     dom = extract_surface_domain(api)
                     if dom: surface_domains.add(dom)
 
-                    # 动态捕获并继承 7 大置顶主站的 categories / ext 等完整原装属性：
+                    # 若原节点未定义 categories，补充 25+ 全量细分类目：
+                    if "categories" not in s or not s["categories"]:
+                        s["categories"] = FULL_25_CATEGORIES
+
+                    # 动态捕获并继承 7 大置顶主站的全量属性：
                     if "okzy" in api or "okzyw" in api:
                         s_copy = dict(s)
                         s_copy["name"] = "🔥OK-资源"
+                        s_copy["categories"] = FULL_25_CATEGORIES
                         facade_sites_map["ok_zy"] = s_copy
                         continue
                     elif "360zy" in api:
                         s_copy = dict(s)
                         s_copy["name"] = "🦚360┃采集"
+                        s_copy["categories"] = FULL_25_CATEGORIES
                         facade_sites_map["360_zy"] = s_copy
                         continue
                     elif "suoni" in api:
                         s_copy = dict(s)
                         s_copy["name"] = "🐉索尼┃高清4K"
+                        s_copy["categories"] = FULL_25_CATEGORIES
                         facade_sites_map["suoni_zy"] = s_copy
                         continue
                     elif "jszy" in api:
                         s_copy = dict(s)
                         s_copy["name"] = "⚡极速┃云播"
+                        s_copy["categories"] = FULL_25_CATEGORIES
                         facade_sites_map["js_zy"] = s_copy
                         continue
                     elif "yayazy" in api:
                         s_copy = dict(s)
                         s_copy["name"] = "🦆鸭鸭资源"
+                        s_copy["categories"] = FULL_25_CATEGORIES
                         facade_sites_map["yaya_zy"] = s_copy
                         continue
 
@@ -241,13 +263,11 @@ def deduplicate_sites_safely(raw_sites):
         api_val = str(s.get("api", "")).strip()
         name_val = str(s.get("name", "")).strip()
 
-        # 1. 名称相同且 api 链接 100% 相同的真实重复节点 ➔ 合并去重
         dedup_key = f"{name_val}:::{api_val}"
         if dedup_key in seen_api_set:
             continue
         seen_api_set.add(dedup_key)
 
-        # 2. 名称相同但 api 链接不同 (不同切片源) ➔ 100% 完整保留，重命名区分 [二]、[三]
         if name_val in name_count_map:
             name_count_map[name_val] += 1
             num_str = ["二", "三", "四", "五", "六", "七", "八", "九", "十"][min(name_count_map[name_val] - 2, 8)]
@@ -260,12 +280,11 @@ def deduplicate_sites_safely(raw_sites):
     return clean_sites
 
 def merge_sources():
-    print("  [01_merge_sources] 开始全量资源合并、categories 原装属性完整保留与安全去重 (0 联网发包版)...", flush=True)
+    print("  [01_merge_sources] 开始全量资源合并、25+ 全量细分类目填充与安全去重 (0 联网发包版)...", flush=True)
 
     py_sites, py_domains = scan_repos_for_py_spiders()
     qist_sites, adult_sites, qist_domains, facade_sites_map = parse_qist_tvbox_json()
 
-    # 动态将原装库里富含 categories 的字典替换回置顶门面列表
     top_facade_full = []
     for base_node in TOP_SITES_FACADE_BASE:
         fkey = base_node["key"]
@@ -293,7 +312,7 @@ def merge_sources():
         json.dumps(grouped_data, ensure_ascii=False, indent=2)
     )
 
-    # 写盘 tvbox.json (100% 完整保留 categories、ext、style、header 等原装全量属性！)
+    # 写盘 tvbox.json (给足给全全量 25+ 影视细分类目！)
     tvbox_data = {"sites": all_clean_sites}
     open(os.path.join(WORK_DIR, "tvbox.json"), "w", encoding="utf-8").write(
         json.dumps(tvbox_data, ensure_ascii=False, indent=2)
@@ -314,7 +333,7 @@ def merge_sources():
     live_content = "# IPTV 纯净直播源\nCCTV-1,http://111.13.138.83/m3u8/cctv1.m3u8\nCCTV-13,http://111.13.138.83/m3u8/cctv13.m3u8\n"
     open(os.path.join(WORK_DIR, "live.txt"), "w", encoding="utf-8").write(live_content)
 
-    print(f"  └─ [01_merge_sources] 100% 完整保留原装 categories 属性，收录 {len(all_clean_sites)} 个纯净站点！", flush=True)
+    print(f"  └─ [01_merge_sources] 25+ 全量细分类目给足，收录 {len(all_clean_sites)} 个纯净站点！", flush=True)
     return all_clean_sites
 
 if __name__ == "__main__":
