@@ -1,2 +1,7 @@
-# TVBox 强制代理纯域名列表
+# TVBox 强制代理纯域名列表 (含 huangguoai.com)
+gfw.press
 huangguoai.com
+image.tmdb.org
+themoviedb.org
+tmdb.org
+v2fly.org

@@ -7,7 +7,14 @@
       "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/scripts/kkys_master.py",
       "searchable": 1,
       "quickSearch": 1,
-      "filterable": 1
+      "filterable": 1,
+      "categories": [
+        "电影",
+        "连续剧",
+        "动漫",
+        "综艺",
+        "短剧"
+      ]
     },
     {
       "key": "py_czzy",
@@ -16,7 +23,14 @@
       "api": "https://raw.githubusercontent.com/jie20091116/cat/main/TVBOX/PY/czzy.py",
       "searchable": 1,
       "quickSearch": 1,
-      "filterable": 1
+      "filterable": 1,
+      "categories": [
+        "电影",
+        "电视剧",
+        "动漫",
+        "综艺",
+        "纪录片"
+      ]
     },
     {
       "key": "ok_zy",
@@ -559,24 +573,6 @@
       "filterable": 1
     },
     {
-      "key": "py_caoliushequ",
-      "name": "caoliu28",
-      "type": 3,
-      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/caoliushequ.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
-      "key": "py_caomeiyingshi",
-      "name": "caomeiyingshi",
-      "type": 3,
-      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/caomeiyingshi.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
       "key": "py_catemby",
       "name": "catemby",
       "type": 3,
@@ -641,7 +637,7 @@
     },
     {
       "key": "py_采集合集",
-      "name": "CjJson_SingleFile_Ultimate",
+      "name": "CjJson_Ultimate_Pro",
       "type": 3,
       "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/采集合集.py",
       "searchable": 1,
@@ -2377,15 +2373,6 @@
       "filterable": 1
     },
     {
-      "key": "py_zhuancaoxiaohua",
-      "name": "zhuancaoxiaohua",
-      "type": 3,
-      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/zhuancaoxiaohua.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
       "key": "py_zhuiying",
       "name": "zhuiying",
       "type": 3,
@@ -2921,15 +2908,6 @@
       "name": "厂长资源 [三]",
       "type": 3,
       "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/qist/py/Czsapp.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
-    },
-    {
-      "key": "py_叔叔和侄女",
-      "name": "叔叔和侄女",
-      "type": 3,
-      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/叔叔和侄女.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -4226,6 +4204,15 @@
       "name": "海马影视",
       "type": 3,
       "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/海马影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_深夜短剧",
+      "name": "深夜短剧",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/深夜短剧.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -5909,6 +5896,2337 @@
       "name": "🌟 EcoHub 影视",
       "type": 3,
       "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/EcoHubyingshi.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 123视频(关梯).py｜🔞",
+      "name": "🦋 123视频(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 123视频(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 18J.py｜🔞",
+      "name": "🦋 18J.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 18J.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 18jtv.py｜🔞",
+      "name": "🦋 18jtv.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 18jtv.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 18Today(关梯).py｜🔞",
+      "name": "🦋 18Today(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 18Today(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 2048核基地.py(关梯)🔞",
+      "name": "🦋 2048核基地.py(关梯)🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 2048核基地.py(关梯)🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 51大赛.py｜🔞",
+      "name": "🦋 51大赛.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 51大赛.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 51暗网.py｜🔞",
+      "name": "🦋 51暗网.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 51暗网.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 51爆料.py｜🔞",
+      "name": "🦋 51爆料.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 51爆料.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 51短剧.py｜🔞",
+      "name": "🦋 51短剧.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 51短剧.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 51视频.py｜🔞",
+      "name": "🦋 51视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 51视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 57短剧(免翻).py｜🔞",
+      "name": "🦋 57短剧(免翻).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 57短剧(免翻).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 5X5X(关梯).py｜🔞",
+      "name": "🦋 5X5X(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 5X5X(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 66在线.py｜🔞",
+      "name": "🦋 66在线.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 66在线.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 777午夜影院.py｜🔞",
+      "name": "🦋 777午夜影院.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 777午夜影院.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 8X8X.py｜🔞",
+      "name": "🦋 8X8X.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 8X8X.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 9g88x.py(关梯)｜🔞",
+      "name": "🦋 9g88x.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 9g88x.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [动漫]HS日本4K动漫.py🔞",
+      "name": "🦋 [动漫]HS日本4K动漫.py🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [动漫]HS日本4K动漫.py🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [动漫]NaughtyMachinima.py🔞",
+      "name": "🦋 [动漫]NaughtyMachinima.py🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [动漫]NaughtyMachinima.py🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [动漫]樱花动漫.py🔞",
+      "name": "🦋 [动漫]樱花动漫.py🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [动漫]樱花动漫.py🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [听书]有声骚麦.py｜🔞",
+      "name": "🦋 [听书]有声骚麦.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [听书]有声骚麦.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [直播]Cam4直播.py｜🔞",
+      "name": "🦋 [直播]Cam4直播.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [直播]Cam4直播.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [直播]Chaturbate2直播.py｜🔞",
+      "name": "🦋 [直播]Chaturbate2直播.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [直播]Chaturbate2直播.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [直播]Chaturbate直播.py｜🔞",
+      "name": "🦋 [直播]Chaturbate直播.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [直播]Chaturbate直播.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [直播]myfreecams直播.py｜🔞",
+      "name": "🦋 [直播]myfreecams直播.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [直播]myfreecams直播.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [直播]stripchat直播.py｜🔞",
+      "name": "🦋 [直播]stripchat直播.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [直播]stripchat直播.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [直播]色播聚合.py｜🔞",
+      "name": "🦋 [直播]色播聚合.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [直播]色播聚合.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [直播]韩国Pandalive直播.py｜🔞",
+      "name": "🦋 [直播]韩国Pandalive直播.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [直播]韩国Pandalive直播.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [短剧]一抖阁.py｜🔞",
+      "name": "🦋 [短剧]一抖阁.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [短剧]一抖阁.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [短剧]狂飙短剧.py｜🔞",
+      "name": "🦋 [短剧]狂飙短剧.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [短剧]狂飙短剧.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [短视频]PornTok(开梯).py｜🔞",
+      "name": "🦋 [短视频]PornTok(开梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [短视频]PornTok(开梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [短视频]TikTok(开梯).py｜🔞",
+      "name": "🦋 [短视频]TikTok(开梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [短视频]TikTok(开梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 [采集]采集聚合｜🔞",
+      "name": "🦋 [采集]采集聚合｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 [采集]采集聚合｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 AI漫剧.py｜🔞",
+      "name": "🦋 AI漫剧.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 AI漫剧.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 BadNews.py｜🔞(挂梯)",
+      "name": "🦋 BadNews.py｜🔞(挂梯)",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 BadNews.py｜🔞(挂梯).py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 Beeg.py｜🔞",
+      "name": "🦋 Beeg.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 Beeg.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 B•Hanime(免翻).py｜🔞",
+      "name": "🦋 B•Hanime(免翻).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 B•Hanime(免翻).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 B•Jable(免翻).py｜🔞",
+      "name": "🦋 B•Jable(免翻).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 B•Jable(免翻).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 B•SuperPorn(免翻).py｜🔞",
+      "name": "🦋 B•SuperPorn(免翻).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 B•SuperPorn(免翻).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 B•XV123(免翻).py｜🔞",
+      "name": "🦋 B•XV123(免翻).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 B•XV123(免翻).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 B•YesPorn(免翻).py｜🔞",
+      "name": "🦋 B•YesPorn(免翻).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 B•YesPorn(免翻).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 B•大哥视频(免翻).py｜🔞",
+      "name": "🦋 B•大哥视频(免翻).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 B•大哥视频(免翻).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 B•好色TV(免翻).py｜🔞",
+      "name": "🦋 B•好色TV(免翻).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 B•好色TV(免翻).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 B•肉视频(免翻).py｜🔞",
+      "name": "🦋 B•肉视频(免翻).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 B•肉视频(免翻).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 B•蝴蝶影院(免翻).py｜🔞",
+      "name": "🦋 B•蝴蝶影院(免翻).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 B•蝴蝶影院(免翻).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 CHX站.py｜🔞",
+      "name": "🦋 CHX站.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 CHX站.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 DSYS(py)｜🔞",
+      "name": "🦋 DSYS(py)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 DSYS(py)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 EPORNER.py｜🔞",
+      "name": "🦋 EPORNER.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 EPORNER.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 FreePorn(开梯).py｜🔞",
+      "name": "🦋 FreePorn(开梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 FreePorn(开梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 fulao2.py｜🔞",
+      "name": "🦋 fulao2.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 fulao2.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 fulleroticmovies怀旧经典.py｜🔞",
+      "name": "🦋 fulleroticmovies怀旧经典.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 fulleroticmovies怀旧经典.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 fullhd.py｜🔞",
+      "name": "🦋 fullhd.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 fullhd.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 GDD视频.py｜🔞",
+      "name": "🦋 GDD视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 GDD视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 GG51.py｜🔞",
+      "name": "🦋 GG51.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 GG51.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 Hanime(py)｜🔞",
+      "name": "🦋 Hanime(py)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 Hanime(py)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 HOHO(开梯).py｜🔞",
+      "name": "🦋 HOHO(开梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 HOHO(开梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 hqg.py｜🔞",
+      "name": "🦋 hqg.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 hqg.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 hubff.py｜🔞",
+      "name": "🦋 hubff.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 hubff.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 Huoporn.py｜🔞",
+      "name": "🦋 Huoporn.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 Huoporn.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 iSese影库.py｜🔞",
+      "name": "🦋 iSese影库.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 iSese影库.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 kemono(py)｜🔞",
+      "name": "🦋 kemono(py)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 kemono(py)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 kiss.py｜🔞",
+      "name": "🦋 kiss.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 kiss.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 lmlgdjr.py｜🔞",
+      "name": "🦋 lmlgdjr.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 lmlgdjr.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 netfapx.py｜🔞",
+      "name": "🦋 netfapx.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 netfapx.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 one点播.py(开梯)｜🔞",
+      "name": "🦋 one点播.py(开梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 one点播.py(开梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 Pornhub.py｜🔞",
+      "name": "🦋 Pornhub.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 Pornhub.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 pornlulu.py｜🔞",
+      "name": "🦋 pornlulu.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 pornlulu.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 tideember.py｜🔞",
+      "name": "🦋 tideember.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 tideember.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 TnAflix.py｜🔞",
+      "name": "🦋 TnAflix.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 TnAflix.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 TOPTV.py｜🔞",
+      "name": "🦋 TOPTV.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 TOPTV.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 Twitter精选.py｜🔞",
+      "name": "🦋 Twitter精选.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 Twitter精选.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 UAA.py｜🔞",
+      "name": "🦋 UAA.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 UAA.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 UU视视APP.py｜🔞",
+      "name": "🦋 UU视视APP.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 UU视视APP.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 vf(py)｜🔞",
+      "name": "🦋 vf(py)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 vf(py)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 VF四级老片.py｜🔞",
+      "name": "🦋 VF四级老片.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 VF四级老片.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 VHUB.py｜🔞",
+      "name": "🦋 VHUB.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 VHUB.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 VV视频.py｜🔞",
+      "name": "🦋 VV视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 VV视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 xhamster.py｜🔞",
+      "name": "🦋 xhamster.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 xhamster.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 Xvideos.py｜🔞",
+      "name": "🦋 Xvideos.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 Xvideos.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 XX01.py｜🔞",
+      "name": "🦋 XX01.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 XX01.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 xxbrits.py｜🔞",
+      "name": "🦋 xxbrits.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 xxbrits.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 一个区(py)｜🔞",
+      "name": "🦋 一个区(py)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 一个区(py)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 一牛影视.py｜🔞",
+      "name": "🦋 一牛影视.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 一牛影视.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 一直看.py｜🔞",
+      "name": "🦋 一直看.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 一直看.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 一起草.py(关梯)｜🔞",
+      "name": "🦋 一起草.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 一起草.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 七猫短剧.py｜🔞",
+      "name": "🦋 七猫短剧.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 七猫短剧.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 七色谷.py｜🔞",
+      "name": "🦋 七色谷.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 七色谷.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 三流视频.py｜🔞",
+      "name": "🦋 三流视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 三流视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 专草校花.py｜🔞",
+      "name": "🦋 专草校花.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 专草校花.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 东方色文化.py｜🔞",
+      "name": "🦋 东方色文化.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 东方色文化.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 丝袜乐土.py｜🔞",
+      "name": "🦋 丝袜乐土.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 丝袜乐土.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 久久視頻.py｜🔞",
+      "name": "🦋 久久視頻.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 久久視頻.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 乐园.py｜🔞",
+      "name": "🦋 乐园.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 乐园.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 九亿少女.py｜🔞",
+      "name": "🦋 九亿少女.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 九亿少女.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 九合一(免翻).py｜🔞",
+      "name": "🦋 九合一(免翻).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 九合一(免翻).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 九阴争茎.py｜🔞",
+      "name": "🦋 九阴争茎.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 九阴争茎.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 五合一(免翻)",
+      "name": "🦋 五合一(免翻)",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 五合一(免翻).py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 五月天.py｜🔞",
+      "name": "🦋 五月天.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 五月天.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 五月星空.py｜🔞",
+      "name": "🦋 五月星空.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 五月星空.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 亚色影库.py🔞",
+      "name": "🦋 亚色影库.py🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 亚色影库.py🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 京东淫联.py｜🔞",
+      "name": "🦋 京东淫联.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 京东淫联.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 今日看料.py｜🔞",
+      "name": "🦋 今日看料.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 今日看料.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 优质粉嫩鲍.py｜🔞",
+      "name": "🦋 优质粉嫩鲍.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 优质粉嫩鲍.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 你的秘书.py｜🔞",
+      "name": "🦋 你的秘书.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 你的秘书.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 倒茶小妹(关梯).py｜🔞",
+      "name": "🦋 倒茶小妹(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 倒茶小妹(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 儿子上穴.py｜🔞",
+      "name": "🦋 儿子上穴.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 儿子上穴.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 午夜剧场.py｜🔞",
+      "name": "🦋 午夜剧场.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 午夜剧场.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 午夜影视.py｜🔞",
+      "name": "🦋 午夜影视.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 午夜影视.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 吉利猫.py｜🔞",
+      "name": "🦋 吉利猫.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 吉利猫.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 向上影院.py｜🔞",
+      "name": "🦋 向上影院.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 向上影院.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 唯美精品.py｜🔞",
+      "name": "🦋 唯美精品.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 唯美精品.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 善良的小姨子.py｜🔞",
+      "name": "🦋 善良的小姨子.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 善良的小姨子.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 善解人衣.py｜🔞",
+      "name": "🦋 善解人衣.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 善解人衣.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 四色.py(关梯)｜🔞",
+      "name": "🦋 四色.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 四色.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 四虎视频.py｜🔞",
+      "name": "🦋 四虎视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 四虎视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 国色天香.py｜🔞",
+      "name": "🦋 国色天香.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 国色天香.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 夜夜春梦（刁民）.py｜🔞",
+      "name": "🦋 夜夜春梦（刁民）.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 夜夜春梦（刁民）.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 夜社短剧（刁民）.py｜🔞",
+      "name": "🦋 夜社短剧（刁民）.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 夜社短剧（刁民）.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 夜色.py｜🔞",
+      "name": "🦋 夜色.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 夜色.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 大屌视频.py｜🔞",
+      "name": "🦋 大屌视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 大屌视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 大米星球.py(关梯)｜🔞",
+      "name": "🦋 大米星球.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 大米星球.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 大象影视.py(关梯)｜🔞",
+      "name": "🦋 大象影视.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 大象影视.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 大鸡吧.py｜🔞",
+      "name": "🦋 大鸡吧.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 大鸡吧.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 女学生.py｜🔞",
+      "name": "🦋 女学生.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 女学生.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 奶糖视频.py｜🔞",
+      "name": "🦋 奶糖视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 奶糖视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 好莱污影院.py｜🔞",
+      "name": "🦋 好莱污影院.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 好莱污影院.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 寂寞阿姨.py｜🔞",
+      "name": "🦋 寂寞阿姨.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 寂寞阿姨.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 密云视频.py｜🔞",
+      "name": "🦋 密云视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 密云视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 小处女(关梯).py｜🔞",
+      "name": "🦋 小处女(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 小处女(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 小学妹.py｜🔞",
+      "name": "🦋 小学妹.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 小学妹.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 小心御欲.py｜🔞",
+      "name": "🦋 小心御欲.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 小心御欲.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 小涩界.py｜🔞",
+      "name": "🦋 小涩界.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 小涩界.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 小男娘.py｜🔞",
+      "name": "🦋 小男娘.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 小男娘.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 小红薯APP.py｜🔞",
+      "name": "🦋 小红薯APP.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 小红薯APP.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 幸福加油站.py｜🔞",
+      "name": "🦋 幸福加油站.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 幸福加油站.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 弟大勿勃.py｜🔞",
+      "name": "🦋 弟大勿勃.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 弟大勿勃.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 徐娘阁.py｜🔞",
+      "name": "🦋 徐娘阁.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 徐娘阁.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 怀旧经典.py｜🔞",
+      "name": "🦋 怀旧经典.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 怀旧经典.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 怡红院.py｜🔞",
+      "name": "🦋 怡红院.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 怡红院.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 怦然心动.py｜🔞",
+      "name": "🦋 怦然心动.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 怦然心动.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 性运机场.py(关梯)｜🔞",
+      "name": "🦋 性运机场.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 性运机场.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 悟空传媒.py🔞",
+      "name": "🦋 悟空传媒.py🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 悟空传媒.py🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 悠悠乐园(关梯).py｜🔞",
+      "name": "🦋 悠悠乐园(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 悠悠乐园(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 房中㊙️术.py｜🔞",
+      "name": "🦋 房中㊙️术.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 房中㊙️术.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 手鸡助手.py｜🔞",
+      "name": "🦋 手鸡助手.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 手鸡助手.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 抖阴.py｜🔞",
+      "name": "🦋 抖阴.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 抖阴.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 抠爆B处(关梯).py｜🔞",
+      "name": "🦋 抠爆B处(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 抠爆B处(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 拍摄现场.py｜🔞",
+      "name": "🦋 拍摄现场.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 拍摄现场.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 换母俱乐部.py｜🔞",
+      "name": "🦋 换母俱乐部.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 换母俱乐部.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 推特APP.py｜🔞",
+      "name": "🦋 推特APP.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 推特APP.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 推特涩涩.py｜🔞",
+      "name": "🦋 推特涩涩.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 推特涩涩.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 撸上天.py｜🔞",
+      "name": "🦋 撸上天.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 撸上天.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 撸状元.py｜🔞",
+      "name": "🦋 撸状元.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 撸状元.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 撸王宝典.py｜🔞",
+      "name": "🦋 撸王宝典.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 撸王宝典.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 教授.py🔞",
+      "name": "🦋 教授.py🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 教授.py🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 日久生情（刁民）.py｜🔞",
+      "name": "🦋 日久生情（刁民）.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 日久生情（刁民）.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 暗黑蜜桃.py｜🔞",
+      "name": "🦋 暗黑蜜桃.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 暗黑蜜桃.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 有料.py｜🔞",
+      "name": "🦋 有料.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 有料.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 望春视频.py｜🔞",
+      "name": "🦋 望春视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 望春视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 权色视频.py｜🔞",
+      "name": "🦋 权色视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 权色视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 杏吧视频.py｜🔞",
+      "name": "🦋 杏吧视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 杏吧视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 极品少女.py｜🔞",
+      "name": "🦋 极品少女.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 极品少女.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 柳州丈母.py｜🔞",
+      "name": "🦋 柳州丈母.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 柳州丈母.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 梦醉春秋.py｜🔞",
+      "name": "🦋 梦醉春秋.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 梦醉春秋.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 樱花传媒.py｜🔞",
+      "name": "🦋 樱花传媒.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 樱花传媒.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 橘子资源.py｜🔞",
+      "name": "🦋 橘子资源.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 橘子资源.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 橘汁视频",
+      "name": "🦋 橘汁视频",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 橘汁视频.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 橙果短剧.py｜🔞",
+      "name": "🦋 橙果短剧.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 橙果短剧.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 欧美影.py｜🔞",
+      "name": "🦋 欧美影.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 欧美影.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 欲女心经.py｜🔞",
+      "name": "🦋 欲女心经.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 欲女心经.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 母夜插插插.py｜🔞",
+      "name": "🦋 母夜插插插.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 母夜插插插.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 每日大乱斗.py｜🔞",
+      "name": "🦋 每日大乱斗.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 每日大乱斗.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 每日大赛.py｜🔞",
+      "name": "🦋 每日大赛.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 每日大赛.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 气泡视频.py｜🔞",
+      "name": "🦋 气泡视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 气泡视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 水兰亭.py｜🔞",
+      "name": "🦋 水兰亭.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 水兰亭.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 永乐视频",
+      "name": "🦋 永乐视频",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 永乐视频.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 汤头条(开梯).py｜🔞",
+      "name": "🦋 汤头条(开梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 汤头条(开梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 河马影视.py｜🔞",
+      "name": "🦋 河马影视.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 河马影视.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 泡泡屋.py｜🔞",
+      "name": "🦋 泡泡屋.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 泡泡屋.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 浪巢福地(关梯).py｜🔞",
+      "name": "🦋 浪巢福地(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 浪巢福地(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 浮生影院.py｜🔞",
+      "name": "🦋 浮生影院.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 浮生影院.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 海角.py｜🔞",
+      "name": "🦋 海角.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 海角.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 海角情(开梯).py｜🔞",
+      "name": "🦋 海角情(开梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 海角情(开梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 淫兽穴院.py｜🔞",
+      "name": "🦋 淫兽穴院.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 淫兽穴院.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 淫母原味.py｜🔞",
+      "name": "🦋 淫母原味.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 淫母原味.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 淫水洞.py(关梯)｜🔞",
+      "name": "🦋 淫水洞.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 淫水洞.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 淫荡阁.py｜🔞",
+      "name": "🦋 淫荡阁.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 淫荡阁.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 深夜电影.py｜🔞",
+      "name": "🦋 深夜电影.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 深夜电影.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 清纯富婆.py｜🔞",
+      "name": "🦋 清纯富婆.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 清纯富婆.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 溏心次元.py(关梯)｜🔞",
+      "name": "🦋 溏心次元.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 溏心次元.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 熊猫视频.py｜🔞",
+      "name": "🦋 熊猫视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 熊猫视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 熟妇天堂.py｜🔞",
+      "name": "🦋 熟妇天堂.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 熟妇天堂.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 爆操留学生(关梯).py｜🔞",
+      "name": "🦋 爆操留学生(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 爆操留学生(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 爆片库.py🔞",
+      "name": "🦋 爆片库.py🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 爆片库.py🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 爆瓜网.py｜🔞",
+      "name": "🦋 爆瓜网.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 爆瓜网.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 爆色.py｜🔞",
+      "name": "🦋 爆色.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 爆色.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 爽水妹.py｜🔞",
+      "name": "🦋 爽水妹.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 爽水妹.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 狼友天堂.py｜🔞",
+      "name": "🦋 狼友天堂.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 狼友天堂.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 猫咪TV.py｜🔞",
+      "name": "🦋 猫咪TV.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 猫咪TV.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 玉蚌含珠.py｜🔞",
+      "name": "🦋 玉蚌含珠.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 玉蚌含珠.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 玩物社区(开梯).py｜🔞",
+      "name": "🦋 玩物社区(开梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 玩物社区(开梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 玩蛋吧.py｜🔞",
+      "name": "🦋 玩蛋吧.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 玩蛋吧.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 男人本色.py｜🔞",
+      "name": "🦋 男人本色.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 男人本色.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 百合TV.py｜🔞",
+      "name": "🦋 百合TV.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 百合TV.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 百年直播.py｜🔞",
+      "name": "🦋 百年直播.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 百年直播.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 直播录屏.py｜🔞",
+      "name": "🦋 直播录屏.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 直播录屏.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 真实未流出.py｜🔞",
+      "name": "🦋 真实未流出.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 真实未流出.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 神秘电影.py｜🔞",
+      "name": "🦋 神秘电影.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 神秘电影.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 禁果短剧.py｜🔞",
+      "name": "🦋 禁果短剧.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 禁果短剧.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 禁片天堂.py｜🔞",
+      "name": "🦋 禁片天堂.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 禁片天堂.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 福利天堂.py🔞",
+      "name": "🦋 福利天堂.py🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 福利天堂.py🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 秀秀.py｜🔞",
+      "name": "🦋 秀秀.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 秀秀.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 私房研究所.py｜🔞",
+      "name": "🦋 私房研究所.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 私房研究所.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 笔盒.py｜🔞",
+      "name": "🦋 笔盒.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 笔盒.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 第七区.py｜🔞",
+      "name": "🦋 第七区.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 第七区.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 精仙阁.py｜🔞",
+      "name": "🦋 精仙阁.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 精仙阁.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 精英突击.py(关梯)｜🔞",
+      "name": "🦋 精英突击.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 精英突击.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 红杏视界(关梯).py｜🔞",
+      "name": "🦋 红杏视界(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 红杏视界(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 绅士影视",
+      "name": "🦋 绅士影视",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 绅士影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 经典老片.py｜🔞",
+      "name": "🦋 经典老片.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 经典老片.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 美人姬.py｜🔞",
+      "name": "🦋 美人姬.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 美人姬.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 臻美视界(关梯).py｜🔞",
+      "name": "🦋 臻美视界(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 臻美视界(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 色即空.py｜🔞",
+      "name": "🦋 色即空.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 色即空.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 色吧资源.py｜🔞",
+      "name": "🦋 色吧资源.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 色吧资源.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 色播聚合(py)｜🔞",
+      "name": "🦋 色播聚合(py)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 色播聚合(py)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 色牛秒播(关梯).py｜🔞",
+      "name": "🦋 色牛秒播(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 色牛秒播(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 色花堂视频.py｜🔞",
+      "name": "🦋 色花堂视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 色花堂视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 艾旦影视.py｜🔞",
+      "name": "🦋 艾旦影视.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 艾旦影视.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 花千色.py｜🔞",
+      "name": "🦋 花千色.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 花千色.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 花街影院.py｜🔞",
+      "name": "🦋 花街影院.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 花街影院.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 花都影视.py(关梯)｜🔞",
+      "name": "🦋 花都影视.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 花都影视.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 草榴社区.py(关梯)｜🔞",
+      "name": "🦋 草榴社区.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 草榴社区.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 草榴视频区.py｜🔞",
+      "name": "🦋 草榴视频区.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 草榴视频区.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 草草(关梯).py｜🔞",
+      "name": "🦋 草草(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 草草(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 蘑菇影院.py｜🔞",
+      "name": "🦋 蘑菇影院.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 蘑菇影院.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 蜜桃源.py｜🔞",
+      "name": "🦋 蜜桃源.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 蜜桃源.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 西瓜视频.py(关梯)｜🔞",
+      "name": "🦋 西瓜视频.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 西瓜视频.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 路漫漫",
+      "name": "🦋 路漫漫",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 路漫漫.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 酒与花.py｜🔞",
+      "name": "🦋 酒与花.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 酒与花.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 采花大盗.py｜🔞",
+      "name": "🦋 采花大盗.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 采花大盗.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 野果短剧.py｜🔞",
+      "name": "🦋 野果短剧.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 野果短剧.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 野马中文.py｜🔞",
+      "name": "🦋 野马中文.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 野马中文.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 阴阳宝鉴.py｜🔞",
+      "name": "🦋 阴阳宝鉴.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 阴阳宝鉴.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 陌陌一夜情.py｜🔞",
+      "name": "🦋 陌陌一夜情.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 陌陌一夜情.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 霸王鸟视频(关梯).py｜🔞",
+      "name": "🦋 霸王鸟视频(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 霸王鸟视频(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 青禾视界(关梯).py｜🔞",
+      "name": "🦋 青禾视界(关梯).py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 青禾视界(关梯).py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 青蛙视频.py(关梯)｜🔞",
+      "name": "🦋 青蛙视频.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 青蛙视频.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 韩剧巴士.py🔞",
+      "name": "🦋 韩剧巴士.py🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 韩剧巴士.py🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 风欲.py｜🔞",
+      "name": "🦋 风欲.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 风欲.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 香女园.py｜🔞",
+      "name": "🦋 香女园.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 香女园.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 香肠派对.py｜🔞",
+      "name": "🦋 香肠派对.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 香肠派对.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 香蕉短剧.py｜🔞",
+      "name": "🦋 香蕉短剧.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 香蕉短剧.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 香蕉视频(py)｜🔞",
+      "name": "🦋 香蕉视频(py)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 香蕉视频(py)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 香蕉视频.py(关梯)｜🔞",
+      "name": "🦋 香蕉视频.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 香蕉视频.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 骚女档案馆.py｜🔞",
+      "name": "🦋 骚女档案馆.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 骚女档案馆.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 高清SEX.py｜🔞",
+      "name": "🦋 高清SEX.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 高清SEX.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 高端视频.py｜🔞",
+      "name": "🦋 高端视频.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 高端视频.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 高考模拟.py｜🔞",
+      "name": "🦋 高考模拟.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 高考模拟.py｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 魑魅魍魉.py(关梯)｜🔞",
+      "name": "🦋 魑魅魍魉.py(关梯)｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 魑魅魍魉.py(关梯)｜🔞.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
+      "key": "py_🦋 魔色365.py｜🔞",
+      "name": "🦋 魔色365.py｜🔞",
+      "type": 3,
+      "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/repos/cat/TVBOX/PY/🦋 魔色365.py｜🔞.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
