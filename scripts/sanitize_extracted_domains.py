@@ -27,6 +27,12 @@ WORK_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROCESS_DIR = os.path.join(WORK_DIR, "process")
 os.makedirs(PROCESS_DIR, exist_ok=True)
 
+# 18+ 敏感词过滤正则 (扩展“叔叔”、“侄女”、“侄女儿”、“cao”、“十八”)
+ADULT_KEYWORDS_PATTERN = re.compile(
+    r'(色情|无码|有码|麻豆|果冻|天美|果冻传媒|星空传媒|糖心|皇家|精东|九一|91|探花|猎奇|黑料|约炮|自拍|偷拍|黄|成人|AV|乱伦|强奸|变态|国产精品|日韩精品|欧美无码|三级|18\+|性爱|高潮|湿透|强暴|幼女|萝莉|熟女|孕妇|重口|BDSM|SM|绑架|调教|虐待|喷水|口交|乳交|肛交|换妻|群交|破处|大鸟|黑人|巨乳|人妻|奶水|男同|女同|LGBT|勾引|出轨|绿帽|空姐|技师|少妇|后宫|性奴|迷奸|代孕|叔叔|侄女|侄女儿|cao|十八)',
+    re.IGNORECASE
+)
+
 SPECIFIC_TVBOX_PROXY_DOMAINS = [
     "tmdb.org", "themoviedb.org", "huangguoai.com", "v2fly.org", "gfw.press"
 ]
@@ -35,7 +41,6 @@ INVALID_FILE_EXTENSIONS = [
     "json", "txt", "m3u8", "ts", "js", "css", "html", "htm", "png", "jpg", "jpeg", "webp", "php", "mp4", "mkv", "flv"
 ]
 
-# 严格 RFC 1035/1123 国际标准 FQDN 域名正则
 RFC_1035_FQDN_REGEX = re.compile(
     r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,18}$'
 )
@@ -50,33 +55,24 @@ def sanitize_and_validate_domain(raw_dom):
     if not raw_dom or not isinstance(raw_dom, str):
         return None, False
 
-    # === 步骤 2：强力语法清洗与字符修复 ===
     clean = str(raw_dom).replace('&amp;', '&').replace('\\/', '/').replace('\\', '').strip()
     clean = clean.split('#')[0].split('?')[0].split('&')[0].split(';')[0].split('%')[0].split(',')[0].strip()
 
-    # 擦除尾巴乱码与多余大括号 (例如 3qu.live{0} ➔ 3qu.live)
     clean = re.sub(r'\{[0-9]*\}$', '', clean)
     clean = re.sub(r'\[[0-9]*\]$', '', clean)
 
-    # 擦除协议头与双斜杠
     clean = re.sub(r'^https?://', '', clean, flags=re.I)
     clean = re.sub(r'^//', '', clean)
 
-    # 擦除所有残存的单斜杠 /、双斜杠 // 与反斜杠 \
     clean = clean.replace('/', '').replace('\\', '').strip()
-
-    # 剥离端口号与问号
     clean = clean.split(":")[0].strip("@|*^ \t\r\n'\"").lower()
 
     if not clean or clean.startswith(".") or "." not in clean:
         return None, False
 
-    # === 步骤 3：tldextract 国际库 + RFC 1035 正则 双重保险检测 ===
-    # 检测 A：RFC 1035/1123 国际标准 FQDN 正则校验
     if not RFC_1035_FQDN_REGEX.match(clean):
         return None, False
 
-    # 检测 B：tldextract (Mozilla Public Suffix List 规则库) 权威校验
     ext = tldextract.extract(clean)
     if not ext.domain or not ext.suffix:
         return None, False
@@ -87,7 +83,6 @@ def sanitize_and_validate_domain(raw_dom):
     if tld in INVALID_FILE_EXTENSIONS or prefix in INVALID_FILE_EXTENSIONS:
         return None, False
 
-    # 判断是否属于专用代理域名
     is_proxy = any(clean == pd or clean.endswith("." + pd) for pd in SPECIFIC_TVBOX_PROXY_DOMAINS)
 
     return clean, is_proxy
@@ -95,7 +90,6 @@ def sanitize_and_validate_domain(raw_dom):
 def process_data_sanitization():
     print("  [步骤 2&3: 语法清洗与双重保险检测] 正在对全量原始候选域名执行先清洗还原、后双重检测...", flush=True)
 
-    # === 步骤 1：原样全量捕获原始候选字符串 ===
     raw_candidates = set()
 
     for json_file in ["grouped_cdn_domains.json", "extracted_release_page_domains.json", "extracted_py_code_domains.json", "dynamic_image_domains.json"]:
@@ -117,7 +111,6 @@ def process_data_sanitization():
     sanitized_direct_candidates = set()
     sanitized_proxy_candidates = set(SPECIFIC_TVBOX_PROXY_DOMAINS)
 
-    # === 执行 步骤 2 清洗 ➔ 步骤 3 双重检测 ===
     for raw_d in raw_candidates:
         clean_d, is_proxy = sanitize_and_validate_domain(raw_d)
         if clean_d:

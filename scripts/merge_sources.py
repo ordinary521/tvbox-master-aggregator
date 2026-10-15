@@ -4,12 +4,11 @@
  独立脚本一：纯净分类合并器 (merge_sources.py)
 =============================================================================
 重点更新：
-  1. 100% 还原黄金首页 7 大原装置顶主站坐镇 tvbox.json 最顶端 1~7 名；
-  2. 确定性拼音 A-Z 优雅排序：中尾部 600+ Python 爬虫与 2000+ MacCMS 接口按中文拼音 A-Z 优雅排序，告别乱序；
-  3. 代码级安全去重 (0 误杀资源)：
-     - 只有【站点名称相同】且【api 链接相同】时才安全合并去重；
-     - 若【站点名称相同】但【api 链接不同】(代表不同资源库)，绝对不删除，自动标注 [二]、[三] 100% 完整保留；
-  4. 100% 零外联网络请求 (0 发包/0 探测)，自动隔离 18+ 敏感点播与直播源。
+  1. 100% 原封不动完整保留原装 categories (分类数组)、ext、style、header 等全量属性，绝不乱删精简；
+  2. 动态继承 7 大置顶主站的 categories 完整分类标签，彻底解决前几名主站顶部分类丢惨问题；
+  3. 扩充 18+ 黑名单敏感词：加入“叔叔”、“侄女”、“侄女儿”、“cao”、“十八”等词汇；
+  4. 确定性拼音 A-Z 优雅排序 + 代码级安全去重 (同名同 API 才合并，同名不同 API 编号保留)；
+  5. 100% 零外联网络请求 (0 发包/0 探测)。
 =============================================================================
 """
 
@@ -31,14 +30,14 @@ NOT_SUITABLE_DIR = os.path.join(WORK_DIR, "not_suitable")
 os.makedirs(PROCESS_DIR, exist_ok=True)
 os.makedirs(NOT_SUITABLE_DIR, exist_ok=True)
 
-# 18+ 敏感词过滤正则
+# 18+ 敏感词过滤正则 (扩展“叔叔”、“侄女”、“侄女儿”、“cao”、“十八”)
 ADULT_KEYWORDS_PATTERN = re.compile(
-    r'(色情|无码|有码|麻豆|果冻|天美|果冻传媒|星空传媒|糖心|皇家|精东|九一|91|探花|猎奇|黑料|约炮|自拍|偷拍|黄|成人|AV|乱伦|强奸|变态|国产精品|日韩精品|欧美无码|三级|18\+|性爱|高潮|湿透|强暴|幼女|萝莉|熟女|孕妇|重口|BDSM|SM|绑架|调教|虐待|喷水|口交|乳交|肛交|换妻|群交|破处|大鸟|黑人|巨乳|人妻|奶水|男同|女同|LGBT|勾引|出轨|绿帽|空姐|技师|少妇|后宫|性奴|迷奸|代孕)',
+    r'(色情|无码|有码|麻豆|果冻|天美|果冻传媒|星空传媒|糖心|皇家|精东|九一|91|探花|猎奇|黑料|约炮|自拍|偷拍|黄|成人|AV|乱伦|强奸|变态|国产精品|日韩精品|欧美无码|三级|18\+|性爱|高潮|湿透|强暴|幼女|萝莉|熟女|孕妇|重口|BDSM|SM|绑架|调教|虐待|喷水|口交|乳交|肛交|换妻|群交|破处|大鸟|黑人|巨乳|人妻|奶水|男同|女同|LGBT|勾引|出轨|绿帽|空姐|技师|少妇|后宫|性奴|迷奸|代孕|叔叔|侄女|侄女儿|cao|十八)',
     re.IGNORECASE
 )
 
-# 恢复还原 7 大黄金原装置顶主站队列 (TOP_SITES_FACADE)
-TOP_SITES_FACADE = [
+# 7 大黄金原装置顶主站基础门面 (TOP_SITES_FACADE_BASE)
+TOP_SITES_FACADE_BASE = [
     {
         "key": "kkys_master",
         "name": "💎可可影视┃4K高清",
@@ -46,7 +45,8 @@ TOP_SITES_FACADE = [
         "api": "https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/scripts/kkys_master.py",
         "searchable": 1,
         "quickSearch": 1,
-        "filterable": 1
+        "filterable": 1,
+        "categories": ["电影", "连续剧", "动漫", "综艺", "短剧"]
     },
     {
         "key": "py_czzy",
@@ -55,7 +55,8 @@ TOP_SITES_FACADE = [
         "api": "https://raw.githubusercontent.com/jie20091116/cat/main/TVBOX/PY/czzy.py",
         "searchable": 1,
         "quickSearch": 1,
-        "filterable": 1
+        "filterable": 1,
+        "categories": ["电影", "电视剧", "动漫", "综艺", "纪录片"]
     },
     {
         "key": "ok_zy",
@@ -125,7 +126,7 @@ def scan_repos_for_py_spiders():
     surface_domains = set()
     repos_dir = os.path.join(WORK_DIR, "repos")
 
-    facade_keys = {s["key"] for s in TOP_SITES_FACADE}
+    facade_keys = {s["key"] for s in TOP_SITES_FACADE_BASE}
 
     if os.path.exists(repos_dir):
         for root, _, files in os.walk(repos_dir):
@@ -136,7 +137,6 @@ def scan_repos_for_py_spiders():
                         with open(fpath, "r", encoding="utf-8", errors="ignore") as f:
                             content = f.read()
 
-                        # 提取明面上的 url / host 域名
                         urls = re.findall(r'https?://[a-zA-Z0-9\.\-_]+', content)
                         for u in urls:
                             dom = extract_surface_domain(u)
@@ -171,12 +171,11 @@ def scan_repos_for_py_spiders():
     return py_sites, sorted(list(surface_domains))
 
 def parse_qist_tvbox_json():
-    """解析 repos/qist 里的接口配置，提取明面上的表面域名与数据源"""
+    """解析 repos/qist 里的接口配置，100% 完整保留 categories、ext、style 等全量原装属性，绝不精简！"""
     qist_sites = []
     adult_sites = []
     surface_domains = set()
-
-    facade_keys = {s["key"] for s in TOP_SITES_FACADE}
+    facade_sites_map = {}
 
     qist_json_path = os.path.join(WORK_DIR, "repos", "qist", "tvbox.json")
     if os.path.exists(qist_json_path):
@@ -185,12 +184,38 @@ def parse_qist_tvbox_json():
                 data = json.load(f)
                 sites = data.get("sites", [])
                 for s in sites:
-                    api = s.get("api", "")
-                    name = s.get("name", "")
+                    # 原封不动保留整个字典 s 的全量属性！
+                    api = str(s.get("api", ""))
+                    name = str(s.get("name", ""))
+                    key = str(s.get("key", ""))
                     dom = extract_surface_domain(api)
                     if dom: surface_domains.add(dom)
 
-                    if s.get("key") in facade_keys:
+                    # 动态捕获并继承 7 大置顶主站的 categories / ext 等完整原装属性：
+                    if "okzy" in api or "okzyw" in api:
+                        s_copy = dict(s)
+                        s_copy["name"] = "🔥OK-资源"
+                        facade_sites_map["ok_zy"] = s_copy
+                        continue
+                    elif "360zy" in api:
+                        s_copy = dict(s)
+                        s_copy["name"] = "🦚360┃采集"
+                        facade_sites_map["360_zy"] = s_copy
+                        continue
+                    elif "suoni" in api:
+                        s_copy = dict(s)
+                        s_copy["name"] = "🐉索尼┃高清4K"
+                        facade_sites_map["suoni_zy"] = s_copy
+                        continue
+                    elif "jszy" in api:
+                        s_copy = dict(s)
+                        s_copy["name"] = "⚡极速┃云播"
+                        facade_sites_map["js_zy"] = s_copy
+                        continue
+                    elif "yayazy" in api:
+                        s_copy = dict(s)
+                        s_copy["name"] = "🦆鸭鸭资源"
+                        facade_sites_map["yaya_zy"] = s_copy
                         continue
 
                     if is_adult_content(name) or s.get("style", {}).get("type") == "rect":
@@ -201,7 +226,7 @@ def parse_qist_tvbox_json():
 
     # 按中文名称拼音 A-Z 优雅排序
     qist_sites.sort(key=lambda s: get_pinyin(s["name"]))
-    return qist_sites, adult_sites, sorted(list(surface_domains))
+    return qist_sites, adult_sites, sorted(list(surface_domains)), facade_sites_map
 
 def deduplicate_sites_safely(raw_sites):
     """【代码级安全去重 (0 误杀资源)】
@@ -235,17 +260,25 @@ def deduplicate_sites_safely(raw_sites):
     return clean_sites
 
 def merge_sources():
-    print("  [01_merge_sources] 开始全量资源合并、拼音 A-Z 排序与代码级安全去重 (0 联网发包版)...", flush=True)
+    print("  [01_merge_sources] 开始全量资源合并、categories 原装属性完整保留与安全去重 (0 联网发包版)...", flush=True)
 
     py_sites, py_domains = scan_repos_for_py_spiders()
-    qist_sites, adult_sites, qist_domains = parse_qist_tvbox_json()
+    qist_sites, adult_sites, qist_domains, facade_sites_map = parse_qist_tvbox_json()
 
-    facade_domains = [extract_surface_domain(s["api"]) for s in TOP_SITES_FACADE if extract_surface_domain(s["api"])]
+    # 动态将原装库里富含 categories 的字典替换回置顶门面列表
+    top_facade_full = []
+    for base_node in TOP_SITES_FACADE_BASE:
+        fkey = base_node["key"]
+        if fkey in facade_sites_map:
+            top_facade_full.append(facade_sites_map[fkey])
+        else:
+            top_facade_full.append(base_node)
 
+    facade_domains = [extract_surface_domain(s["api"]) for s in top_facade_full if extract_surface_domain(s.get("api"))]
     all_surface_domains = sorted(list(set(facade_domains + py_domains + qist_domains)))
 
-    # 黄金 7 大原装置顶门面坐镇 tvbox.json 最顶端 1~7 名 + 600 个 Python 拼音站 + 2000 个 MacCMS 拼音站
-    raw_all_sites = TOP_SITES_FACADE + py_sites + qist_sites
+    # 黄金 7 大原装置顶门面坐镇 tvbox.json 最顶端 1~7 名
+    raw_all_sites = top_facade_full + py_sites + qist_sites
 
     # 执行【代码级安全去重】
     all_clean_sites = deduplicate_sites_safely(raw_all_sites)
@@ -260,7 +293,7 @@ def merge_sources():
         json.dumps(grouped_data, ensure_ascii=False, indent=2)
     )
 
-    # 写盘 tvbox.json
+    # 写盘 tvbox.json (100% 完整保留 categories、ext、style、header 等原装全量属性！)
     tvbox_data = {"sites": all_clean_sites}
     open(os.path.join(WORK_DIR, "tvbox.json"), "w", encoding="utf-8").write(
         json.dumps(tvbox_data, ensure_ascii=False, indent=2)
@@ -281,7 +314,7 @@ def merge_sources():
     live_content = "# IPTV 纯净直播源\nCCTV-1,http://111.13.138.83/m3u8/cctv1.m3u8\nCCTV-13,http://111.13.138.83/m3u8/cctv13.m3u8\n"
     open(os.path.join(WORK_DIR, "live.txt"), "w", encoding="utf-8").write(live_content)
 
-    print(f"  └─ [01_merge_sources] 拼音 A-Z 排序与安全去重完成！黄金 7 大门面坐镇最顶端，收录 {len(all_clean_sites)} 个纯净有效站点！", flush=True)
+    print(f"  └─ [01_merge_sources] 100% 完整保留原装 categories 属性，收录 {len(all_clean_sites)} 个纯净站点！", flush=True)
     return all_clean_sites
 
 if __name__ == "__main__":
