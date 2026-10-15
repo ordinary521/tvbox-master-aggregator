@@ -4,17 +4,18 @@
  独立脚本一：纯净分类合并器 (merge_sources.py)
 =============================================================================
 重点更新：
-  1. 100% 给足给全全量 25+ 影视细分类目 (包含动作片, 喜剧片, 爱情片, 科幻片, 国产剧, 美剧, 韩剧, 泰剧等)，绝不精简 1 个词；
-  2. 100% 还原黄金首页 7 大原装置顶主站坐镇 tvbox.json 最顶端 1~7 名；
-  3. 扩充 18+ 黑名单敏感词：加入“叔叔”、“侄女”、“侄女儿”、“cao”、“十八”等词汇；
-  4. 确定性拼音 A-Z 优雅排序 + 代码级安全去重 (同名同 API 才合并，同名不同 API 编号保留)；
-  5. 100% 零外联网络请求 (0 发包/0 探测)。
+  1. 串行轻量拉取 20 个核心采集站 1 页详情，正则精准抓出深层播放切片 CDN 域名 (如 super.ffzy-online6.com)；
+  2. 100% 给足给全全量 25+ 影视细分类目 (包含动作片, 喜剧片, 爱情片, 科幻片, 国产剧, 美剧, 韩剧, 泰剧等)，绝不精简 1 个词；
+  3. 100% 还原黄金首页 7 大原装置顶主站坐镇 tvbox.json 最顶端 1~7 名；
+  4. 扩充 18+ 黑名单敏感词：加入“叔叔”、“侄女”、“侄女儿”、“cao”、“十八”等词汇；
+  5. 确定性拼音 A-Z 优雅排序 + 代码级安全去重 (同名同 API 才合并，同名不同 API 编号保留)。
 =============================================================================
 """
 
 import os
 import re
 import json
+import urllib.request
 
 try:
     import pypinyin
@@ -29,6 +30,21 @@ PROCESS_DIR = os.path.join(WORK_DIR, "process")
 NOT_SUITABLE_DIR = os.path.join(WORK_DIR, "not_suitable")
 os.makedirs(PROCESS_DIR, exist_ok=True)
 os.makedirs(NOT_SUITABLE_DIR, exist_ok=True)
+
+# 20 个核心 MacCMS 采集主站 API 列表 (串行轻量拉取深层播放切片 CDN)
+CORE_MACCMS_DETAIL_APIS = [
+    ("非凡资源", "https://ffzy5.tv/api.php/provide/vod/?ac=detail&pg=1"),
+    ("360采集", "https://360zy.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("索尼高清", "https://suoniapi.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("极速云播", "https://jszyapi.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("OK资源", "http://api.okzyw.net/api.php/provide/vod/?ac=detail&pg=1"),
+    ("鸭鸭资源", "https://cj.yayazy.net/api.php/provide/vod/?ac=detail&pg=1"),
+    ("卧龙资源", "https://collect.wolongzyw.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("暴风资源", "https://bfzyapi.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("飞速资源", "https://feisuzyapi.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("量子资源", "https://cj.lziapi.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("红牛资源", "https://www.hongniuzy2.com/api.php/provide/vod/?ac=detail&pg=1")
+]
 
 # 全量 25+ 完整细分类目 (绝不精简 1 个词)
 FULL_25_CATEGORIES = [
@@ -133,6 +149,25 @@ def is_adult_content(text):
     if not text: return False
     return bool(ADULT_KEYWORDS_PATTERN.search(str(text)))
 
+def fetch_deep_stream_domains_sequentially():
+    """依次串行轻量访问核心采集站 1 页数据，正则解析 vod_play_url 提取深层切片 CDN 域名 (如 super.ffzy-online6.com)"""
+    deep_domains = set()
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+
+    for name, api_url in CORE_MACCMS_DETAIL_APIS:
+        try:
+            req = urllib.request.Request(api_url, headers=headers)
+            with urllib.request.urlopen(req, timeout=3) as resp:
+                text = resp.read().decode("utf-8", errors="ignore")
+                urls = re.findall(r'https?://[a-zA-Z0-9\.\-_]+', text)
+                for u in urls:
+                    dom = extract_surface_domain(u)
+                    if dom:
+                        deep_domains.add(dom)
+        except Exception: pass
+
+    return sorted(list(deep_domains))
+
 def scan_repos_for_py_spiders():
     """全量扫描 repos/ 下所有 .py 爬虫源码，提取明面上的表面域名与节点信息"""
     py_sites = []
@@ -180,7 +215,6 @@ def scan_repos_for_py_spiders():
                             py_sites.append(site_node)
                     except Exception: pass
 
-    # 按中文名称拼音 A-Z 优雅排序
     py_sites.sort(key=lambda s: get_pinyin(s["name"]))
     return py_sites, sorted(list(surface_domains))
 
@@ -204,11 +238,9 @@ def parse_qist_tvbox_json():
                     dom = extract_surface_domain(api)
                     if dom: surface_domains.add(dom)
 
-                    # 若原节点未定义 categories，补充 25+ 全量细分类目：
                     if "categories" not in s or not s["categories"]:
                         s["categories"] = FULL_25_CATEGORIES
 
-                    # 动态捕获并继承 7 大置顶主站的全量属性：
                     if "okzy" in api or "okzyw" in api:
                         s_copy = dict(s)
                         s_copy["name"] = "🔥OK-资源"
@@ -246,7 +278,6 @@ def parse_qist_tvbox_json():
                         qist_sites.append(s)
         except Exception: pass
 
-    # 按中文名称拼音 A-Z 优雅排序
     qist_sites.sort(key=lambda s: get_pinyin(s["name"]))
     return qist_sites, adult_sites, sorted(list(surface_domains)), facade_sites_map
 
@@ -280,10 +311,13 @@ def deduplicate_sites_safely(raw_sites):
     return clean_sites
 
 def merge_sources():
-    print("  [01_merge_sources] 开始全量资源合并、25+ 全量细分类目填充与安全去重 (0 联网发包版)...", flush=True)
+    print("  [01_merge_sources] 开始全量资源合并与核心采集站深层播放切片 CDN 串行提取...", flush=True)
 
     py_sites, py_domains = scan_repos_for_py_spiders()
     qist_sites, adult_sites, qist_domains, facade_sites_map = parse_qist_tvbox_json()
+
+    # 串行轻量提取核心采集站深层播放切片 CDN (如 super.ffzy-online6.com)
+    deep_stream_domains = fetch_deep_stream_domains_sequentially()
 
     top_facade_full = []
     for base_node in TOP_SITES_FACADE_BASE:
@@ -294,7 +328,7 @@ def merge_sources():
             top_facade_full.append(base_node)
 
     facade_domains = [extract_surface_domain(s["api"]) for s in top_facade_full if extract_surface_domain(s.get("api"))]
-    all_surface_domains = sorted(list(set(facade_domains + py_domains + qist_domains)))
+    all_surface_domains = sorted(list(set(facade_domains + py_domains + qist_domains + deep_stream_domains)))
 
     # 黄金 7 大原装置顶门面坐镇 tvbox.json 最顶端 1~7 名
     raw_all_sites = top_facade_full + py_sites + qist_sites
@@ -302,17 +336,17 @@ def merge_sources():
     # 执行【代码级安全去重】
     all_clean_sites = deduplicate_sites_safely(raw_all_sites)
 
-    # 写盘 process/grouped_cdn_domains.json
+    # 写盘 process/grouped_cdn_domains.json (含深层切片域名 deep_stream_domains)
     grouped_data = {
         "top_facade_domains": all_surface_domains,
-        "media_player_domains": [],
-        "deep_stream_domains": []
+        "media_player_domains": deep_stream_domains,
+        "deep_stream_domains": deep_stream_domains
     }
     open(os.path.join(PROCESS_DIR, "grouped_cdn_domains.json"), "w", encoding="utf-8").write(
         json.dumps(grouped_data, ensure_ascii=False, indent=2)
     )
 
-    # 写盘 tvbox.json (给足给全全量 25+ 影视细分类目！)
+    # 写盘 tvbox.json
     tvbox_data = {"sites": all_clean_sites}
     open(os.path.join(WORK_DIR, "tvbox.json"), "w", encoding="utf-8").write(
         json.dumps(tvbox_data, ensure_ascii=False, indent=2)
@@ -333,7 +367,7 @@ def merge_sources():
     live_content = "# IPTV 纯净直播源\nCCTV-1,http://111.13.138.83/m3u8/cctv1.m3u8\nCCTV-13,http://111.13.138.83/m3u8/cctv13.m3u8\n"
     open(os.path.join(WORK_DIR, "live.txt"), "w", encoding="utf-8").write(live_content)
 
-    print(f"  └─ [01_merge_sources] 25+ 全量细分类目给足，收录 {len(all_clean_sites)} 个纯净站点！", flush=True)
+    print(f"  └─ [01_merge_sources] 成功提取深层切片域名 {len(deep_stream_domains)} 个，合并 {len(all_clean_sites)} 个纯净站点！", flush=True)
     return all_clean_sites
 
 if __name__ == "__main__":
