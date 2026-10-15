@@ -5,7 +5,7 @@
  独立脚本十：策略导出器 (Task 10: 原版 YAML 与 Mihomo .mrs 二进制双重导出)
 =============================================================================
 重点逻辑：
-  1. 增量融合 Downloads 目录下宝贵历史预解析数据集 (domains_direct.txt & domains_proxy.txt) 作为补充资源；
+  1. 融合 Downloads 宝贵历史预解析数据集并永久持久化存盘至 process/ 目录 (downloads_supplement_*.json)；
   2. 100% 经过 Step 2 强力语法清洗 (擦除 ,https, {0}, 尾巴乱码) + Step 3 tldextract (Mozilla PSL) & RFC 正则 + repos/blackmatrix7 O(1) 极速全量差集扣除；
   3. 100% 物理强行锁定 huangguoai.com / tmdb.org 等专属代理域名进入 domains_proxy.txt / domains_proxy.mrs；
   4. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
@@ -26,6 +26,7 @@ WORK_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROCESS_DIR = os.path.join(WORK_DIR, "process")
 CONFIG_DIR = os.path.join(WORK_DIR, "config")
 os.makedirs(CONFIG_DIR, exist_ok=True)
+os.makedirs(PROCESS_DIR, exist_ok=True)
 
 # 专属 TVBox 强制代理域名集 (如 huangguoai.com)，绝对强行保留归入 domains_proxy！
 SPECIFIC_TVBOX_PROXY_DOMAINS = {
@@ -174,12 +175,25 @@ def read_existing_historical_rules(file_path, is_proxy_context=False):
         except Exception: pass
     return existing_doms, existing_ips
 
-def read_downloads_supplement_domains():
-    """读取 Downloads 目录下的历史预解析数据集作为补充资源，并强制经过 Step 2 语法清洗 + Step 3 双重保险与差集扣除"""
+def read_and_persist_downloads_supplement_domains():
+    """读取 Downloads 宝贵历史预解析数据源，并在提纯后白纸黑字永久存盘存入 process/ 目录中，永不丢失！"""
     downloads_dir = r"C:\Users\Ngokel\Downloads"
     supp_direct = set()
     supp_proxy = set()
 
+    # 1. 优先读取 process/ 目录下固化的持久化 JSON 备份
+    persisted_dir_path = os.path.join(PROCESS_DIR, "downloads_supplement_direct.json")
+    persisted_prx_path = os.path.join(PROCESS_DIR, "downloads_supplement_proxy.json")
+
+    if os.path.exists(persisted_dir_path):
+        try: supp_direct.update(json.load(open(persisted_dir_path, "r", encoding="utf-8")))
+        except Exception: pass
+
+    if os.path.exists(persisted_prx_path):
+        try: supp_proxy.update(json.load(open(persisted_prx_path, "r", encoding="utf-8")))
+        except Exception: pass
+
+    # 2. 读取 C:\Users\Ngokel\Downloads\ 增量补充源并物理融合存盘
     dir_file = os.path.join(downloads_dir, "domains_direct.txt")
     if os.path.exists(dir_file):
         try:
@@ -198,7 +212,11 @@ def read_downloads_supplement_domains():
                     if final_p: supp_proxy.add(final_p)
         except Exception: pass
 
-    print(f"  ├─ 成功从 Downloads 补充数据集中清洗提纯补充直连域名: {len(supp_direct)} 个, 补充代理域名: {len(supp_proxy)} 个！", flush=True)
+    # 3. 永久写盘存入 process/ 目录固化成 Git 永久资产
+    open(persisted_dir_path, "w", encoding="utf-8").write(json.dumps(sorted(list(supp_direct)), ensure_ascii=False, indent=2))
+    open(persisted_prx_path, "w", encoding="utf-8").write(json.dumps(sorted(list(supp_proxy)), ensure_ascii=False, indent=2))
+
+    print(f"  ├─ 成功从 Downloads 与 process/ 固化补充源清洗提纯直连: {len(supp_direct)} 个, 代理: {len(supp_proxy)} 个 (已永久持久化存盘)！", flush=True)
     return supp_direct, supp_proxy
 
 def compile_mihomo_mrs(behavior, yaml_path, mrs_path):
@@ -233,7 +251,7 @@ def wipe_all_old_output_files(work_dir):
             except Exception: pass
 
 def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, dynamic_image_domains=None, extracted_ips=None, release_page_domains=None, py_code_domains=None):
-    print("  [Task 10: 策略导出器] 正在融合 Downloads 历史补充数据与【全量差集扣除 A-B】并编译 Mihomo .mrs...", flush=True)
+    print("  [Task 10: 策略导出器] 正在融合 process/ 持久化补充数据与【全量差集扣除 A-B】并编译 Mihomo .mrs...", flush=True)
 
     wipe_all_old_output_files(work_dir)
 
@@ -254,8 +272,8 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
         try: proxy_domains.update(json.load(open(sanitized_proxy_path)))
         except Exception: pass
 
-    # 读取 Downloads 目录下的宝贵历史增量预解析数据作为补充资源
-    supp_dir, supp_prx = read_downloads_supplement_domains()
+    # 读取并永久持久化 Downloads 补充数据 (或 process/ 备份)
+    supp_dir, supp_prx = read_and_persist_downloads_supplement_domains()
     direct_domains.update(supp_dir)
     proxy_domains.update(supp_prx)
 
