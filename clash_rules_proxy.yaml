@@ -1,10 +1,7 @@
 # TVBox 强制代理 Mihomo / Clash 规则集 (behavior: domain)
 payload:
-  - 'api.tmdb.org'
   - 'gfw.press'
   - 'huangguoai.com'
-  - 'image.tmdb.org'
-  - 'images.tmdb.org'
   - 'themoviedb.org'
   - 'tmdb.org'
   - 'v2fly.org'
