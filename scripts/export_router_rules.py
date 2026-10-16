@@ -5,8 +5,8 @@
  独立脚本十：策略导出器 (Task 10: 原版 YAML 与 Mihomo .mrs 二进制双重导出)
 =============================================================================
 重点逻辑：
-  1. 融合 Downloads 宝贵历史预解析数据集并永久持久化存盘至 process/ 目录 (downloads_supplement_*.json)；
-  2. 100% 经过 Step 2 强力语法清洗 (擦除 ,https, {0}, 尾巴乱码) + Step 3 tldextract (Mozilla PSL) & RFC 正则 + repos/blackmatrix7 O(1) 极速全量差集扣除；
+  1. 自动融合本地持久化资源库 (process/local_probed_direct.json & process/local_probed_proxy.json)；
+  2. 融合 Downloads 历史补充数据，100% 经过 Step 2 语法清洗 + Step 3 tldextract (Mozilla PSL) & RFC 正则 + repos/blackmatrix7 O(1) 极速全量差集扣除；
   3. 100% 物理强行锁定 huangguoai.com / tmdb.org 等专属代理域名进入 domains_proxy.txt / domains_proxy.mrs；
   4. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
      - mihomo convert-ruleset domain yaml domains_direct.yaml domains_direct.mrs
@@ -114,30 +114,22 @@ def final_clean_before_write(dom, is_proxy_context=False):
     """写盘导出阶段最后一关：【步骤 2 强力语法清洗修整】 ➔ 【步骤 3 tldextract + RFC 正则 + O(1) 哈希全量差集扣除】"""
     if not dom or not isinstance(dom, str): return None
 
-    # === 步骤 2：强力语法清洗修整 ===
     clean = str(dom).replace('&amp;', '&').replace('\\/', '/').replace('\\', '').strip()
     clean = clean.split('#')[0].split('?')[0].split('&')[0].split(';')[0].split('%')[0].split(',')[0].strip()
 
-    # 擦除尾巴乱码与多余大括号与协议尾巴 (例如 ,https, {0}, {prefix}, ，请及时收藏...)
     clean = re.sub(r'\{[^\}]*\}$', '', clean)
     clean = re.sub(r'\[[^\]]*\]$', '', clean)
     clean = re.sub(r'，.*$', '', clean)
 
-    # 擦除协议头与双斜杠
     clean = re.sub(r'^https?://', '', clean, flags=re.I)
     clean = re.sub(r'^//', '', clean)
 
-    # 擦除所有残存的单斜杠 /、双斜杠 // 与反斜杠 \
     clean = clean.replace('/', '').replace('\\', '').strip()
-
-    # 剥离端口号与问号
     clean = clean.split(":")[0].strip("@|*^ \t\r\n'\"").lower()
 
-    # 专属 TVBox 代理域名（如 huangguoai.com），物理强行保留保底！
     if any(clean == pd or clean.endswith("." + pd) for pd in SPECIFIC_TVBOX_PROXY_DOMAINS):
         return clean
 
-    # === 步骤 3：tldextract + RFC 正则 + 黑名单 全量 O(1) 差集扣除 ===
     if not RFC_1035_FQDN_REGEX.match(clean):
         return None
 
@@ -151,7 +143,6 @@ def final_clean_before_write(dom, is_proxy_context=False):
     if tld in INVALID_FILE_EXTENSIONS or prefix in INVALID_FILE_EXTENSIONS:
         return None
 
-    # 检测 C：【O(1) 极速哈希全量差集扣除】
     if is_blackmatrix7_existing_domain(clean):
         return None
 
@@ -176,24 +167,24 @@ def read_existing_historical_rules(file_path, is_proxy_context=False):
     return existing_doms, existing_ips
 
 def read_and_persist_downloads_supplement_domains():
-    """读取 Downloads 宝贵历史预解析数据源，并在提纯后白纸黑字永久存盘存入 process/ 目录中，永不丢失！"""
     downloads_dir = r"C:\Users\Ngokel\Downloads"
     supp_direct = set()
     supp_proxy = set()
 
-    # 1. 优先读取 process/ 目录下固化的持久化 JSON 备份
-    persisted_dir_path = os.path.join(PROCESS_DIR, "downloads_supplement_direct.json")
-    persisted_prx_path = os.path.join(PROCESS_DIR, "downloads_supplement_proxy.json")
+    # 1. 优先读取 process/ 目录下固化的持久化 JSON 备份 (包含 local_probed_*.json)
+    for dir_fn in ["downloads_supplement_direct.json", "local_probed_direct.json"]:
+        fpath = os.path.join(PROCESS_DIR, dir_fn)
+        if os.path.exists(fpath):
+            try: supp_direct.update(json.load(open(fpath, "r", encoding="utf-8")))
+            except Exception: pass
 
-    if os.path.exists(persisted_dir_path):
-        try: supp_direct.update(json.load(open(persisted_dir_path, "r", encoding="utf-8")))
-        except Exception: pass
+    for prx_fn in ["downloads_supplement_proxy.json", "local_probed_proxy.json"]:
+        fpath = os.path.join(PROCESS_DIR, prx_fn)
+        if os.path.exists(fpath):
+            try: supp_proxy.update(json.load(open(fpath, "r", encoding="utf-8")))
+            except Exception: pass
 
-    if os.path.exists(persisted_prx_path):
-        try: supp_proxy.update(json.load(open(persisted_prx_path, "r", encoding="utf-8")))
-        except Exception: pass
-
-    # 2. 读取 C:\Users\Ngokel\Downloads\ 增量补充源并物理融合存盘
+    # 2. 读取 Downloads 增量补充源
     dir_file = os.path.join(downloads_dir, "domains_direct.txt")
     if os.path.exists(dir_file):
         try:
@@ -212,15 +203,9 @@ def read_and_persist_downloads_supplement_domains():
                     if final_p: supp_proxy.add(final_p)
         except Exception: pass
 
-    # 3. 永久写盘存入 process/ 目录固化成 Git 永久资产
-    open(persisted_dir_path, "w", encoding="utf-8").write(json.dumps(sorted(list(supp_direct)), ensure_ascii=False, indent=2))
-    open(persisted_prx_path, "w", encoding="utf-8").write(json.dumps(sorted(list(supp_proxy)), ensure_ascii=False, indent=2))
-
-    print(f"  ├─ 成功从 Downloads 与 process/ 固化补充源清洗提纯直连: {len(supp_direct)} 个, 代理: {len(supp_proxy)} 个 (已永久持久化存盘)！", flush=True)
     return supp_direct, supp_proxy
 
 def compile_mihomo_mrs(behavior, yaml_path, mrs_path):
-    """100% 1:1 照搬 CRThu/clash-rules-mrs 官方规范，调用 mihomo convert-ruleset 官方二进制进程打包 .mrs"""
     cmd = ["mihomo", "convert-ruleset", behavior, "yaml", yaml_path, mrs_path]
     print(f"  [Mihomo .mrs 官方二进制进程] 正在编译: {' '.join(cmd)}", flush=True)
     try:
@@ -251,7 +236,7 @@ def wipe_all_old_output_files(work_dir):
             except Exception: pass
 
 def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, dynamic_image_domains=None, extracted_ips=None, release_page_domains=None, py_code_domains=None):
-    print("  [Task 10: 策略导出器] 正在融合 process/ 持久化补充数据与【全量差集扣除 A-B】并编译 Mihomo .mrs...", flush=True)
+    print("  [Task 10: 策略导出器] 正在融合 process/ 持久化库与【全量差集扣除 A-B】并编译 Mihomo .mrs...", flush=True)
 
     wipe_all_old_output_files(work_dir)
 
@@ -272,12 +257,10 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
         try: proxy_domains.update(json.load(open(sanitized_proxy_path)))
         except Exception: pass
 
-    # 读取并永久持久化 Downloads 补充数据 (或 process/ 备份)
     supp_dir, supp_prx = read_and_persist_downloads_supplement_domains()
     direct_domains.update(supp_dir)
     proxy_domains.update(supp_prx)
 
-    # 读取历史规则增量累加
     hist_direct_path = os.path.join(work_dir, "domains_direct.txt")
     hist_doms, hist_ips = read_existing_historical_rules(hist_direct_path, is_proxy_context=False)
     direct_domains.update(hist_doms)
