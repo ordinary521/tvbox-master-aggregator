@@ -2,14 +2,16 @@
 # -*- coding: utf-8 -*-
 """
 =============================================================================
- 独立任务一：全网资源配置合并、全量 PY 爬虫扫描与 18+ 黑名单物理过滤 (纯 JSON 配置驱动版)
+ 独立任务一：全网资源配置合并、全量 PY 爬虫源码内嵌域名深度提纯与 18+ 隔离 (1:1 原装+深度提取版)
 =============================================================================
 重点更新：
-  1. 100% 配置文件驱动：动态读取 config/source_urls.json，包含 qist/tvbox 等全量订阅源；
-  2. 整合 qist/py/ 目录下的 Python 爬虫 (星芽短剧, 剧王短剧, TVB云播, 网络直播, libvio 等)；
-  3. 18+ 点播配置隔离：命中黑名单的采集站与 API 全量隔离存入 not_suitable/tvbox.json；
-  4. 置顶 1: 可可影视 4K 完美重构版 (kkys_master.py - 支持 5 维筛选与防盗链海报卡片)；
-  5. 磁盘全量 os.listdir 扫描 repos/ 下所有 .py 爬虫源码，0.001 秒离线完成。
+  1. 100% 配置文件驱动：动态读取 config/source_urls.json (含 web_sources 与 upstream_endpoints 全量订阅源)；
+  2. 磁盘 PY 源码深度提取：全量读取 repos/ 下所有 .py 脚本内部源码，解转义 \\/ 后爆抓源码内部所有内嵌域名；
+  3. JSON 字段全量提取：不仅抓 api，深度提取 ext, jar, playUrl 中的内嵌链接；
+  4. 0 并发纯单线程串行提取核心采集站 ?ac=detail 详情解转义 vod_play_url 深层切片 CDN (如 v13.yaaabc.com, super.ffzy-online6.com)；
+  5. 18+ 点播隔离 (SEX_KEYWORDS 含“叔叔”、“侄女”、“cao”、“十八”等)，隔离写入 not_suitable/tvbox.json；
+  6. 7 大顶级置顶门面 (TOP_SITES_FACADE，带 1.33 矩形海报比例与完整 Header)；
+  7. 全套 IJK 软硬解码、ADS 广告拦截、tvbox_multi.json 多仓导出与 sources.txt 接口回写。
 =============================================================================
 """
 
@@ -25,7 +27,14 @@ from urllib.parse import urlparse
 
 WORK_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_DIR = os.path.join(WORK_DIR, "config")
+PROCESS_DIR = os.path.join(WORK_DIR, "process")
+NOT_SUITABLE_DIR = os.path.join(WORK_DIR, "not_suitable")
+os.makedirs(CONFIG_DIR, exist_ok=True)
+os.makedirs(PROCESS_DIR, exist_ok=True)
+os.makedirs(NOT_SUITABLE_DIR, exist_ok=True)
+
 CF_PROXY = os.environ.get("CF_PROXY", "")
+GH_PROXY_PREFIX = "https://gh-proxy.com/"
 
 CLEANED_51_CATEGORIES = [
     "动漫", "动作片", "喜剧片", "爱情片", "科幻片", "恐怖片", "剧情片", "战争片",
@@ -36,7 +45,27 @@ CLEANED_51_CATEGORIES = [
     "年代穿越", "脑洞悬疑", "现代都市", "邵氏电影", "Netflix自制剧", "Netflix电影", "科普学习", "漫剧"
 ]
 
-GH_PROXY_PREFIX = "https://gh-proxy.com/"
+KNOWN_CORE_STREAM_CDNS = [
+    "ffzy-online.com", "ffzy-online5.com", "ffzy-online6.com", "ffzy-play5.com",
+    "ffzy-play1.com", "ffzy-play3.com", "ffm3u8.com", "ffzyapi.com", "ffzy5.tv",
+    "yaaabc.com", "cyscyy.com", "wkcyvs.cn", "okzyw.org", "okzyw.net",
+    "jszyapi.com", "360zy.com", "suoniapi.com", "yayazy.net", "wolongzyw.com",
+    "bfzyapi.com", "lziapi.com", "feisuzyapi.com", "hongniuzy2.com"
+]
+
+CORE_MACCMS_DETAIL_APIS = [
+    ("非凡资源", "https://ffzy5.tv/api.php/provide/vod/?ac=detail&pg=1"),
+    ("OK资源", "http://api.okzyw.net/api.php/provide/vod/?ac=detail&pg=1"),
+    ("360采集", "https://360zy.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("索尼高清", "https://suoniapi.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("极速云播", "https://jszyapi.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("鸭鸭资源", "https://cj.yayazy.net/api.php/provide/vod/?ac=detail&pg=1"),
+    ("卧龙资源", "https://collect.wolongzyw.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("暴风资源", "https://bfzyapi.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("飞速资源", "https://feisuzyapi.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("量子资源", "https://cj.lziapi.com/api.php/provide/vod/?ac=detail&pg=1"),
+    ("红牛资源", "https://www.hongniuzy2.com/api.php/provide/vod/?ac=detail&pg=1")
+]
 
 TOP_SITES_FACADE = [
     {
@@ -148,20 +177,15 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
-def fetch_text(url, timeout=12):
-    try:
-        req = urllib.request.Request(url, headers=HEADERS)
-        with urllib.request.urlopen(req, timeout=timeout, context=SSL_CTX) as resp:
-            raw_data = resp.read()
-            try:
-                return raw_data.decode("utf-8")
-            except UnicodeDecodeError:
-                try:
-                    return raw_data.decode("gbk", errors="ignore")
-                except Exception:
-                    return raw_data.decode("utf-8", errors="ignore")
-    except Exception:
-        return ""
+def extract_surface_domain(url):
+    if not url or not isinstance(url, str): return None
+    clean = url.strip()
+    m = re.search(r'https?://([^/:\?#]+)', clean, re.I)
+    if m:
+        dom = m.group(1).lower().strip()
+        if dom and "." in dom and not dom.replace('.', '').isdigit():
+            return dom
+    return None
 
 def is_blacklisted(text):
     if not text: return False
@@ -213,21 +237,57 @@ def clean_api_url(api):
     api = re.sub(r'[\?&]ac=(list|detail|videolist|vod).*$', '', api, flags=re.I)
     return api.rstrip("/")
 
+def fetch_deep_stream_domains_sequentially():
+    """纯单线程串行请求 20 核心采集站 ?ac=detail 详情接口，解转义后爆抓 vod_play_url 深层切片 CDN"""
+    deep_domains = set(KNOWN_CORE_STREAM_CDNS)
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+
+    for name, api_url in CORE_MACCMS_DETAIL_APIS:
+        try:
+            req = urllib.request.Request(api_url, headers=headers)
+            with urllib.request.urlopen(req, timeout=4) as resp:
+                text = resp.read().decode("utf-8", errors="ignore")
+                text = text.replace('\\/', '/').replace('&amp;', '&')
+                urls = re.findall(r'https?://[a-zA-Z0-9\.\-_]+', text)
+                for u in urls:
+                    dom = extract_surface_domain(u)
+                    if dom:
+                        deep_domains.add(dom)
+        except Exception: pass
+
+    return sorted(list(deep_domains))
+
 def scan_all_py_scripts_from_repos():
-    """扫描 repos/ 下所有已克隆仓库中的 .py 爬虫源码 (包含 cat, qist/py 等)"""
-    print("  [磁盘 PY 扫描器] 正在全量扫描 repos/ 下所有仓库中的 .py 爬虫源码...", flush=True)
+    """扫描 repos/ 下所有已克隆仓库中的 .py 爬虫源码，全量读取 .py 内部源码提取所有内嵌域名"""
+    print("  [磁盘 PY 源码深度扫描器] 正在全量扫描 repos/ 下所有 .py 爬虫源码内容...", flush=True)
     scanned_sites = []
+    inner_code_domains = set()
 
     repos_dir = os.path.join(WORK_DIR, "repos")
     if os.path.exists(repos_dir):
         for root, _, files in os.walk(repos_dir):
-            for fname in files:
+            for fname in sorted(files):
                 if fname.endswith(".py") and not fname.startswith("test") and not fname.startswith("setup"):
                     clean_stem = fname[:-3]
                     if is_blacklisted(fname) or is_blacklisted(clean_stem):
                         continue
 
-                    rel_path = os.path.relpath(os.path.join(root, fname), repos_dir).replace("\\", "/")
+                    fpath = os.path.join(root, fname)
+
+                    # 深度读取 .py 源码文件内容，提取内嵌 HTTP/HTTPS 目标域名
+                    try:
+                        with open(fpath, "r", encoding="utf-8", errors="ignore") as f:
+                            py_code = f.read()
+                            # 先将转义斜杠 \/ 替换还原
+                            py_code_clean = py_code.replace('\\/', '/').replace('&amp;', '&')
+                            raw_urls = re.findall(r'https?://[a-zA-Z0-9\.\-_]+', py_code_clean)
+                            for u in raw_urls:
+                                dom = extract_surface_domain(u)
+                                if dom:
+                                    inner_code_domains.add(dom)
+                    except Exception: pass
+
+                    rel_path = os.path.relpath(fpath, repos_dir).replace("\\", "/")
                     parts = rel_path.split("/")
                     repo_name = parts[0]
                     sub_path = "/".join(parts[1:])
@@ -256,8 +316,8 @@ def scan_all_py_scripts_from_repos():
                     }
                     scanned_sites.append(site_obj)
 
-    print(f"  └─ 本地磁盘扫描完成！共捕获并通过 18+ 过滤 {len(scanned_sites)} 个合法 PY 独立爬虫节点！", flush=True)
-    return scanned_sites
+    print(f"  └─ 本地磁盘 PY 源码深度提取完成！捕获 {len(scanned_sites)} 个 PY 节点，提纯源码内嵌域名 {len(inner_code_domains)} 个！", flush=True)
+    return scanned_sites, sorted(list(inner_code_domains))
 
 def load_source_urls_config():
     """动态读取 config/source_urls.json 配置文件 (0 代码硬编码)"""
@@ -288,12 +348,16 @@ def load_source_urls_config():
 
 def merge_sources():
     ts = time.strftime('%Y-%m-%d %H:%M:%S')
-    print(f"[{ts}] [01_merge_sources] 开始全量资源抓取与合并 (纯配置文件驱动版)...")
+    print(f"[{ts}] [01_merge_sources] 开始全量多源抓取、PY 源码深度爆抓与 1:1 黄金原装重构...")
 
     spider_jars = {}
     sources = load_source_urls_config()
 
-    all_scanned_py = scan_all_py_scripts_from_repos()
+    # 1. 串行拉取 20 核心采集站解转义切片 CDN (含 KNOWN_CORE_STREAM_CDNS)
+    deep_stream_domains = fetch_deep_stream_domains_sequentially()
+
+    # 2. 深度扫描 repos/ 下所有 .py 源码文件，提取内嵌全量域名
+    all_scanned_py, py_inner_domains = scan_all_py_scripts_from_repos()
 
     all_sites = list(TOP_SITES_FACADE) + all_scanned_py
     all_lives, all_parses = [], []
@@ -301,6 +365,8 @@ def merge_sources():
 
     seen_site_signatures = set()
     seen_keys = set()
+
+    json_inner_domains = set()
 
     for facade in all_sites:
         sig = f"{facade.get('api')}_{facade.get('ext')}_{facade.get('jar')}"
@@ -310,7 +376,16 @@ def merge_sources():
     rest_sites = []
 
     for name, url in sources:
-        data = parse_json(curl(url, 15))
+        raw_json_str = curl(url, 15)
+        # 从原始 JSON 字符串中全量正则表达式提取所有网址
+        if raw_json_str:
+            clean_json_str = raw_json_str.replace('\\/', '/').replace('&amp;', '&')
+            for u_match in re.findall(r'https?://[a-zA-Z0-9\.\-_]+', clean_json_str):
+                dom_m = extract_surface_domain(u_match)
+                if dom_m:
+                    json_inner_domains.add(dom_m)
+
+        data = parse_json(raw_json_str)
         if not data: continue
 
         spider = data.get("spider", "")
@@ -379,6 +454,23 @@ def merge_sources():
             s["quickSearch"] = 1
             s["filterable"] = 1
 
+    # 全量提取明面与内嵌域名 (切片 + PY 源码内嵌 + 上游 JSON 全字段)
+    all_combined_domains = set(deep_stream_domains).union(py_inner_domains).union(json_inner_domains)
+    for s in all_sites:
+        dom = extract_surface_domain(s.get("api", ""))
+        if dom: all_combined_domains.add(dom)
+
+    sorted_surface_domains = sorted(list(all_combined_domains))
+
+    grouped_data = {
+        "top_facade_domains": sorted_surface_domains,
+        "media_player_domains": sorted(list(set(deep_stream_domains).union(py_inner_domains))),
+        "deep_stream_domains": sorted(list(set(deep_stream_domains).union(py_inner_domains)))
+    }
+    open(os.path.join(PROCESS_DIR, "grouped_cdn_domains.json"), "w", encoding="utf-8").write(
+        json.dumps(grouped_data, ensure_ascii=False, indent=2)
+    )
+
     DEFAULT_FLAGS = ["youku", "qq", "iqiyi", "qiyi", "letv", "sohu", "tudou", "pptv", "mgtv", "wasu"]
     DEFAULT_IJK = [
         {"group": "软解码", "options": [{"category": 4, "name": "opensles", "value": "0"}, {"category": 4, "name": "overlay-format", "value": "842225234"}, {"category": 4, "name": "framedrop", "value": "1"}, {"category": 4, "name": "soundtouch", "value": "1"}, {"category": 4, "name": "start-on-prepared", "value": "1"}, {"category": 1, "name": "http-detect-range-support", "value": "0"}, {"category": 1, "name": "fflags", "value": "fastseek"}, {"category": 2, "name": "skip_loop_filter", "value": "48"}, {"category": 4, "name": "reconnect", "value": "1"}, {"category": 4, "name": "max-buffer-size", "value": "5242880"}, {"category": 4, "name": "enable-accurate-seek", "value": "0"}, {"category": 4, "name": "mediacodec", "value": "0"}, {"category": 4, "name": "mediacodec-auto-rotate", "value": "0"}, {"category": 4, "name": "mediacodec-handle-resolution-change", "value": "0"}, {"category": 4, "name": "mediacodec-hevc", "value": "0"}]},
@@ -405,7 +497,7 @@ def merge_sources():
         "flags": DEFAULT_FLAGS,
         "ijk": DEFAULT_IJK,
         "ads": DEFAULT_ADS,
-        "note": "本配置由 TVBox 资源全量去重合并引擎生成 (已嵌入全量纯净直播源)。"
+        "note": "本配置由 TVBox 全量资源抓取、PY 源码内嵌域名深度爆抓与深层切片提纯引擎生成。"
     }
 
     with open(os.path.join(WORK_DIR, "tvbox.json"), "w", encoding="utf-8") as f:
@@ -441,7 +533,7 @@ def merge_sources():
         json.dump(ns_config, f, ensure_ascii=False, indent=2)
 
     print(f"  ├─ 成功隔离 {len(adult_ns_sites)} 个 18+ 点播采集站写入: not_suitable/tvbox.json")
-    print(f"  └─ [01_merge_sources] 完成！全量合并收录 {len(all_sites)} 个有效纯净站点到 tvbox.json")
+    print(f"  └─ [01_merge_sources] 完成！全量合并收录 {len(all_sites)} 个有效纯净站点，提纯内嵌域名 {len(sorted_surface_domains)} 个到 grouped_cdn_domains.json！")
     return all_sites
 
 if __name__ == "__main__":
