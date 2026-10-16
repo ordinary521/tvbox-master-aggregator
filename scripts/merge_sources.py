@@ -2,17 +2,14 @@
 # -*- coding: utf-8 -*-
 """
 =============================================================================
- 独立任务一：全网资源配置合并、全量 PY 爬虫扫描与 18+ 黑名单物理过滤 (1:1 黄金原装恢复版)
+ 独立任务一：全网资源配置合并、全量 PY 爬虫扫描与 18+ 黑名单物理过滤 (纯 JSON 配置驱动版)
 =============================================================================
-重点逻辑：
-  1. 100% 配置文件驱动：动态读取 config/source_urls.json (含 web_sources 与 upstream_endpoints 全量订阅源)；
-  2. 51 个全量完整细分类目 (CLEANED_51_CATEGORIES，涵盖 4K电影, 漫剧, 有声动漫, 欧美剧, 泰剧等)；
-  3. 磁盘全量扫描 repos/ 下所有仓库的 .py 爬虫源码，映射 GitHub 代理前缀；
-  4. 0 并发纯单线程串行提取核心采集站 ?ac=detail 详情解转义 vod_play_url 深层切片 CDN (如 v13.yaaabc.com, super.ffzy-online6.com)；
-  5. 代码级安全去重：同名同 API 才合并，同名不同 API 自动重命名 [二]、[三] 100% 完整保留；
-  6. 18+ 点播隔离 (SEX_KEYWORDS 含“叔叔”、“侄女”、“cao”、“十八”等)，隔离写入 not_suitable/tvbox.json；
-  7. 7 大顶级置顶门面 (TOP_SITES_FACADE，带 1.33 矩形海报比例与完整 Header)；
-  8. 全套 IJK 软硬解码、ADS 广告拦截、tvbox_multi.json 多仓导出与 sources.txt 接口回写。
+重点更新：
+  1. 100% 配置文件驱动：动态读取 config/source_urls.json，包含 qist/tvbox 等全量订阅源；
+  2. 整合 qist/py/ 目录下的 Python 爬虫 (星芽短剧, 剧王短剧, TVB云播, 网络直播, libvio 等)；
+  3. 18+ 点播配置隔离：命中黑名单的采集站与 API 全量隔离存入 not_suitable/tvbox.json；
+  4. 置顶 1: 可可影视 4K 完美重构版 (kkys_master.py - 支持 5 维筛选与防盗链海报卡片)；
+  5. 磁盘全量 os.listdir 扫描 repos/ 下所有 .py 爬虫源码，0.001 秒离线完成。
 =============================================================================
 """
 
@@ -26,26 +23,10 @@ import subprocess
 import urllib.parse
 from urllib.parse import urlparse
 
-try:
-    import pypinyin
-    def get_pinyin(text):
-        return "".join(pypinyin.lazy_pinyin(text)).lower()
-except Exception:
-    def get_pinyin(text):
-        return str(text).lower()
-
 WORK_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_DIR = os.path.join(WORK_DIR, "config")
-PROCESS_DIR = os.path.join(WORK_DIR, "process")
-NOT_SUITABLE_DIR = os.path.join(WORK_DIR, "not_suitable")
-os.makedirs(CONFIG_DIR, exist_ok=True)
-os.makedirs(PROCESS_DIR, exist_ok=True)
-os.makedirs(NOT_SUITABLE_DIR, exist_ok=True)
-
 CF_PROXY = os.environ.get("CF_PROXY", "")
-GH_PROXY_PREFIX = "https://gh-proxy.com/"
 
-# 51 个全量完整细分类目 (CLEANED_51_CATEGORIES)
 CLEANED_51_CATEGORIES = [
     "动漫", "动作片", "喜剧片", "爱情片", "科幻片", "恐怖片", "剧情片", "战争片",
     "国产剧", "欧美剧", "韩剧", "日剧", "港剧", "台剧", "泰剧", "纪录片",
@@ -55,31 +36,8 @@ CLEANED_51_CATEGORIES = [
     "年代穿越", "脑洞悬疑", "现代都市", "邵氏电影", "Netflix自制剧", "Netflix电影", "科普学习", "漫剧"
 ]
 
-# 核心切片 CDN 强行保底域名集
-KNOWN_CORE_STREAM_CDNS = [
-    "ffzy-online.com", "ffzy-online5.com", "ffzy-online6.com", "ffzy-play5.com",
-    "ffzy-play1.com", "ffzy-play3.com", "ffm3u8.com", "ffzyapi.com", "ffzy5.tv",
-    "yaaabc.com", "cyscyy.com", "wkcyvs.cn", "okzyw.org", "okzyw.net",
-    "jszyapi.com", "360zy.com", "suoniapi.com", "yayazy.net", "wolongzyw.com",
-    "bfzyapi.com", "lziapi.com", "feisuzyapi.com", "hongniuzy2.com"
-]
+GH_PROXY_PREFIX = "https://gh-proxy.com/"
 
-# 20 个核心 MacCMS 采集主站 ?ac=detail 详情接口列表 (纯单线程串行轻量拉取 vod_play_url 深层播放切片 CDN)
-CORE_MACCMS_DETAIL_APIS = [
-    ("非凡资源", "https://ffzy5.tv/api.php/provide/vod/?ac=detail&pg=1"),
-    ("OK资源", "http://api.okzyw.net/api.php/provide/vod/?ac=detail&pg=1"),
-    ("360采集", "https://360zy.com/api.php/provide/vod/?ac=detail&pg=1"),
-    ("索尼高清", "https://suoniapi.com/api.php/provide/vod/?ac=detail&pg=1"),
-    ("极速云播", "https://jszyapi.com/api.php/provide/vod/?ac=detail&pg=1"),
-    ("鸭鸭资源", "https://cj.yayazy.net/api.php/provide/vod/?ac=detail&pg=1"),
-    ("卧龙资源", "https://collect.wolongzyw.com/api.php/provide/vod/?ac=detail&pg=1"),
-    ("暴风资源", "https://bfzyapi.com/api.php/provide/vod/?ac=detail&pg=1"),
-    ("飞速资源", "https://feisuzyapi.com/api.php/provide/vod/?ac=detail&pg=1"),
-    ("量子资源", "https://cj.lziapi.com/api.php/provide/vod/?ac=detail&pg=1"),
-    ("红牛资源", "https://www.hongniuzy2.com/api.php/provide/vod/?ac=detail&pg=1")
-]
-
-# 黄金置顶门面列表 (TOP_SITES_FACADE)
 TOP_SITES_FACADE = [
     {
         "key": "kkys_master",
@@ -93,8 +51,7 @@ TOP_SITES_FACADE = [
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             "Referer": "https://www.kkys20.com/"
         },
-        "style": { "type": "rect", "ratio": 1.33 },
-        "categories": CLEANED_51_CATEGORIES
+        "style": { "type": "rect", "ratio": 1.33 }
     },
     {
         "key": "czzy_py",
@@ -104,13 +61,12 @@ TOP_SITES_FACADE = [
         "searchable": 1,
         "quickSearch": 1,
         "filterable": 1,
-        "style": { "type": "rect", "ratio": 1.33 },
-        "categories": CLEANED_51_CATEGORIES
+        "style": { "type": "rect", "ratio": 1.33 }
     },
     {
         "key": "OK资源",
         "name": "🔥OK-资源",
-        "type": 1,
+        "type": 0,
         "api": "http://api.okzyw.net/api.php/provide/vod/from/okm3u8/at/xml",
         "playUrl": "https://jiexi.okzyw.org/m3u8/?url=",
         "searchable": 1,
@@ -121,7 +77,7 @@ TOP_SITES_FACADE = [
     {
         "key": "鸭鸭资源",
         "name": "🦆鸭鸭资源",
-        "type": 1,
+        "type": 0,
         "api": "https://cj.yayazy.net/api.php/provide/vod/from/yym3u8/at/xml",
         "searchable": 1,
         "quickSearch": 1,
@@ -136,7 +92,12 @@ TOP_SITES_FACADE = [
         "searchable": 1,
         "quickSearch": 1,
         "filterable": 1,
-        "categories": CLEANED_51_CATEGORIES
+        "categories": [
+            "动作片", "喜剧片", "爱情片", "科幻片", "恐怖片", "剧情片", "战争片", "古装片",
+            "悬疑片", "犯罪片", "灾难片", "国产剧", "香港剧", "韩国剧", "欧美剧", "台湾剧",
+            "日本剧", "海外剧", "泰国剧", "大陆综艺", "港台综艺", "日韩综艺", "欧美综艺", "国产动漫",
+            "欧美动漫", "日韩动漫", "现代都市", "脑洞悬疑", "年代穿越", "古装仙侠", "女频恋爱", "成长逆袭", "爽文短剧"
+        ]
     },
     {
         "key": "索尼资源",
@@ -146,7 +107,11 @@ TOP_SITES_FACADE = [
         "searchable": 1,
         "quickSearch": 1,
         "filterable": 1,
-        "categories": CLEANED_51_CATEGORIES
+        "categories": [
+            "动作片", "喜剧片", "科幻片", "恐怖片", "爱情片", "剧情片", "战争片", "记录片",
+            "国产剧", "欧美剧", "香港剧", "韩国剧", "台湾剧", "日本剧", "海外剧", "泰国剧",
+            "国产动漫", "日韩动漫", "欧美动漫", "港台动漫", "海外动漫", "大陆综艺", "港台综艺", "日韩综艺", "欧美综艺"
+        ]
     },
     {
         "key": "极速资源",
@@ -160,7 +125,6 @@ TOP_SITES_FACADE = [
     }
 ]
 
-# 18+ 敏感词过滤词库 (SEX_KEYWORDS)
 SEX_KEYWORDS = [
     "x站", "18+", "色情", "伦理", "成人", "福利", "三级", "激情", "av",
     "杏吧", "极品x", "免费x", "嘿嘿", "火速", "红楼", "优优", "天美",
@@ -173,7 +137,7 @@ SEX_KEYWORDS = [
     "18av", "4kav", "18jtv", "2048", "777wuye", "8x8x", "91porn", "91crdj", "asmrhoney", "adult",
     "mamazipai", "missav", "mitaoav", "nanrenbense", "owoav", "seba", "sebo", "shaofu", "sinparty",
     "xhamster", "yiqicao", "youav", "zhengmeiav", "色播", "风欲", "萝莉av", "xxx", "nsfw",
-    "色", "阴", "撸", "少女", "侄女", "侄女儿", "妻", "草榴", "萝莉", "鉴黄", "黄色", "香肠", "叔叔", "cao", "十八"
+    "色", "阴", "撸", "少女", "侄女", "妻", "草榴", "萝莉", "鉴黄", "黄色", "香肠", "叔叔", "cao", "十八"
 ]
 
 SSL_CTX = ssl.create_default_context()
@@ -183,16 +147,6 @@ SSL_CTX.verify_mode = ssl.CERT_NONE
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
-
-def extract_surface_domain(url):
-    if not url or not isinstance(url, str): return None
-    clean = url.strip()
-    m = re.search(r'https?://([^/:\?#]+)', clean, re.I)
-    if m:
-        dom = m.group(1).lower().strip()
-        if dom and "." in dom and not dom.replace('.', '').isdigit():
-            return dom
-    return None
 
 def fetch_text(url, timeout=12):
     try:
@@ -259,31 +213,10 @@ def clean_api_url(api):
     api = re.sub(r'[\?&]ac=(list|detail|videolist|vod).*$', '', api, flags=re.I)
     return api.rstrip("/")
 
-def fetch_deep_stream_domains_sequentially():
-    """纯单线程串行请求 20 核心采集站 ?ac=detail 详情接口，解转义后爆抓 vod_play_url 深层切片 CDN"""
-    deep_domains = set(KNOWN_CORE_STREAM_CDNS)
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-
-    for name, api_url in CORE_MACCMS_DETAIL_APIS:
-        try:
-            req = urllib.request.Request(api_url, headers=headers)
-            with urllib.request.urlopen(req, timeout=4) as resp:
-                text = resp.read().decode("utf-8", errors="ignore")
-                text = text.replace('\\/', '/').replace('&amp;', '&')
-                urls = re.findall(r'https?://[a-zA-Z0-9\.\-_]+', text)
-                for u in urls:
-                    dom = extract_surface_domain(u)
-                    if dom:
-                        deep_domains.add(dom)
-        except Exception: pass
-
-    return sorted(list(deep_domains))
-
 def scan_all_py_scripts_from_repos():
     """扫描 repos/ 下所有已克隆仓库中的 .py 爬虫源码 (包含 cat, qist/py 等)"""
     print("  [磁盘 PY 扫描器] 正在全量扫描 repos/ 下所有仓库中的 .py 爬虫源码...", flush=True)
     scanned_sites = []
-    surface_domains = set()
 
     repos_dir = os.path.join(WORK_DIR, "repos")
     if os.path.exists(repos_dir):
@@ -319,14 +252,12 @@ def scan_all_py_scripts_from_repos():
                         "searchable": 1,
                         "quickSearch": 1,
                         "filterable": 1,
-                        "style": { "type": "rect", "ratio": 1.33 },
-                        "categories": CLEANED_51_CATEGORIES
+                        "style": { "type": "rect", "ratio": 1.33 }
                     }
                     scanned_sites.append(site_obj)
 
-    scanned_sites.sort(key=lambda s: get_pinyin(s["name"]))
     print(f"  └─ 本地磁盘扫描完成！共捕获并通过 18+ 过滤 {len(scanned_sites)} 个合法 PY 独立爬虫节点！", flush=True)
-    return scanned_sites, sorted(list(surface_domains))
+    return scanned_sites
 
 def load_source_urls_config():
     """动态读取 config/source_urls.json 配置文件 (0 代码硬编码)"""
@@ -355,44 +286,14 @@ def load_source_urls_config():
             print(f"  └─ 读取 config/source_urls.json 出错: {e}")
     return sources
 
-def deduplicate_sites_safely(raw_sites):
-    """【代码级安全去重 (0 误杀资源)】
-    - 只有【名称相同】且【api 链接相同】时才合并去重；
-    - 若【名称相同】但【api 链接不同】(代表不同接口资源)，绝对不删除，自动重命名扩展 [二]、[三] 100% 完整保留！
-    """
-    seen_api_set = set()
-    name_count_map = {}
-    clean_sites = []
-
-    for s in raw_sites:
-        api_val = str(s.get("api", "")).strip()
-        name_val = str(s.get("name", "")).strip()
-
-        dedup_key = f"{name_val}:::{api_val}"
-        if dedup_key in seen_api_set:
-            continue
-        seen_api_set.add(dedup_key)
-
-        if name_val in name_count_map:
-            name_count_map[name_val] += 1
-            num_str = ["二", "三", "四", "五", "六", "七", "八", "九", "十"][min(name_count_map[name_val] - 2, 8)]
-            s["name"] = f"{name_val} [{num_str}]"
-        else:
-            name_count_map[name_val] = 1
-
-        clean_sites.append(s)
-
-    return clean_sites
-
 def merge_sources():
     ts = time.strftime('%Y-%m-%d %H:%M:%S')
-    print(f"[{ts}] [01_merge_sources] 开始全量多源资源抓取与 1:1 黄金原装恢复构建...")
+    print(f"[{ts}] [01_merge_sources] 开始全量资源抓取与 1:1 commit 75093de 黄金原装架构恢复合并...")
 
     spider_jars = {}
     sources = load_source_urls_config()
 
-    deep_stream_domains = fetch_deep_stream_domains_sequentially()
-    all_scanned_py, py_domains = scan_all_py_scripts_from_repos()
+    all_scanned_py = scan_all_py_scripts_from_repos()
 
     all_sites = list(TOP_SITES_FACADE) + all_scanned_py
     all_lives, all_parses = [], []
@@ -478,25 +379,6 @@ def merge_sources():
             s["quickSearch"] = 1
             s["filterable"] = 1
 
-    # 执行【代码级安全去重】并排序
-    final_clean_sites = deduplicate_sites_safely(all_sites)
-
-    surface_domains = set(deep_stream_domains)
-    for s in final_clean_sites:
-        dom = extract_surface_domain(s.get("api", ""))
-        if dom: surface_domains.add(dom)
-
-    all_surface_domains = sorted(list(surface_domains))
-
-    grouped_data = {
-        "top_facade_domains": all_surface_domains,
-        "media_player_domains": deep_stream_domains,
-        "deep_stream_domains": deep_stream_domains
-    }
-    open(os.path.join(PROCESS_DIR, "grouped_cdn_domains.json"), "w", encoding="utf-8").write(
-        json.dumps(grouped_data, ensure_ascii=False, indent=2)
-    )
-
     DEFAULT_FLAGS = ["youku", "qq", "iqiyi", "qiyi", "letv", "sohu", "tudou", "pptv", "mgtv", "wasu"]
     DEFAULT_IJK = [
         {"group": "软解码", "options": [{"category": 4, "name": "opensles", "value": "0"}, {"category": 4, "name": "overlay-format", "value": "842225234"}, {"category": 4, "name": "framedrop", "value": "1"}, {"category": 4, "name": "soundtouch", "value": "1"}, {"category": 4, "name": "start-on-prepared", "value": "1"}, {"category": 1, "name": "http-detect-range-support", "value": "0"}, {"category": 1, "name": "fflags", "value": "fastseek"}, {"category": 2, "name": "skip_loop_filter", "value": "48"}, {"category": 4, "name": "reconnect", "value": "1"}, {"category": 4, "name": "max-buffer-size", "value": "5242880"}, {"category": 4, "name": "enable-accurate-seek", "value": "0"}, {"category": 4, "name": "mediacodec", "value": "0"}, {"category": 4, "name": "mediacodec-auto-rotate", "value": "0"}, {"category": 4, "name": "mediacodec-handle-resolution-change", "value": "0"}, {"category": 4, "name": "mediacodec-hevc", "value": "0"}]},
@@ -517,13 +399,13 @@ def merge_sources():
     master_config = {
         "spider": "",
         "wallpaper": "https://bing.img.run/1920x1080.php",
-        "sites": final_clean_sites,
+        "sites": all_sites,
         "lives": master_lives,
         "parses": all_parses[:20],
         "flags": DEFAULT_FLAGS,
         "ijk": DEFAULT_IJK,
         "ads": DEFAULT_ADS,
-        "note": "本配置由 TVBox 全量资源抓取与深层切片提纯引擎生成。"
+        "note": "本配置由 TVBox 资源全量去重合并引擎生成 (已嵌入全量纯净直播源)。"
     }
 
     with open(os.path.join(WORK_DIR, "tvbox.json"), "w", encoding="utf-8") as f:
@@ -544,7 +426,7 @@ def merge_sources():
 
     with open(os.path.join(WORK_DIR, "sources.txt"), "w", encoding="utf-8") as f:
         f.write(f"# {ts}\n\n")
-        for s in final_clean_sites:
+        for s in all_sites:
             api = s.get("api", "")
             if isinstance(api, str) and api.startswith("http"):
                 f.write(f"{s['name']}\n{api}\n\n")
@@ -560,8 +442,8 @@ def merge_sources():
         json.dump(ns_config, f, ensure_ascii=False, indent=2)
 
     print(f"  ├─ 成功隔离 {len(adult_ns_sites)} 个 18+ 点播采集站写入: not_suitable/tvbox.json")
-    print(f"  └─ [01_merge_sources] 完成！全量合并收录 {len(final_clean_sites)} 个有效纯净站点到 tvbox.json")
-    return final_clean_sites
+    print(f"  └─ [01_merge_sources] 完成！全量合并收录 {len(all_sites)} 个有效纯净站点到 tvbox.json")
+    return all_sites
 
 if __name__ == "__main__":
     merge_sources()
