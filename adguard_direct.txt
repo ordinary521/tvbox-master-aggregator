@@ -303,6 +303,8 @@
 @@||c-you.hair^
 @@||c.xpgtv.net^
 @@||c1.ddbbffcdn.com^
+@@||c1.rrcdnbf4.com^
+@@||c1.rrcdnbf5.com^
 @@||c1.rrcdnbf6.com^
 @@||c2v2.com^
 @@||c494.com^
@@ -860,6 +862,7 @@
 @@||lz15uu.com^
 @@||lzdown26.com^
 @@||lzdown27.com^
+@@||lzdw25.com^
 @@||lziapi.com^
 @@||lzipic.com^
 @@||lzlukvca.cc^
@@ -999,6 +1002,7 @@
 @@||oytsuig.kwvqaj.cn^
 @@||ozzez.com^
 @@||p.bfvp26.com^
+@@||p.bvvvvvvv7f.com^
 @@||p2100.net^
 @@||paishexianchang.site^
 @@||pan.142856.xyz^
@@ -1110,6 +1114,7 @@
 @@||ryoz487.mmyy25.top^
 @@||rysp.tv^
 @@||s2ykfzb.cn^
+@@||s3.bfllvip.com^
 @@||s7t8u9v0.luanlunba13.cc^
 @@||s7t8u9v0.luanlunba14.cc^
 @@||s7t8u9v0.luanlunba15.cc^
@@ -1197,7 +1202,6 @@
 @@||surrit.com^
 @@||suyanw.cn^
 @@||svip.bljiex.cc^
-@@||svip.feifei-play.com^
 @@||svip.qlplayer.cyou^
 @@||sxyjspsc.com^
 @@||t.061899.xyz^
@@ -1272,6 +1276,7 @@
 @@||v.lfthirtytwo.com^
 @@||v.lz15uu.com^
 @@||v.lzcdn23.com^
+@@||v.lzcdn26.com^
 @@||v.lzcdn27.com^
 @@||v.lzcdn28.com^
 @@||v.lzcdn31.com^
@@ -1331,14 +1336,13 @@
 @@||video.externulls.com^
 @@||vip.123pan.cn^
 @@||vip.2ktvb.com^
-@@||vip.ffzy-online5.com^
-@@||vip.ffzy-play5.com^
+@@||vip.ffzy-play10.com^
 @@||vip.ffzy-plays.com^
-@@||vip.ffzyread2.com^
 @@||vip.lz-cdn11.com^
 @@||vip.lz-cdn12.com^
 @@||vip.lz-cdn13.com^
 @@||vip.lz-cdn14.com^
+@@||vip.lz-cdn9.com^
 @@||vip.lzcdn10.com^
 @@||vip.wwgz.cn^
 @@||vip1.lz-cdn5.com^
