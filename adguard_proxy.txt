@@ -1,7 +1,9 @@
 ! OpenWrt AdGuard Home 强制代理域名规则
+@@||api.tmdb.org^
 @@||gfw.press^
 @@||huangguoai.com^
 @@||image.tmdb.org^
+@@||images.tmdb.org^
 @@||themoviedb.org^
 @@||tmdb.org^
 @@||v2fly.org^
