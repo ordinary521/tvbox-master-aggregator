@@ -5,14 +5,16 @@
  独立脚本十：策略导出器 (Task 10: 原版 YAML 与 Mihomo .mrs 二进制双重导出)
 =============================================================================
 重点逻辑：
-  1. 自动融合本地持久化资源库 (process/local_probed_direct.json & process/local_probed_proxy.json)；
-  2. 融合 Downloads 历史补充数据，100% 经过 Step 2 语法清洗 + Step 3 tldextract (Mozilla PSL) & RFC 正则 + repos/blackmatrix7 O(1) 极速全量差集扣除；
-  3. 100% 物理强行锁定 huangguoai.com / tmdb.org 等专属代理域名进入 domains_proxy.txt / domains_proxy.mrs；
-  4. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
+  1. 遵照 Mihomo 官方 behavior: domain 标准规范：写盘 YAML 时导出纯正域名格式 (如 'ffzy-online6.com')，擦除非标准 +. 前缀，让 Mihomo 官方进程自动展开基数树涵盖所有子域名；
+  2. 规则 100% 绝对对等对齐 (Subdomain Subsumption 父子域名折叠归并): 保证 txt / yaml / mrs 三边规则条数白纸黑字 100% 绝对数学相等；
+  3. 自动融合本地持久化资源库 (process/local_probed_*.json) 与 Downloads 补充源；
+  4. Step 2 语法清洗 + Step 3 tldextract (Mozilla PSL) & RFC 正则 + repos/blackmatrix7 O(1) 极速全量差集扣除；
+  5. 100% 物理强行锁定 huangguoai.com / tmdb.org 等专属代理域名进入 domains_proxy.txt / domains_proxy.mrs；
+  6. 100% 1:1 严格照搬 CRThu/clash-rules-mrs 官方二进制进程编译命令：
      - mihomo convert-ruleset domain yaml domains_direct.yaml domains_direct.mrs
      - mihomo convert-ruleset ipcidr yaml ips_direct.yaml ips_direct.mrs
      - mihomo convert-ruleset domain yaml domains_proxy.yaml domains_proxy.mrs
-  5. 纯域名 (behavior: domain) 与 纯 IP (behavior: ipcidr) 100% 物理拆分导出。
+  7. 纯域名 (behavior: domain) 与 纯 IP (behavior: ipcidr) 100% 物理拆分导出。
 =============================================================================
 """
 
@@ -105,6 +107,27 @@ def is_blackmatrix7_existing_domain(clean_dom):
 
     return False
 
+def fold_subdomains_to_parents(domain_list):
+    if not domain_list:
+        return []
+
+    dom_set = set(domain_list)
+    folded_doms = []
+
+    for dom in sorted(list(dom_set)):
+        parts = dom.split('.')
+        has_parent = False
+        for i in range(1, len(parts) - 1):
+            parent_dom = ".".join(parts[i:])
+            if parent_dom in dom_set:
+                has_parent = True
+                break
+
+        if not has_parent:
+            folded_doms.append(dom)
+
+    return folded_doms
+
 def to_punycode_domain(dom_str):
     if not dom_str or not isinstance(dom_str, str): return None
     try: return dom_str.encode("idna").decode("ascii")
@@ -114,6 +137,7 @@ def final_clean_before_write(dom, is_proxy_context=False):
     """写盘导出阶段最后一关：【步骤 2 强力语法清洗修整】 ➔ 【步骤 3 tldextract + RFC 正则 + O(1) 哈希全量差集扣除】"""
     if not dom or not isinstance(dom, str): return None
 
+    # === 步骤 2：强力语法清洗修整 ===
     clean = str(dom).replace('&amp;', '&').replace('\\/', '/').replace('\\', '').strip()
     clean = clean.split('#')[0].split('?')[0].split('&')[0].split(';')[0].split('%')[0].split(',')[0].strip()
 
@@ -171,7 +195,6 @@ def read_and_persist_downloads_supplement_domains():
     supp_direct = set()
     supp_proxy = set()
 
-    # 1. 优先读取 process/ 目录下固化的持久化 JSON 备份 (包含 local_probed_*.json)
     for dir_fn in ["downloads_supplement_direct.json", "local_probed_direct.json"]:
         fpath = os.path.join(PROCESS_DIR, dir_fn)
         if os.path.exists(fpath):
@@ -184,7 +207,6 @@ def read_and_persist_downloads_supplement_domains():
             try: supp_proxy.update(json.load(open(fpath, "r", encoding="utf-8")))
             except Exception: pass
 
-    # 2. 读取 Downloads 增量补充源
     dir_file = os.path.join(downloads_dir, "domains_direct.txt")
     if os.path.exists(dir_file):
         try:
@@ -236,7 +258,7 @@ def wipe_all_old_output_files(work_dir):
             except Exception: pass
 
 def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, dynamic_image_domains=None, extracted_ips=None, release_page_domains=None, py_code_domains=None):
-    print("  [Task 10: 策略导出器] 正在融合 process/ 持久化库与【全量差集扣除 A-B】并编译 Mihomo .mrs...", flush=True)
+    print("  [Task 10: 策略导出器] 正在导出纯正域名格式并进行【父子折叠+全量差集扣除】与 Mihomo .mrs 编译...", flush=True)
 
     wipe_all_old_output_files(work_dir)
 
@@ -289,13 +311,18 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
                 if puny:
                     final_puny = final_clean_before_write(puny, is_proxy_context=is_proxy_context)
                     if final_puny: expanded.add(final_puny)
-        return sorted(list(expanded))
+        return list(expanded)
 
-    sorted_direct_doms = expand_and_final_clean(direct_domains, is_proxy_context=False)
-    sorted_proxy_doms = expand_and_final_clean(proxy_domains, is_proxy_context=True)
+    cleaned_direct_doms = expand_and_final_clean(direct_domains, is_proxy_context=False)
+    cleaned_proxy_doms = expand_and_final_clean(proxy_domains, is_proxy_context=True)
+
+    sorted_direct_doms = fold_subdomains_to_parents(cleaned_direct_doms)
+    sorted_proxy_doms = fold_subdomains_to_parents(cleaned_proxy_doms)
     sorted_ips = sorted(list(pure_ips))
 
-    # 1. 导出纯域名直连列表与符合 Mihomo 官方标准的纯字符串 YAML (domains_direct.yaml / clash_rules_direct.yaml)
+    print(f"  ├─ 父子域名折叠归并完成！对齐后的纯直连规则条数: {len(sorted_direct_doms)} 条！", flush=True)
+
+    # 1. 导出纯域名直连列表与符合 Mihomo 官方标准的纯字符串 YAML (符合 Mihomo behavior: domain 标准规范)
     domains_direct_yaml = os.path.join(work_dir, "domains_direct.yaml")
     clash_rules_direct_yaml = os.path.join(work_dir, "clash_rules_direct.yaml")
 
@@ -306,6 +333,7 @@ def export_grouped_router_rules(work_dir, sites=None, grouped_cdn_domains=None, 
             if final_d: f.write(f"{final_d}\n")
 
     yaml_header = "# TVBox 纯域名 Mihomo / Clash 直连规则集 (behavior: domain)\npayload:\n"
+    # 符合 Mihomo 官方规范：导出干净纯正的域名字符串，擦除非标准 +. 前缀
     yaml_body = "".join(f"  - '{final_clean_before_write(d, is_proxy_context=False)}'\n" for d in sorted_direct_doms if final_clean_before_write(d, is_proxy_context=False))
 
     open(domains_direct_yaml, "w", encoding="utf-8").write(yaml_header + yaml_body)
