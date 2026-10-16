@@ -288,7 +288,7 @@ def load_source_urls_config():
 
 def merge_sources():
     ts = time.strftime('%Y-%m-%d %H:%M:%S')
-    print(f"[{ts}] [01_merge_sources] 开始全量资源抓取与 1:1 commit 75093de 黄金原装架构恢复合并...")
+    print(f"[{ts}] [01_merge_sources] 开始全量资源抓取与合并 (纯配置文件驱动版)...")
 
     spider_jars = {}
     sources = load_source_urls_config()
@@ -420,9 +420,8 @@ def merge_sources():
         "stores": multi_stores,
         "storeHouse": multi_stores
     }
-    with open(os.path.join(WORK_DIR, "tvbox_multi.json"), "w", encoding="utf-8").write(
-        json.dumps(multi, ensure_ascii=False, indent=2)
-    )
+    with open(os.path.join(WORK_DIR, "tvbox_multi.json"), "w", encoding="utf-8") as f:
+        json.dump(multi, f, ensure_ascii=False, indent=2)
 
     with open(os.path.join(WORK_DIR, "sources.txt"), "w", encoding="utf-8") as f:
         f.write(f"# {ts}\n\n")
