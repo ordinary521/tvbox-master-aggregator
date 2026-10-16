@@ -1,40 +1,27 @@
 ---
 name: tvbox_aggregator_and_router_SOP
-description: TVBox 资源聚合与路由规则集项目开发规范 (包含配置驱动、数据保真、切片提纯、规则导出与问题排查标准)。
+description: TVBox 全量资源聚合与多源配置驱动规范 (包含 source_urls.json 驱动、第三方节点原样保真、ac=detail 详情解转义与多仓导出)。
 ---
 
-# TVBox 资源聚合与路由规则集项目开发规范
+# TVBox 资源聚合与多源配置驱动规范
 
-本规范适用于 `tvbox-master-aggregator` 项目的后续维护与开发。
-
----
-
-## 正确的技术途径 (Correct Practices)
-
-### 1. 配置驱动与数据保真
-- **订阅源抓取**：统一通过 `config/source_urls.json` 动态加载上游接口，禁止硬编码源地址。
-- **节点数据原样保留**：第三方订阅和 Python 爬虫拉取的数据节点，保留原有的字段格式。原节点有 `categories` 则保留，无 `categories` 则不添加。
-- **多仓与接口导出**：完整导出 `tvbox_multi.json`（包含 `urls`、`stores`、`storeHouse`）并生成 `sources.txt`。
-
-### 2. 切片 CDN 提取与字符处理
-- **详情接口请求**：采集站抓取播放地址时请求 `?ac=detail` 接口。
-- **转义字符还原**：针对 MacCMS 返回 JSON 中的 `\/` 转义斜杠，在正则解析前执行 `text.replace('\\/', '/')` 和 `text.replace('&amp;', '&')`。
-- **核心切片保底**：通过 `KNOWN_CORE_STREAM_CDNS` 保留常见播放切片域名。
-
-### 3. 路由规则与 Mihomo 编译
-- **父子域名折叠**：导出前使用 `fold_subdomains_to_parents` 将已包含在主域名下的子域名折叠，保持文本列表与编译后的规则集条数一致。
-- **泛域名匹配**：YAML Payload 中添加 `+.` 前缀（如 `+.ffzy-online6.com`），确保 Mihomo 将其编译为 `DOMAIN-SUFFIX` 规则，涵盖所有二级/三级子域名。
-- **敏感词隔离与差集扣除**：命中 `SEX_KEYWORDS` 的站点写入 `not_suitable/tvbox.json`；域名列表与 `repos/blackmatrix7` 进行差集扣除。
-
-### 4. 问题排查与执行模式
-- **以真实日志和代码为准**：遇到网络逃逸或匹配异常，首先检查网络响应原文、转义处理以及编译后的 YAML/MRS 内容，不推卸责任。
-- **问答与执行隔离**：问答模式下只说明原因和事实；收到明确指令后进行代码修改并完成提交和推送。
+本规范定义 `tvbox-master-aggregator` 项目中资源抓取、解析与配置合并的核心工程标准。
 
 ---
 
-## 错误的技术途径 (Incorrect Practices)
+## 1. 配置驱动与多源聚合
+- **源配置驱动**：必须动态读取 `config/source_urls.json` 文件中的 `web_sources` 与 `upstream_endpoints` 订阅源，禁止硬编码网络接口。
+- **磁盘 PY 爬虫扫描**：遍历 `repos/` 下所有克隆仓库中的 `.py` 爬虫脚本（如 `repos/cat`、`repos/qist`），为其分配对应的代理托管前缀 (`GH_PROXY_PREFIX`)。
 
-- **擅自添加分类数组**：给原本没有 `categories` 字段的节点强行添加分类列表。
-- **无脑复制代码**：参考历史代码时盲目复制包含逻辑缺陷、转义漏处理或路径依赖的代码。
-- **遗漏 JSON 斜杠转义**：忽略 `\/` 转义字符导致正则无法匹配播放域名。
-- **使用空洞推诿**：遇到匹配失败时未深入排查代码，盲目推卸给 OpenClash 或外部环境。
+## 2. 节点数据保真原则
+- **第三方节点数据不强加字段**：从上游订阅和磁盘爬虫提取的节点，保持其原有字段。如果节点原本没有 `categories` 字段，绝不添加；原本有则原样保留。
+- **门面主站定制**：仅对 `TOP_SITES_FACADE` 列表中置顶的 7 大门面主站，保留矩形海报比例（`ratio: 1.33`）、请求头 (`header`) 及分类配置。
+
+## 3. 切片提纯与字符解转义
+- **详情接口访问**：提取播放切片地址时，统一访问 `?ac=detail` 详情接口，不使用无播放地址的 `?ac=list` 接口。
+- **JSON 转义斜杠还原**：MacCMS 返回的 JSON 文本中包含转义斜杠 `\/`，在进行正则表达式提取前，必须优先执行 `text.replace('\\/', '/')` 与 `text.replace('&amp;', '&')`。
+- **核心切片域名保底**：配合 `KNOWN_CORE_STREAM_CDNS` 列表（如 `ffzy-online6.com`、`ffzy-play5.com`、`yaaabc.com` 等），确保核心播放切片域名稳固存活。
+
+## 4. 多仓与接口回写
+- **多仓 JSON 导出**：生成包含 `urls`、`stores` 和 `storeHouse` 完整结构的 `tvbox_multi.json` 文件。
+- **接口列表回写**：提取所有有效站点的名称与 API 链接，格式化回写生成 `sources.txt`。
