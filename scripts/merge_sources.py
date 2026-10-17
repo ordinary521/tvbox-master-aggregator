@@ -70,7 +70,7 @@ CORE_MACCMS_DETAIL_APIS = [
 TOP_SITES_FACADE = [
     {
         "key": "kkys_master",
-        "name": "💎可可影视┃4K高清",
+        "name": "💎可可影视┃4K",
         "type": 3,
         "api": "https://gh-proxy.com/https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/scripts/kkys_master.py",
         "searchable": 1,
