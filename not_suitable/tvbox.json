@@ -34,13 +34,6 @@
       "changeable": 0
     },
     {
-      "key": "麦田",
-      "name": "麦田┃十八",
-      "type": 3,
-      "api": "csp_AppV6",
-      "ext": "http://172.247.227.203:25321/mtys.php"
-    },
-    {
       "key": "番茄影视",
       "name": "番茄 • APP",
       "type": 3,
@@ -71,13 +64,6 @@
       "changeable": 0
     },
     {
-      "key": "麦田",
-      "name": "麦田┃十八",
-      "type": 3,
-      "api": "csp_AppV6",
-      "ext": "http://172.247.227.203:25321/mtys.php"
-    },
-    {
       "key": "Doubana",
       "name": "🐮【更新日期:20260911】🐮",
       "type": 3,
@@ -86,6 +72,18 @@
       "quickSearch": 0,
       "filterable": 0,
       "ext": "https://cdn.waimaimingtang.com/file/images/bwc/20260414181247-ae51abfbfe.txt"
+    },
+    {
+      "key": "tianyi",
+      "name": "💓我的┃天逸💓‍",
+      "type": 3,
+      "api": "csp_WexWo189Guard",
+      "searchable": 1,
+      "changeable": 1,
+      "timeout": 50,
+      "style": {
+        "type": "list"
+      }
     },
     {
       "key": "影视森林",
@@ -145,6 +143,18 @@
       "quickSearch": 0,
       "filterable": 0,
       "ext": "https://cdn.waimaimingtang.com/file/images/bwc/20260414181247-ae51abfbfe.txt"
+    },
+    {
+      "key": "tianyi",
+      "name": "💓我的┃天逸💓‍",
+      "type": 3,
+      "api": "csp_WexWo189Guard",
+      "searchable": 1,
+      "changeable": 1,
+      "timeout": 50,
+      "style": {
+        "type": "list"
+      }
     },
     {
       "key": "番茄影视",
@@ -760,6 +770,33 @@
       "api": "https://fastlink.cokey.xyz/f/AGJeHm/%E9%87%91%E7%89%8C%E5%BD%B1%E9%99%A2.js"
     },
     {
+      "key": "采集集合",
+      "name": "采集集合+",
+      "type": 4,
+      "api": "http://zhangqun1818.serv00.net/cj/cjjh.php",
+      "ext": "0"
+    },
+    {
+      "key": "影视播放",
+      "name": "老张影视",
+      "type": 4,
+      "api": "http://zhangqun1818.serv00.net/zh/2242.php"
+    },
+    {
+      "key": "影视单播放",
+      "name": "影视播放",
+      "type": 4,
+      "api": "http://zhangqun1818.serv00.net/zh/2243.php"
+    },
+    {
+      "key": "裤佬JS聚合",
+      "name": "采集┃聚合",
+      "type": 4,
+      "api": "http://zhangqun1818.serv00.net/cj/cjjh.php?ac=list",
+      "searchable": 1,
+      "changeable": 1
+    },
+    {
       "name": "🍌小黄人",
       "key": "小黄人",
       "type": 3,
@@ -820,6 +857,33 @@
         "大秀视频",
         "AV明星1"
       ]
+    },
+    {
+      "key": "LeiJing",
+      "name": "雷鲸|189Pan",
+      "type": 3,
+      "api": "csp_LeiJing",
+      "searchable": 1,
+      "changeable": 1,
+      "ext": {}
+    },
+    {
+      "key": "TgSearch189",
+      "name": "☁TgSearch189┃网盘",
+      "type": 3,
+      "api": "csp_TgSearch189",
+      "searchable": 1,
+      "filterable": 0,
+      "ext": {
+        "api_urls": [
+          "https://so.252035.xyz/api/search",
+          "https://s.panhunt.com/api/search",
+          "https://pansou.app/api/search"
+        ],
+        "sources": [
+          "天翼"
+        ]
+      }
     },
     {
       "key": "souav",
@@ -1644,13 +1708,39 @@
       "quickSearch": 0,
       "filterable": 0,
       "ext": "https://cdn.waimaimingtang.com/file/images/bwc/20260414181247-ae51abfbfe.txt"
+    },
+    {
+      "key": "tianyi",
+      "name": "💓我的┃天逸💓‍",
+      "type": 3,
+      "api": "csp_WexWo189Guard",
+      "searchable": 1,
+      "changeable": 1,
+      "timeout": 50,
+      "style": {
+        "type": "list"
+      }
+    },
+    {
+      "key": "drpy_js_188影视",
+      "name": "影视 | 188影视[js]",
+      "type": 3,
+      "api": "./lib/drpy2.min.js",
+      "ext": "./js/188影视.js"
+    },
+    {
+      "key": "drpy_js_18哈",
+      "name": "影视 | 18哈[js]",
+      "type": 3,
+      "api": "./lib/drpy2.min.js",
+      "ext": "./js/18哈.js"
     }
   ],
   "lives": [
     {
       "name": "🔥TVBox 高清央视/卫视/美英直播源",
       "type": 0,
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/haygcao/tvbox-master-aggregator/main/live.txt"
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/live.txt"
     }
   ],
   "parses": [

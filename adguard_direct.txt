@@ -534,7 +534,6 @@
 @@||dmxq39.com^
 @@||dns.watch^
 @@||dnvod.org^
-@@||dogpan.com^
 @@||domain.com^
 @@||donmedia.bonus-tv.ru^
 @@||dood.la^
@@ -654,6 +653,7 @@
 @@||fishapi.wya6.com^
 @@||flixflop.com^
 @@||flowus.cn^
+@@||fm.t4tv.hz.cz^
 @@||fmao.shop^
 @@||fmao.site^
 @@||fmbox.cc^
@@ -713,7 +713,6 @@
 @@||gimytv.com^
 @@||git.yylx.win^
 @@||gitcafe.net^
-@@||gitee.cn^
 @@||github.ednovas.xyz^
 @@||gitlink.org.cn^
 @@||global.apirun.xn--vsqw5hh18a8vw.com^
@@ -1959,13 +1958,13 @@
 @@||wujinzy.net^
 @@||wuyaoy.cn^
 @@||wuzy9.com^
+@@||ww.zouming.com^
 @@||wwgz.cn^
 @@||www.020zhicheng.com^
 @@||www.03yy.co^
 @@||www.0759ks.com^
 @@||www.1000007.com^
 @@||www.1234y.cc^
-@@||www.12377.cn^
 @@||www.1920lgzy.top^
 @@||www.1av.shop^
 @@||www.2xiaopan.top^
@@ -2267,7 +2266,6 @@
 @@||www.nycvod.com^
 @@||www.oichaw.com^
 @@||www.omnys.com^
-@@||www.openatom.org^
 @@||www.pangujiexi.cc^
 @@||www.pg8090.com^
 @@||www.pikaso.top^
@@ -2305,7 +2303,6 @@
 @@||www.shwopu.com^
 @@||www.siren93.com^
 @@||www.sitanfu.net^
-@@||www.sizhengxt.com^
 @@||www.skymp4.com^
 @@||www.sohumama.com^
 @@||www.sotvla.cc^
@@ -2332,7 +2329,6 @@
 @@||www.ths864.com^
 @@||www.tianyiso.com^
 @@||www.time-chicken.com^
-@@||www.tjrongze.com^
 @@||www.tl39.com^
 @@||www.tonglicable.com^
 @@||www.ttdm.me^
@@ -2539,7 +2535,6 @@
 @@||yinsd1.sbs^
 @@||yiqiys.com^
 @@||yitingshu.com^
-@@||yiyongji.page.gd^
 @@||yj1211.work^
 @@||yjzy.me^
 @@||yk.shaozeyy.com^

@@ -1,6 +1,6 @@
-# 2026-10-17 12:42:41
+# 2026-10-17 12:59:07
 
-💎可可影视┃4K高清
+💎可可影视┃4K
 https://gh-proxy.com/https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/scripts/kkys_master.py
 
 💎厂长资源┃1080P
@@ -251,9 +251,6 @@ https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690
 
 💎808影院┃[CAT]
 https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/808影院.py
-
-💎818heiliaowang┃[CAT]
-https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/818heiliaowang.py
 
 💎99duanjuwang┃[CAT]
 https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/99duanjuwang.py
@@ -2919,15 +2916,6 @@ https://fastlink.cokey.xyz/f/AOxWum/%E9%AC%BC%E7%89%87%E4%B9%8B%E5%AE%B6.js
 [直播] 聚合剧➋
 http://nn.4688888.xyz/py/短剧聚合.py
 
-[直播] 采集集合+
-http://zhangqun1818.serv00.net/cj/cjjh.php
-
-[直播] 老张影视
-http://zhangqun1818.serv00.net/zh/2242.php
-
-[直播] 影视播放
-http://zhangqun1818.serv00.net/zh/2243.php
-
 [直播] 👖裤佬丨永乐丨JS
 https://mpimg.cn/down.php/0338609bd59d7b27226f5a269ec97936.js
 
@@ -2945,9 +2933,6 @@ https://mpimg.cn/down.php/2dfd46b7b542f1f4ac34e0af4ec5549b.py
 
 [直播] 👖裤佬丨七星丨短剧
 https://mpimg.cn/down.php/48e9d346cdf6da376c53136693bec95a.py
-
-[直播] 采集┃聚合
-http://zhangqun1818.serv00.net/cj/cjjh.php
 
 [直播] 咕噜映画 | APP
 https://fastlink.cokey.xyz/f/oPJvI9/Appfox.min.js
