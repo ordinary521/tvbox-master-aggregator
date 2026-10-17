@@ -535,6 +535,7 @@ dmhyy.com
 dmxq39.com
 dns.watch
 dnvod.org
+dogpan.com
 domain.com
 donmedia.bonus-tv.ru
 dood.la
@@ -707,13 +708,13 @@ ghfast.top
 ghfile.geekertao.top
 ghgdm.com
 ghp.ci
-ghproxy.com
 ghproxy.net
 gimytv.biz
 gimytv.co
 gimytv.com
 git.yylx.win
 gitcafe.net
+gitee.cn
 github.ednovas.xyz
 gitlink.org.cn
 global.apirun.xn--vsqw5hh18a8vw.com
@@ -1260,12 +1261,12 @@ mgzyz1.com
 mi2ys.com
 miai9.cc
 miao101.com
-miaotvs.cn
 migu.188766.xyz
 mihdr.top
 minba-abus.buzz
 mingapi.top
 miqk.cc
+mirror.ghproxy.com
 misoso.cc
 missav.app
 missav02.xyz
@@ -1569,6 +1570,7 @@ s.2tu.uk
 s.clgod.xyz
 s.haokongbu.top
 s.panhunt.com
+s.weixine.net
 s2.ideationtec.live
 s2ykfzb.cn
 sabconetanw.cdn.mangomolo.com
@@ -1789,7 +1791,6 @@ tv.yy-fun.cc
 tv.yydsys.cc
 tv1288.xyz
 tv7bharat.tv
-tvbox.vip
 tvfile.jyrmt.cn
 tvmvip.com
 tvn3.chowdhury-shaheb.com
@@ -1925,7 +1926,6 @@ webdillo.com
 webstar.cn
 webtv.monacoinfo.com
 weishitv.xyz
-weixine.net
 weserv.nl
 wexwp.cc
 wf.newscentral.ng
@@ -1945,7 +1945,6 @@ wolongzy.cc
 wolongzyw.com
 woog.430520.xyz
 woog.nxog.fun
-worker-9dd4.onrender.com
 wp.kayyw.com
 wpcoder.cn
 wsapi.dafenqi.mom
@@ -1968,6 +1967,7 @@ www.03yy.co
 www.0759ks.com
 www.1000007.com
 www.1234y.cc
+www.12377.cn
 www.1920lgzy.top
 www.1av.shop
 www.2xiaopan.top
@@ -2270,6 +2270,7 @@ www.nxgqmy.com
 www.nycvod.com
 www.oichaw.com
 www.omnys.com
+www.openatom.org
 www.pangujiexi.cc
 www.pg8090.com
 www.pikaso.top
@@ -2307,6 +2308,7 @@ www.shhuiru.com
 www.shwopu.com
 www.siren93.com
 www.sitanfu.net
+www.sizhengxt.com
 www.skymp4.com
 www.sohumama.com
 www.sotvla.cc
@@ -2333,6 +2335,7 @@ www.thegtcnetwork.com
 www.ths864.com
 www.tianyiso.com
 www.time-chicken.com
+www.tjrongze.com
 www.tl39.com
 www.tonglicable.com
 www.ttdm.me
@@ -2538,6 +2541,7 @@ yingzi.ee
 yinsd1.sbs
 yiqiys.com
 yitingshu.com
+yiyongji.page.gd
 yj1211.work
 yjzy.me
 yk.shaozeyy.com
