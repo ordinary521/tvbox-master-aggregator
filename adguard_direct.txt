@@ -1,6 +1,7 @@
 ! OpenWrt AdGuard Home TVBox 纯域名放行白名单
 @@||0472.org^
 @@||061899.xyz^
+@@||1.star2.cn^
 @@||10010888.xyz^
 @@||100km.top^
 @@||1010941.xyz^
@@ -226,6 +227,7 @@
 @@||api.huaqi.pro^
 @@||api.huosuapi.cc^
 @@||api.jiexi.la^
+@@||api.jkyai.top^
 @@||api.juliang.live^
 @@||api.ldjx.cc^
 @@||api.leduotv.com^
@@ -586,6 +588,7 @@
 @@||eisees.com^
 @@||ekusheyserver.com^
 @@||em1oifd0.com^
+@@||emby.feiniu.lol^
 @@||emuywhat.buzz^
 @@||en.tvpunjab.com^
 @@||enbymae.com^
@@ -651,7 +654,6 @@
 @@||fishapi.wya6.com^
 @@||flixflop.com^
 @@||flowus.cn^
-@@||fm.t4tv.hz.cz^
 @@||fmao.shop^
 @@||fmao.site^
 @@||fmbox.cc^
@@ -665,7 +667,9 @@
 @@||fox-foxnewsnow-vizio.amagi.tv^
 @@||fox.hostlagarto.com^
 @@||fqdm.cc^
+@@||fqgo.52dns.cc^
 @@||fqzy.me^
+@@||free-api.bighotwind.cc^
 @@||freejson.xyz^
 @@||freem3u.xyz^
 @@||freeok88.com^
@@ -1081,6 +1085,7 @@
 @@||lingkartv.com^
 @@||lingkartv.my.id^
 @@||lingqi.co^
+@@||lite.cn2gias.uk^
 @@||liucn.cc^
 @@||liumingye.cn^
 @@||live-evg11.tv360.bitel.com.pe^
@@ -1422,6 +1427,7 @@
 @@||pandown.pro^
 @@||panel.host-live.com^
 @@||pangujiexi.com^
+@@||pansou-latest-hv4k.onrender.com^
 @@||pansou.app^
 @@||pansou.de^
 @@||pantera1-100gb-cl-movistar.dps.live^
@@ -1535,6 +1541,7 @@
 @@||reflect-communitytv.cablecast.tv^
 @@||reflect-stream-bronxnet.cablecast.tv^
 @@||repl.co^
+@@||revohd.com^
 @@||rihou.cc^
 @@||rihou.vip^
 @@||rjfwa.com^
@@ -1652,6 +1659,7 @@
 @@||souavzyw.com^
 @@||souavzyw.net^
 @@||soupian.one^
+@@||speed.hiknz.com^
 @@||sq1005.top^
 @@||srs.iyb983.cn^
 @@||srspsn.live^
@@ -1951,7 +1959,6 @@
 @@||wujinzy.net^
 @@||wuyaoy.cn^
 @@||wuzy9.com^
-@@||ww.zouming.com^
 @@||wwgz.cn^
 @@||www.020zhicheng.com^
 @@||www.03yy.co^
@@ -2175,6 +2182,7 @@
 @@||www.kkys02.com^
 @@||www.kmeiju.com^
 @@||www.kpkuang.one^
+@@||www.ksnnhbj.com^
 @@||www.kuaibozy.com^
 @@||www.kuaiys.com^
 @@||www.kubady2.com^
@@ -2186,6 +2194,7 @@
 @@||www.languangdy.com^
 @@||www.laowang.co^
 @@||www.ldysg.win^
+@@||www.leijing1.com^
 @@||www.lfytv.cn^
 @@||www.lggys.cn^
 @@||www.lggys.com^
@@ -2215,6 +2224,7 @@
 @@||www.miaoys.cc^
 @@||www.midianshi.com^
 @@||www.milkidc.cn^
+@@||www.milvdou.fun^
 @@||www.miniku.cc^
 @@||www.mjf2020.com^
 @@||www.mjgss.com^
@@ -2320,6 +2330,7 @@
 @@||www.tdgo.shop^
 @@||www.thegtcnetwork.com^
 @@||www.ths864.com^
+@@||www.tianyiso.com^
 @@||www.time-chicken.com^
 @@||www.tjrongze.com^
 @@||www.tl39.com^
@@ -2337,6 +2348,7 @@
 @@||www.vv3nwjk.com^
 @@||www.wangfei.live^
 @@||www.weiyuntv.com^
+@@||www.wexwp.cc^
 @@||www.wo4k.com^
 @@||www.wo4k.net^
 @@||www.wogg.live^
@@ -2356,6 +2368,7 @@
 @@||www.xkanju.com^
 @@||www.xn--74qz10cqsltibh40akss.com^
 @@||www.xn--rgv465a.top^
+@@||www.xn--wcv59z.com^
 @@||www.xsmp3.com^
 @@||www.xxtv4.com^
 @@||www.xyba.cn^

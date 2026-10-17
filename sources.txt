@@ -1,7 +1,7 @@
-# 2026-10-17 12:32:34
+# 2026-10-17 12:42:41
 
 💎可可影视┃4K高清
-https://gh-proxy.com/https://raw.githubusercontent.com/haygcao/tvbox-master-aggregator/main/scripts/kkys_master.py
+https://gh-proxy.com/https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/scripts/kkys_master.py
 
 💎厂长资源┃1080P
 https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/czzy.py
