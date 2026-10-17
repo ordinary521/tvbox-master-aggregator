@@ -86,7 +86,7 @@ TOP_SITES_FACADE = [
         "key": "czzy_py",
         "name": "💎厂长资源┃1080P",
         "type": 3,
-        "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/czzy.py",
+        "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/TVBOX/PY/czzy.py",
         "searchable": 1,
         "quickSearch": 1,
         "filterable": 1,
