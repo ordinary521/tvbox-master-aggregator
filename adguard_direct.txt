@@ -1,7 +1,6 @@
 ! OpenWrt AdGuard Home TVBox 纯域名放行白名单
 @@||0472.org^
 @@||061899.xyz^
-@@||1.star2.cn^
 @@||10010888.xyz^
 @@||100km.top^
 @@||1010941.xyz^
@@ -30,7 +29,6 @@
 @@||2f6c5bf4.wurl.com^
 @@||2ktvb.com^
 @@||2s0.cn^
-@@||2xiaopan.fun^
 @@||30dian.cn^
 @@||30juz.com^
 @@||323433ssdfd.top^
@@ -228,7 +226,6 @@
 @@||api.huaqi.pro^
 @@||api.huosuapi.cc^
 @@||api.jiexi.la^
-@@||api.jkyai.top^
 @@||api.juliang.live^
 @@||api.ldjx.cc^
 @@||api.leduotv.com^
@@ -589,7 +586,6 @@
 @@||eisees.com^
 @@||ekusheyserver.com^
 @@||em1oifd0.com^
-@@||emby.feiniu.lol^
 @@||emuywhat.buzz^
 @@||en.tvpunjab.com^
 @@||enbymae.com^
@@ -669,9 +665,7 @@
 @@||fox-foxnewsnow-vizio.amagi.tv^
 @@||fox.hostlagarto.com^
 @@||fqdm.cc^
-@@||fqgo.52dns.cc^
 @@||fqzy.me^
-@@||free-api.bighotwind.cc^
 @@||freejson.xyz^
 @@||freem3u.xyz^
 @@||freeok88.com^
@@ -708,6 +702,7 @@
 @@||ghfile.geekertao.top^
 @@||ghgdm.com^
 @@||ghp.ci^
+@@||ghproxy.com^
 @@||ghproxy.net^
 @@||gimytv.biz^
 @@||gimytv.co^
@@ -1086,7 +1081,6 @@
 @@||lingkartv.com^
 @@||lingkartv.my.id^
 @@||lingqi.co^
-@@||lite.cn2gias.uk^
 @@||liucn.cc^
 @@||liumingye.cn^
 @@||live-evg11.tv360.bitel.com.pe^
@@ -1261,12 +1255,12 @@
 @@||mi2ys.com^
 @@||miai9.cc^
 @@||miao101.com^
+@@||miaotvs.cn^
 @@||migu.188766.xyz^
 @@||mihdr.top^
 @@||minba-abus.buzz^
 @@||mingapi.top^
 @@||miqk.cc^
-@@||mirror.ghproxy.com^
 @@||misoso.cc^
 @@||missav.app^
 @@||missav02.xyz^
@@ -1428,7 +1422,6 @@
 @@||pandown.pro^
 @@||panel.host-live.com^
 @@||pangujiexi.com^
-@@||pansou-latest-hv4k.onrender.com^
 @@||pansou.app^
 @@||pansou.de^
 @@||pantera1-100gb-cl-movistar.dps.live^
@@ -1542,7 +1535,6 @@
 @@||reflect-communitytv.cablecast.tv^
 @@||reflect-stream-bronxnet.cablecast.tv^
 @@||repl.co^
-@@||revohd.com^
 @@||rihou.cc^
 @@||rihou.vip^
 @@||rjfwa.com^
@@ -1570,7 +1562,6 @@
 @@||s.clgod.xyz^
 @@||s.haokongbu.top^
 @@||s.panhunt.com^
-@@||s.weixine.net^
 @@||s2.ideationtec.live^
 @@||s2ykfzb.cn^
 @@||sabconetanw.cdn.mangomolo.com^
@@ -1661,7 +1652,6 @@
 @@||souavzyw.com^
 @@||souavzyw.net^
 @@||soupian.one^
-@@||speed.hiknz.com^
 @@||sq1005.top^
 @@||srs.iyb983.cn^
 @@||srspsn.live^
@@ -1791,6 +1781,7 @@
 @@||tv.yydsys.cc^
 @@||tv1288.xyz^
 @@||tv7bharat.tv^
+@@||tvbox.vip^
 @@||tvfile.jyrmt.cn^
 @@||tvmvip.com^
 @@||tvn3.chowdhury-shaheb.com^
@@ -1926,8 +1917,8 @@
 @@||webstar.cn^
 @@||webtv.monacoinfo.com^
 @@||weishitv.xyz^
+@@||weixine.net^
 @@||weserv.nl^
-@@||wexwp.cc^
 @@||wf.newscentral.ng^
 @@||wfoxdm2.cc^
 @@||wg.wzys.link^
@@ -2088,7 +2079,6 @@
 @@||www.diemi.cc^
 @@||www.dmand5.com^
 @@||www.dora-video.cn^
-@@||www.douy32mf.top^
 @@||www.drdm.fun^
 @@||www.dsmart.com.tr^
 @@||www.dsxysproo.com^
@@ -2131,6 +2121,7 @@
 @@||www.hanjukankan.com^
 @@||www.hanjutu.com^
 @@||www.hanjuzy.com^
+@@||www.hdmoli.com^
 @@||www.hdmoli.pro^
 @@||www.hdsgt.com^
 @@||www.hemabb.com^
@@ -2181,11 +2172,9 @@
 @@||www.keke6.app^
 @@||www.keke7.app^
 @@||www.kf666888.cn^
-@@||www.kfzys.net^
 @@||www.kkys02.com^
 @@||www.kmeiju.com^
 @@||www.kpkuang.one^
-@@||www.ksnnhbj.com^
 @@||www.kuaibozy.com^
 @@||www.kuaiys.com^
 @@||www.kubady2.com^
@@ -2197,7 +2186,6 @@
 @@||www.languangdy.com^
 @@||www.laowang.co^
 @@||www.ldysg.win^
-@@||www.leijing1.com^
 @@||www.lfytv.cn^
 @@||www.lggys.cn^
 @@||www.lggys.com^
@@ -2227,7 +2215,6 @@
 @@||www.miaoys.cc^
 @@||www.midianshi.com^
 @@||www.milkidc.cn^
-@@||www.milvdou.fun^
 @@||www.miniku.cc^
 @@||www.mjf2020.com^
 @@||www.mjgss.com^
@@ -2333,7 +2320,6 @@
 @@||www.tdgo.shop^
 @@||www.thegtcnetwork.com^
 @@||www.ths864.com^
-@@||www.tianyiso.com^
 @@||www.time-chicken.com^
 @@||www.tjrongze.com^
 @@||www.tl39.com^
@@ -2370,7 +2356,6 @@
 @@||www.xkanju.com^
 @@||www.xn--74qz10cqsltibh40akss.com^
 @@||www.xn--rgv465a.top^
-@@||www.xn--wcv59z.com^
 @@||www.xsmp3.com^
 @@||www.xxtv4.com^
 @@||www.xyba.cn^
