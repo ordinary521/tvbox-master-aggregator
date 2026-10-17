@@ -72,7 +72,7 @@ TOP_SITES_FACADE = [
         "key": "kkys_master",
         "name": "💎可可影视┃4K高清",
         "type": 3,
-        "api": "https://gh-proxy.com/https://raw.githubusercontent.com/haygcao/tvbox-master-aggregator/main/scripts/kkys_master.py",
+        "api": "https://gh-proxy.com/https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/scripts/kkys_master.py",
         "searchable": 1,
         "quickSearch": 1,
         "filterable": 1,
