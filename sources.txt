@@ -1,10 +1,10 @@
-# 2026-10-17 12:59:07
+# 2026-10-18 02:21:14
 
 💎可可影视┃4K
 https://gh-proxy.com/https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/scripts/kkys_master.py
 
 💎厂长资源┃1080P
-https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/czzy.py
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/TVBOX/PY/czzy.py
 
 🔥OK-资源
 http://api.okzyw.net/api.php/provide/vod/from/okm3u8/at/xml
