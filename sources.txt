@@ -1,4 +1,4 @@
-# 2026-10-18 02:21:14
+# 2026-10-19 02:22:30
 
 💎可可影视┃4K
 https://gh-proxy.com/https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/scripts/kkys_master.py
@@ -146,9 +146,6 @@ https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690
 
 💎py_小纸条┃[CAT]
 https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_小纸条.py
-
-💎007chigua┃[CAT]
-https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/007chigua.py
 
 💎007吃瓜┃[CAT]
 https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/007吃瓜.py
@@ -1910,6 +1907,27 @@ https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690
 
 💎自动加载7.1┃[CAT]
 https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/自动加载7.1.py
+
+💎深夜短剧┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/深夜短剧.py
+
+💎采集合集┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/采集合集.py
+
+💎🦋 五合一(免翻)┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/🦋 五合一(免翻).py
+
+💎🦋 橘汁视频┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/🦋 橘汁视频.py
+
+💎🦋 永乐视频┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/🦋 永乐视频.py
+
+💎🦋 绅士影视┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/🦋 绅士影视.py
+
+💎🦋 路漫漫┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/🦋 路漫漫.py
 
 💎getsearchtxt┃[QIST]
 https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/getsearchtxt.py
