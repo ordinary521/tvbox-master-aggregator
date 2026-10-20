@@ -291,6 +291,773 @@
       ]
     },
     {
+      "key": "py_blackmatrix7_main",
+      "name": "💎main┃[BLACKMATRIX7]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/main/script/zheye/server/main.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_getsearchtxt",
+      "name": "💎getsearchtxt┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/getsearchtxt.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_getsearchtxt",
+      "name": "💎getsearchtxt┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/getsearchtxt.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_BLZB",
+      "name": "💎BLZB┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/BLZB.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_Czsapp",
+      "name": "💎Czsapp┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/Czsapp.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_Didahd",
+      "name": "💎Didahd┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/Didahd.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_GZYS",
+      "name": "💎GZYS┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/GZYS.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_ITalkBBTV",
+      "name": "💎ITalkBBTV┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/ITalkBBTV.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_Ncat",
+      "name": "💎Ncat┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/Ncat.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_OleLive",
+      "name": "💎OleLive┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/OleLive.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_SZYS",
+      "name": "💎SZYS┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/SZYS.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_TVB云播",
+      "name": "💎TVB云播┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/TVB云播.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_WLZB",
+      "name": "💎WLZB┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/WLZB.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_XYDJ",
+      "name": "💎XYDJ┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/XYDJ.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_libvio",
+      "name": "💎libvio┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/libvio.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_剧王短剧",
+      "name": "💎剧王短剧┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/剧王短剧.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_华数",
+      "name": "💎华数┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/华数.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_华谊影视",
+      "name": "💎华谊影视┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/华谊影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_哔哩直播",
+      "name": "💎哔哩直播┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/哔哩直播.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_星芽短剧",
+      "name": "💎星芽短剧┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/星芽短剧.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_爱听音乐",
+      "name": "💎爱听音乐┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/爱听音乐.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_网络直播",
+      "name": "💎网络直播┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/网络直播.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_闪雷",
+      "name": "💎闪雷┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/闪雷.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_build_local",
+      "name": "💎build_local┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/build_local.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_copy_xbpq",
+      "name": "💎copy_xbpq┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/copy_xbpq.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_fty",
+      "name": "💎fty┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/fty.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_hebing",
+      "name": "💎hebing┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/hebing.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_tvbox",
+      "name": "💎tvbox┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/tvbox.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_xiao",
+      "name": "💎xiao┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/xiao.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_APPV2",
+      "name": "💎APPV2┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/APPV2.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_BLZB",
+      "name": "💎BLZB┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/BLZB.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_GZYS",
+      "name": "💎GZYS┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/GZYS.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_SZYS",
+      "name": "💎SZYS┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/SZYS.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_WLZB",
+      "name": "💎WLZB┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/WLZB.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_XYDJ",
+      "name": "💎XYDJ┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/XYDJ.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_优酷视频",
+      "name": "💎优酷视频┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/优酷视频.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_偷乐短剧",
+      "name": "💎偷乐短剧┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/偷乐短剧.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_光速影视",
+      "name": "💎光速影视┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/光速影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_剧王短剧",
+      "name": "💎剧王短剧┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/剧王短剧.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_哔哩直播",
+      "name": "💎哔哩直播┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/哔哩直播.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_哔哩视频",
+      "name": "💎哔哩视频┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/哔哩视频.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_嗨皮影视",
+      "name": "💎嗨皮影视┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/嗨皮影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_想看影视",
+      "name": "💎想看影视┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/想看影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_星芽短剧",
+      "name": "💎星芽短剧┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/星芽短剧.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_河马短剧",
+      "name": "💎河马短剧┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/河马短剧.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_火车影视",
+      "name": "💎火车影视┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/火车影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_爱听音乐",
+      "name": "💎爱听音乐┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/爱听音乐.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_爱奇艺",
+      "name": "💎爱奇艺┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/爱奇艺.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_爱看短剧",
+      "name": "💎爱看短剧┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/爱看短剧.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_猎手影视",
+      "name": "💎猎手影视┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/猎手影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_甜圈短剧",
+      "name": "💎甜圈短剧┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/甜圈短剧.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_网络直播",
+      "name": "💎网络直播┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/网络直播.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_美帕影视",
+      "name": "💎美帕影视┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/美帕影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_腾讯视频",
+      "name": "💎腾讯视频┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/腾讯视频.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_芒果视频",
+      "name": "💎芒果视频┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/芒果视频.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_追星影视",
+      "name": "💎追星影视┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/追星影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_金牌影视",
+      "name": "💎金牌影视┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/金牌影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_锦鲤短剧",
+      "name": "💎锦鲤短剧┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/锦鲤短剧.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
+      "key": "py_qist_零度影视",
+      "name": "💎零度影视┃[QIST]",
+      "type": 3,
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/零度影视.py",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "style": {
+        "type": "rect",
+        "ratio": 1.33
+      }
+    },
+    {
       "key": "py_cat_py_jrskbs",
       "name": "💎py_jrskbs┃[CAT]",
       "type": 3,
@@ -412,422 +1179,6 @@
       "name": "💎qie┃[CAT]",
       "type": 3,
       "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/qie.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_cctv",
-      "name": "💎py_cctv┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cctv.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_xigua",
-      "name": "💎py_xigua┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_xigua.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_cctv",
-      "name": "💎py_cctv┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cctv.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_xigua",
-      "name": "💎py_xigua┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_xigua.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_3qu",
-      "name": "💎py_3qu┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_3qu.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_ali",
-      "name": "💎py_ali┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_ali.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_alist",
-      "name": "💎py_alist┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_alist.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_bdys",
-      "name": "💎py_bdys┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_bdys.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_bilibili",
-      "name": "💎py_bilibili┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_bilibili.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_bilimd",
-      "name": "💎py_bilimd┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_bilimd.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_bilivd",
-      "name": "💎py_bilivd┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_bilivd.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_cctv",
-      "name": "💎py_cctv┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cctv.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_cokemv",
-      "name": "💎py_cokemv┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cokemv.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_cup",
-      "name": "💎py_cup┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cup.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_cyys",
-      "name": "💎py_cyys┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cyys.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_czspp",
-      "name": "💎py_czspp┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_czspp.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_douyu",
-      "name": "💎py_douyu┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_douyu.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_genmov",
-      "name": "💎py_genmov┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_genmov.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_gimytv",
-      "name": "💎py_gimytv┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_gimytv.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_gitcafe",
-      "name": "💎py_gitcafe┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_gitcafe.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_huya",
-      "name": "💎py_huya┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_huya.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_kuaikan",
-      "name": "💎py_kuaikan┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_kuaikan.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_lezhu",
-      "name": "💎py_lezhu┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_lezhu.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_pansou",
-      "name": "💎py_pansou┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_pansou.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_star",
-      "name": "💎py_star┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_star.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_voflix",
-      "name": "💎py_voflix┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_voflix.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_wmkk",
-      "name": "💎py_wmkk┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_wmkk.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_xmaomi",
-      "name": "💎py_xmaomi┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_xmaomi.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_yiso",
-      "name": "💎py_yiso┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_yiso.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_zhaozy",
-      "name": "💎py_zhaozy┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_zhaozy.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_zxzj",
-      "name": "💎py_zxzj┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_zxzj.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_cat_py_小纸条",
-      "name": "💎py_小纸条┃[CAT]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_小纸条.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8559,10 +8910,10 @@
       }
     },
     {
-      "key": "py_qist_getsearchtxt",
-      "name": "💎getsearchtxt┃[QIST]",
+      "key": "py_cat_py_cctv",
+      "name": "💎py_cctv┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/getsearchtxt.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cctv.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8572,10 +8923,10 @@
       }
     },
     {
-      "key": "py_qist_build_local",
-      "name": "💎build_local┃[QIST]",
+      "key": "py_cat_py_xigua",
+      "name": "💎py_xigua┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/build_local.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_xigua.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8585,10 +8936,10 @@
       }
     },
     {
-      "key": "py_qist_copy_xbpq",
-      "name": "💎copy_xbpq┃[QIST]",
+      "key": "py_cat_py_cctv",
+      "name": "💎py_cctv┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/copy_xbpq.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cctv.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8598,10 +8949,10 @@
       }
     },
     {
-      "key": "py_qist_fty",
-      "name": "💎fty┃[QIST]",
+      "key": "py_cat_py_xigua",
+      "name": "💎py_xigua┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/fty.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_xigua.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8611,10 +8962,10 @@
       }
     },
     {
-      "key": "py_qist_hebing",
-      "name": "💎hebing┃[QIST]",
+      "key": "py_cat_py_3qu",
+      "name": "💎py_3qu┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/hebing.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_3qu.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8624,10 +8975,10 @@
       }
     },
     {
-      "key": "py_qist_tvbox",
-      "name": "💎tvbox┃[QIST]",
+      "key": "py_cat_py_ali",
+      "name": "💎py_ali┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/tvbox.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_ali.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8637,10 +8988,10 @@
       }
     },
     {
-      "key": "py_qist_xiao",
-      "name": "💎xiao┃[QIST]",
+      "key": "py_cat_py_alist",
+      "name": "💎py_alist┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/xiao.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_alist.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8650,10 +9001,10 @@
       }
     },
     {
-      "key": "py_qist_getsearchtxt",
-      "name": "💎getsearchtxt┃[QIST]",
+      "key": "py_cat_py_bdys",
+      "name": "💎py_bdys┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/getsearchtxt.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_bdys.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8663,10 +9014,10 @@
       }
     },
     {
-      "key": "py_qist_BLZB",
-      "name": "💎BLZB┃[QIST]",
+      "key": "py_cat_py_bilibili",
+      "name": "💎py_bilibili┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/BLZB.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_bilibili.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8676,10 +9027,10 @@
       }
     },
     {
-      "key": "py_qist_Czsapp",
-      "name": "💎Czsapp┃[QIST]",
+      "key": "py_cat_py_bilimd",
+      "name": "💎py_bilimd┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/Czsapp.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_bilimd.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8689,10 +9040,10 @@
       }
     },
     {
-      "key": "py_qist_Didahd",
-      "name": "💎Didahd┃[QIST]",
+      "key": "py_cat_py_bilivd",
+      "name": "💎py_bilivd┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/Didahd.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_bilivd.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8702,10 +9053,10 @@
       }
     },
     {
-      "key": "py_qist_GZYS",
-      "name": "💎GZYS┃[QIST]",
+      "key": "py_cat_py_cctv",
+      "name": "💎py_cctv┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/GZYS.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cctv.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8715,10 +9066,10 @@
       }
     },
     {
-      "key": "py_qist_ITalkBBTV",
-      "name": "💎ITalkBBTV┃[QIST]",
+      "key": "py_cat_py_cokemv",
+      "name": "💎py_cokemv┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/ITalkBBTV.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cokemv.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8728,10 +9079,10 @@
       }
     },
     {
-      "key": "py_qist_Ncat",
-      "name": "💎Ncat┃[QIST]",
+      "key": "py_cat_py_cup",
+      "name": "💎py_cup┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/Ncat.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cup.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8741,10 +9092,10 @@
       }
     },
     {
-      "key": "py_qist_OleLive",
-      "name": "💎OleLive┃[QIST]",
+      "key": "py_cat_py_cyys",
+      "name": "💎py_cyys┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/OleLive.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cyys.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8754,10 +9105,10 @@
       }
     },
     {
-      "key": "py_qist_SZYS",
-      "name": "💎SZYS┃[QIST]",
+      "key": "py_cat_py_czspp",
+      "name": "💎py_czspp┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/SZYS.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_czspp.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8767,10 +9118,10 @@
       }
     },
     {
-      "key": "py_qist_TVB云播",
-      "name": "💎TVB云播┃[QIST]",
+      "key": "py_cat_py_douyu",
+      "name": "💎py_douyu┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/TVB云播.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_douyu.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8780,10 +9131,10 @@
       }
     },
     {
-      "key": "py_qist_WLZB",
-      "name": "💎WLZB┃[QIST]",
+      "key": "py_cat_py_genmov",
+      "name": "💎py_genmov┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/WLZB.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_genmov.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8793,10 +9144,10 @@
       }
     },
     {
-      "key": "py_qist_XYDJ",
-      "name": "💎XYDJ┃[QIST]",
+      "key": "py_cat_py_gimytv",
+      "name": "💎py_gimytv┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/XYDJ.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_gimytv.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8806,10 +9157,10 @@
       }
     },
     {
-      "key": "py_qist_libvio",
-      "name": "💎libvio┃[QIST]",
+      "key": "py_cat_py_gitcafe",
+      "name": "💎py_gitcafe┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/libvio.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_gitcafe.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8819,10 +9170,10 @@
       }
     },
     {
-      "key": "py_qist_剧王短剧",
-      "name": "💎剧王短剧┃[QIST]",
+      "key": "py_cat_py_huya",
+      "name": "💎py_huya┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/剧王短剧.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_huya.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8832,10 +9183,10 @@
       }
     },
     {
-      "key": "py_qist_华数",
-      "name": "💎华数┃[QIST]",
+      "key": "py_cat_py_kuaikan",
+      "name": "💎py_kuaikan┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/华数.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_kuaikan.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8845,10 +9196,10 @@
       }
     },
     {
-      "key": "py_qist_华谊影视",
-      "name": "💎华谊影视┃[QIST]",
+      "key": "py_cat_py_lezhu",
+      "name": "💎py_lezhu┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/华谊影视.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_lezhu.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8858,10 +9209,10 @@
       }
     },
     {
-      "key": "py_qist_哔哩直播",
-      "name": "💎哔哩直播┃[QIST]",
+      "key": "py_cat_py_pansou",
+      "name": "💎py_pansou┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/哔哩直播.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_pansou.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8871,10 +9222,10 @@
       }
     },
     {
-      "key": "py_qist_星芽短剧",
-      "name": "💎星芽短剧┃[QIST]",
+      "key": "py_cat_py_star",
+      "name": "💎py_star┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/星芽短剧.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_star.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8884,10 +9235,10 @@
       }
     },
     {
-      "key": "py_qist_爱听音乐",
-      "name": "💎爱听音乐┃[QIST]",
+      "key": "py_cat_py_voflix",
+      "name": "💎py_voflix┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/爱听音乐.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_voflix.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8897,10 +9248,10 @@
       }
     },
     {
-      "key": "py_qist_网络直播",
-      "name": "💎网络直播┃[QIST]",
+      "key": "py_cat_py_wmkk",
+      "name": "💎py_wmkk┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/网络直播.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_wmkk.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8910,10 +9261,10 @@
       }
     },
     {
-      "key": "py_qist_闪雷",
-      "name": "💎闪雷┃[QIST]",
+      "key": "py_cat_py_xmaomi",
+      "name": "💎py_xmaomi┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/闪雷.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_xmaomi.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8923,10 +9274,10 @@
       }
     },
     {
-      "key": "py_qist_APPV2",
-      "name": "💎APPV2┃[QIST]",
+      "key": "py_cat_py_yiso",
+      "name": "💎py_yiso┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/APPV2.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_yiso.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8936,10 +9287,10 @@
       }
     },
     {
-      "key": "py_qist_BLZB",
-      "name": "💎BLZB┃[QIST]",
+      "key": "py_cat_py_zhaozy",
+      "name": "💎py_zhaozy┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/BLZB.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_zhaozy.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8949,10 +9300,10 @@
       }
     },
     {
-      "key": "py_qist_GZYS",
-      "name": "💎GZYS┃[QIST]",
+      "key": "py_cat_py_zxzj",
+      "name": "💎py_zxzj┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/GZYS.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_zxzj.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -8962,361 +9313,10 @@
       }
     },
     {
-      "key": "py_qist_SZYS",
-      "name": "💎SZYS┃[QIST]",
+      "key": "py_cat_py_小纸条",
+      "name": "💎py_小纸条┃[CAT]",
       "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/SZYS.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_WLZB",
-      "name": "💎WLZB┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/WLZB.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_XYDJ",
-      "name": "💎XYDJ┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/XYDJ.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_优酷视频",
-      "name": "💎优酷视频┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/优酷视频.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_偷乐短剧",
-      "name": "💎偷乐短剧┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/偷乐短剧.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_光速影视",
-      "name": "💎光速影视┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/光速影视.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_剧王短剧",
-      "name": "💎剧王短剧┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/剧王短剧.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_哔哩直播",
-      "name": "💎哔哩直播┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/哔哩直播.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_哔哩视频",
-      "name": "💎哔哩视频┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/哔哩视频.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_嗨皮影视",
-      "name": "💎嗨皮影视┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/嗨皮影视.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_想看影视",
-      "name": "💎想看影视┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/想看影视.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_星芽短剧",
-      "name": "💎星芽短剧┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/星芽短剧.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_河马短剧",
-      "name": "💎河马短剧┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/河马短剧.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_火车影视",
-      "name": "💎火车影视┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/火车影视.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_爱听音乐",
-      "name": "💎爱听音乐┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/爱听音乐.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_爱奇艺",
-      "name": "💎爱奇艺┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/爱奇艺.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_爱看短剧",
-      "name": "💎爱看短剧┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/爱看短剧.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_猎手影视",
-      "name": "💎猎手影视┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/猎手影视.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_甜圈短剧",
-      "name": "💎甜圈短剧┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/甜圈短剧.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_网络直播",
-      "name": "💎网络直播┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/网络直播.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_美帕影视",
-      "name": "💎美帕影视┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/美帕影视.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_腾讯视频",
-      "name": "💎腾讯视频┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/腾讯视频.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_芒果视频",
-      "name": "💎芒果视频┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/芒果视频.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_追星影视",
-      "name": "💎追星影视┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/追星影视.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_金牌影视",
-      "name": "💎金牌影视┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/金牌影视.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_锦鲤短剧",
-      "name": "💎锦鲤短剧┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/锦鲤短剧.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_qist_零度影视",
-      "name": "💎零度影视┃[QIST]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/main/py/零度影视.py",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      }
-    },
-    {
-      "key": "py_blackmatrix7_main",
-      "name": "💎main┃[BLACKMATRIX7]",
-      "type": 3,
-      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/blackmatrix7/main/script/zheye/server/main.py",
+      "api": "https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_小纸条.py",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -9335,7 +9335,7 @@
       "quickSearch": 1,
       "filterable": 1,
       "ext": "https://cdn.waimaimingtang.com/file/images/bwc/20260414181247-ae51abfbfe.txt",
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991"
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd"
     },
     {
       "key": "Wexconfig",
@@ -9348,7 +9348,7 @@
       "style": {
         "type": "list"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9363,7 +9363,7 @@
       "style": {
         "type": "list"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9375,7 +9375,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9386,7 +9386,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9397,7 +9397,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9408,7 +9408,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9419,7 +9419,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9430,7 +9430,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9441,7 +9441,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9452,7 +9452,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9463,7 +9463,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9474,7 +9474,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9485,7 +9485,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9496,7 +9496,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9507,7 +9507,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9518,7 +9518,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9529,7 +9529,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9540,7 +9540,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9551,7 +9551,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9562,7 +9562,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9573,7 +9573,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9584,7 +9584,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9595,7 +9595,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9606,7 +9606,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9617,7 +9617,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9628,7 +9628,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9643,7 +9643,7 @@
         "proxyImg": false
       },
       "timeout": 120,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9659,7 +9659,7 @@
         "proxyImg": false
       },
       "timeout": 120,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9675,7 +9675,7 @@
         "proxyImg": false
       },
       "timeout": 120,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9691,7 +9691,7 @@
         "proxyImg": false
       },
       "timeout": 120,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9707,7 +9707,7 @@
         "proxyImg": false
       },
       "timeout": 120,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9723,7 +9723,7 @@
         "proxyImg": false
       },
       "timeout": 120,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9739,7 +9739,7 @@
         "proxyImg": false
       },
       "timeout": 120,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9755,7 +9755,7 @@
         "proxyImg": false
       },
       "timeout": 120,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9771,7 +9771,7 @@
         "proxyImg": false
       },
       "timeout": 120,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9783,7 +9783,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9794,7 +9794,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9805,7 +9805,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9816,7 +9816,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -9826,7 +9826,7 @@
       "api": "csp_LiveAiHuYaGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9837,7 +9837,7 @@
       "api": "csp_LiveAiDouYuGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9848,7 +9848,7 @@
       "api": "csp_LiveAiBiLiGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9860,7 +9860,7 @@
       "api": "csp_ManJuAiHongGuoGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9872,7 +9872,7 @@
       "api": "csp_ManJuAiHuoLongGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9884,7 +9884,7 @@
       "api": "csp_ManJuAiQiMaoGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9896,7 +9896,7 @@
       "api": "csp_ManJuAiXiFanGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9908,7 +9908,7 @@
       "api": "csp_ManJuAiHeMaGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9920,7 +9920,7 @@
       "api": "csp_DuanJuAiHaoKanGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9932,7 +9932,7 @@
       "api": "csp_DuanJuAiQiMiaoGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9944,7 +9944,7 @@
       "api": "csp_DuanJuAiXingYaGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9956,7 +9956,7 @@
       "api": "csp_DuanJuAiWeiGuanGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9967,7 +9967,7 @@
       "api": "csp_AnimeXiFanGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9978,7 +9978,7 @@
       "api": "csp_AnimeCiYuanChengGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -9989,7 +9989,7 @@
       "api": "csp_AnimeAiMoDuGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10000,7 +10000,7 @@
       "api": "csp_BookHongGuoGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10011,7 +10011,7 @@
       "api": "csp_BookHeMaGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10022,7 +10022,7 @@
       "api": "csp_BookAiShiJieGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10034,7 +10034,7 @@
       "searchable": 1,
       "changeable": 0,
       "timeout": 120,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10045,7 +10045,7 @@
       "api": "csp_BookAi23TingShuGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10060,7 +10060,7 @@
         "type": "rect",
         "ratio": 2
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10075,7 +10075,7 @@
         "type": "rect",
         "ratio": 2
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10090,7 +10090,7 @@
         "type": "rect",
         "ratio": 2
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10105,7 +10105,7 @@
         "type": "rect",
         "ratio": 2
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10120,7 +10120,7 @@
         "type": "rect",
         "ratio": 2
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10131,7 +10131,7 @@
       "api": "csp_MusicAiQingTingGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10142,7 +10142,7 @@
       "api": "csp_MusicAiIKtvGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10153,7 +10153,7 @@
       "api": "csp_MusicAiKuWoaGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10164,7 +10164,7 @@
       "api": "csp_MusicAi163Guard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10175,7 +10175,7 @@
       "api": "csp_MusicAiKuWoGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10186,7 +10186,7 @@
       "api": "csp_MusicAiLunHuiGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10200,7 +10200,7 @@
       "style": {
         "type": "list"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10214,7 +10214,7 @@
       "style": {
         "type": "list"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10228,7 +10228,7 @@
       "style": {
         "type": "list"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10239,7 +10239,7 @@
       "api": "csp_SportAiKanqiuGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10253,7 +10253,7 @@
       "style": {
         "type": "list"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10267,7 +10267,7 @@
       "style": {
         "type": "list"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10282,7 +10282,7 @@
       "style": {
         "type": "list"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10294,7 +10294,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -10308,7 +10308,7 @@
       "ext": {
         "embynumber": 0
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -10318,7 +10318,7 @@
       "api": "csp_AListGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10332,7 +10332,7 @@
       "style": {
         "type": "list"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10344,7 +10344,7 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991"
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd"
     },
     {
       "key": "bilibili",
@@ -10362,7 +10362,7 @@
       "ext": {
         "json": "https://support-chat.rongcloud.cn/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYkE9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--47a8ff0e68559a89a9a75b37d09a2b0854dc5a8a/bili001.txt"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991"
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd"
     },
     {
       "key": "bilixiqu",
@@ -10380,7 +10380,7 @@
       "ext": {
         "json": "https://storage.7x24cc.com/storage-server/presigned/ss1/a6-online-fileupload/newMediaImage/183E562_773_xiqu_20251130182006749newMediaImage.txt"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991"
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd"
     },
     {
       "key": "biliych",
@@ -10398,7 +10398,7 @@
       "ext": {
         "json": "https://support-chat.rongcloud.cn/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYkU9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3083f43a14e6b59f4bfe248478a3a8765b34bfdd/bilisong.txt"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991"
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd"
     },
     {
       "key": "少儿教育",
@@ -10415,7 +10415,7 @@
       "ext": {
         "json": "https://storage.7x24cc.com/storage-server/presigned/ss1/a6-online-fileupload/newMediaImage/3C3AB7A_773_ertong_20250828171550247newMediaImage.txt"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -10433,7 +10433,7 @@
       "ext": {
         "json": "https://storage.7x24cc.com/storage-server/presigned/ss1/a6-online-fileupload/newMediaImage/4A3AA71_773_xiaoxue_20250828171535645newMediaImage.txt"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -10451,7 +10451,7 @@
       "ext": {
         "json": "https://storage.7x24cc.com/storage-server/presigned/ss1/a6-online-fileupload/newMediaImage/19B1839_773_chuzhong_20250828171521929newMediaImage.txt"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -10469,7 +10469,7 @@
       "ext": {
         "json": "https://storage.7x24cc.com/storage-server/presigned/ss1/a6-online-fileupload/newMediaImage/345A587_773_gaozhong_20250828171449997newMediaImage.txt"
       },
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "filterable": 1
     },
     {
@@ -10479,7 +10479,7 @@
       "api": "csp_SoAiHaiYinGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10490,7 +10490,7 @@
       "api": "csp_SoAiPanSooGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10501,7 +10501,7 @@
       "api": "csp_SoAiQuPanSheGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10512,7 +10512,7 @@
       "api": "csp_SoAiAiPanSoGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10523,7 +10523,7 @@
       "api": "csp_SoKaKaGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -10534,7 +10534,7 @@
       "api": "csp_PushGuard",
       "searchable": 1,
       "changeable": 0,
-      "jar": "http://oss4liview.moji.com/thd_file/2026/10/17/5e08f8d3205a77afbac8474bb5982bfe.jpg;md5;734e79fc08ba6a11ade5b620a828e991",
+      "jar": "http://oss4liview.moji.com/thd_file/2026/10/20/a665408c7f44fbbd128badb05f545aad.jpg;md5;12e821fd4c608270b019feb736c469dd",
       "quickSearch": 1,
       "filterable": 1
     },
@@ -28156,7 +28156,7 @@
         },
         "url_key": "FeiMaoUC"
       },
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "searchable": 1,
       "quickSearch": 1
     },
@@ -28166,7 +28166,7 @@
       "type": 3,
       "api": "csp_AppQi",
       "ext": "https://lanyingjisu.oss-cn-wuhan-lr.aliyuncs.com/lyjszx.txt|oW5UxZ5kWVr1DI69",
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -28187,7 +28187,7 @@
         "version": "1.0.0.3",
         "decrypt": "0"
       },
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -28198,7 +28198,7 @@
       "type": 3,
       "api": "csp_AppQi",
       "ext": "http://103.217.190.91:5566|hagYExMdMkeWfemK",
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -28219,7 +28219,7 @@
         "version": "1.0.0.4",
         "decrypt": "1"
       },
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -28240,7 +28240,7 @@
         "version": "3.0.0.7",
         "decrypt": "0"
       },
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -28261,7 +28261,7 @@
         "version": "3.0.2.4",
         "decrypt": "1"
       },
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -28272,7 +28272,7 @@
       "type": 3,
       "api": "csp_AppGet",
       "ext": "https://allinadmin.oss-cn-hangzhou.aliyuncs.com/bk/9.txt|88689667dce61725",
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -28287,7 +28287,7 @@
       "quickSearch": 1,
       "filterable": 1,
       "ext": "https://www.czzy89.com",
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6"
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff"
     },
     {
       "key": "csp_Bili_2102",
@@ -28303,7 +28303,7 @@
         "type": "rect",
         "ratio": 1.333
       },
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -28314,7 +28314,7 @@
       "type": 3,
       "api": "csp_AppGet",
       "ext": "https://www.cyfz.top|e72cdfd629e8895d",
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -28325,7 +28325,7 @@
       "type": 3,
       "api": "csp_AppGet",
       "ext": "https://app.omofun1.top|66dc309cbeeca454",
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1
@@ -28343,7 +28343,7 @@
         "ratio": 1.597
       },
       "ext": "./js/兔小贝.js",
-      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;78eb1d2b2fae8f6fd269745aa1595ed6",
+      "jar": "https://img2.tofaka.com/autoupload/f/eja2s/20261018/jgAC/0X0/PandaQ261018.png;md5;4edf6b3d3aa01efc371027324c8adbff",
       "filterable": 1
     },
     {
