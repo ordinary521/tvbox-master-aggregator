@@ -1,4 +1,4 @@
-# 2026-11-01 02:39:41
+# 2026-11-02 02:43:13
 
 💎可可影视┃4K
 https://gh-proxy.com/https://raw.githubusercontent.com/royalhayga/tvbox-master-aggregator/main/scripts/kkys_master.py
@@ -1937,6 +1937,45 @@ https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690
 
 💎qie┃[CAT]
 https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/qie.py
+
+💎6v┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/6v.py
+
+💎优酷┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/优酷.py
+
+💎华数┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/华数.py
+
+💎咖啡直播┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/咖啡直播.py
+
+💎央库云┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/央库云.py
+
+💎央视┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/央视.py
+
+💎央视影视┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/央视影视.py
+
+💎文才影视┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/文才影视.py
+
+💎毒蛇┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/毒蛇.py
+
+💎热播┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/热播.py
+
+💎猎手┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/猎手.py
+
+💎瓜娃子┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/瓜娃子.py
+
+💎金牌影视┃[CAT]
+https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/金牌影视.py
 
 💎py_cctv┃[CAT]
 https://gh-proxy.com/https://raw.githubusercontent.com/jie20091116/cat/a201c9690267c1ab4e3f65d5a1fca80662438fa0/TVBOX/PY/py_cctv.py
